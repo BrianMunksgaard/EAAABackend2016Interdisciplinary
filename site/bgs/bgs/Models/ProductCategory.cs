@@ -8,6 +8,9 @@
         private string categoryText;
         private string categoryCode;
 
+        private int categoryPropertiesId;
+        private CategoryProperties properties;
+
         #endregion
 
         #region Public properties
@@ -53,6 +56,8 @@
                 }
             }
         }
+
+        public virtual CategoryProperties Properties { get; set; }
 
         #endregion
 
