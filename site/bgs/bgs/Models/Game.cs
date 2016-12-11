@@ -1,4 +1,6 @@
-﻿namespace bgs.Models
+﻿using System.Collections.Generic;
+
+namespace bgs.Models
 {
     public class Game
     {
@@ -7,6 +9,8 @@
         private int gameId;
         private string gameName;
         private string gameCode;
+
+        private IEnumerable<ProductGame> productsFit;
 
         #endregion
 
@@ -54,11 +58,19 @@
             }
         }
 
+        public virtual IEnumerable<ProductGame> ProductsFit
+        {
+            get
+            {
+                return productsFit;
+            }
+        }
+
         #endregion
 
         public Game()
         {
-
+            productsFit = new List<ProductGame>();
         }
     }
 }
