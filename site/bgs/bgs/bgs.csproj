@@ -107,6 +107,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\arcane-tinmen-logo-8c.jpg" />
+    <Content Include="Content\Images\Products\Sleeves\at-10403-board-game-sleeves-medium-68.jpg" />
+    <Content Include="Content\Images\Products\Sleeves\at-10404-board-game-sleeves-small-b1.jpg" />
+    <Content Include="Content\Images\Products\Sleeves\at-10405-board-game-sleeves-mini-4e.jpg" />
+    <Content Include="Content\Images\Products\Sleeves\at-10406-board-game-sleeves-standard-1a.jpg" />
+    <Content Include="Content\Images\Products\Sleeves\at-10408-board-game-sleeves-oversize-e0.jpg" />
+    <Content Include="Content\Images\Products\Sleeves\at-10409-board-game-sleeves-square-f2.jpg" />
+    <Content Include="Content\Images\Products\Sleeves\board-game-sleeves-extra-large-1024-d4.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
