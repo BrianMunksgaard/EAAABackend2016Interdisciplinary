@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bgs.Models;
+using System;
 
 namespace bgs.DAL
 {
@@ -9,6 +10,19 @@ namespace bgs.DAL
         private bool disposed = false;
 
         // Properties for Repositories
+        private ProductRepository<Product> productRepository;
+        public ProductRepository<Product> ProductRepository
+        {
+            get
+            {
+                if (productRepository == null)
+                {
+                    productRepository = new ProductRepository<Product>(_context);
+                }
+                return productRepository;
+            }
+        }
+
 
         public UnitOfWork()
         {
