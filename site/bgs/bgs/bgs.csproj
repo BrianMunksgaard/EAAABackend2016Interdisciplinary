@@ -133,6 +133,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Public\Views\Nav\Menu.cshtml" />
+    <Content Include="Areas\Public\Views\Catalogue\Index.cshtml" />
+    <Content Include="Areas\Public\Views\Shared\ProductSummarySleeve.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -144,6 +146,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Public\Controllers\CatalogueController.cs" />
     <Compile Include="Areas\Public\Controllers\HomeController.cs" />
     <Compile Include="Areas\Public\Controllers\NavController.cs" />
     <Compile Include="Areas\Public\PublicAreaRegistration.cs" />

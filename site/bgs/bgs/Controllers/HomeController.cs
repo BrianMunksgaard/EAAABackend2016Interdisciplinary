@@ -14,7 +14,7 @@ namespace bgs.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "Home", new { area = "Public" });
+            return RedirectToAction("Index", "Catalogue", new { area = "Public" });
         }
     }
 }
