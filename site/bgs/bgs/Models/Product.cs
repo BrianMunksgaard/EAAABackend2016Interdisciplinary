@@ -12,6 +12,9 @@ namespace bgs.Models
         private string productCode;
         private decimal price;
 
+        private int categoryId;
+        private Category category;
+
         private ICollection<ProductGame> fitsGames;
 
         #endregion
@@ -87,6 +90,25 @@ namespace bgs.Models
         {
             get { return price; }
             set { price = value; }
+        }
+
+        /// <summary>
+        /// Category id (foreign key reference).
+        /// </summary>
+        public int CategoryId
+        {
+            get { return categoryId; }
+            set { categoryId = value; }
+        }
+
+        /// <summary>
+        /// The category.
+        /// Navigation property.
+        /// </summary>
+        public virtual Category Category
+        {
+            get { return category; }
+            set { category = value; }
         }
 
         #endregion

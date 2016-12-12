@@ -39,9 +39,13 @@ namespace bgs.DAL
     {
         protected override void Seed(BgsContext context)
         {
-            // TODO: Missing information about the Role
             Person admin = new Person { PersonId = 1, FirstName = "Adrian", LastName = "Leon", Address = "Gåsevænget 13", Zip = "4812", City = "Stubbekøbning", BirthDay = new System.DateTime(1932, 6, 9) };
+            admin.Credential = new Credential { UserName = "admin", UserPass = "admin" };
+            admin.Roles.Add(Role.Administrator);
             context.Persons.Add(admin);
+            Person customer = new Person { PersonId = 2, FirstName = "Robert", LastName = "Englund", Address = "Elm Street 669", Zip = "48312", City = "Springwood", BirthDay = new System.DateTime(1932, 6, 9) };
+            customer.Roles.Add(Role.Customer);
+            context.Persons.Add(customer);
             context.SaveChanges();
 
 
@@ -50,24 +54,23 @@ namespace bgs.DAL
             context.SaveChanges();
 
 
-            // TODO: Products are missing category reference and property reference
-            Sleeve bgsOversize = new Sleeve { ProductId = 10408, ProductCode = "AT-10408", ProductName = "Board Game Sleeves - Oversize", Price = 20M };
+            Sleeve bgsOversize = new Sleeve { ProductId = 10408, ProductCode = "AT-10408", ProductName = "Board Game Sleeves - Oversize", Price = 20M, CategoryId = Sleeves.CategoryId };
             context.Products.Add(bgsOversize);
-            Sleeve bgsExtraLarge = new Sleeve { ProductId = 10407, ProductCode = "AT-10407", ProductName = "Board Game Sleeves - Extra Large", Price = 20M };
+            Sleeve bgsExtraLarge = new Sleeve { ProductId = 10407, ProductCode = "AT-10407", ProductName = "Board Game Sleeves - Extra Large", Price = 20M, CategoryId = Sleeves.CategoryId };
             context.Products.Add(bgsExtraLarge);
-            Sleeve bgsLarge = new Sleeve { ProductId = 10402, ProductCode = "AT-10402", ProductName = "Board Game Sleeves - Large", Price = 18M };
+            Sleeve bgsLarge = new Sleeve { ProductId = 10402, ProductCode = "AT-10402", ProductName = "Board Game Sleeves - Large", Price = 18M, CategoryId = Sleeves.CategoryId };
             context.Products.Add(bgsLarge);
-            Sleeve bgsStandard = new Sleeve { ProductId = 10406, ProductCode = "AT-10406", ProductName = "Board Game Sleeves - Standard", Price = 16M };
+            Sleeve bgsStandard = new Sleeve { ProductId = 10406, ProductCode = "AT-10406", ProductName = "Board Game Sleeves - Standard", Price = 16M, CategoryId = Sleeves.CategoryId };
             context.Products.Add(bgsStandard);
-            Sleeve bgsMedium = new Sleeve { ProductId = 10403, ProductCode = "AT-10403", ProductName = "Board Game Sleeves - Medium", Price = 14M };
+            Sleeve bgsMedium = new Sleeve { ProductId = 10403, ProductCode = "AT-10403", ProductName = "Board Game Sleeves - Medium", Price = 14M, CategoryId = Sleeves.CategoryId };
             context.Products.Add(bgsMedium);
-            Sleeve bgsSmall = new Sleeve { ProductId = 10404, ProductCode = "AT-10404", ProductName = "Board Game Sleeves - Small", Price = 12M };
+            Sleeve bgsSmall = new Sleeve { ProductId = 10404, ProductCode = "AT-10404", ProductName = "Board Game Sleeves - Small", Price = 12M, CategoryId = Sleeves.CategoryId };
             context.Products.Add(bgsSmall);
-            Sleeve bgsMini = new Sleeve { ProductId = 10405, ProductCode = "AT-10405", ProductName = "Board Game Sleeves - Mini", Price = 10M };
+            Sleeve bgsMini = new Sleeve { ProductId = 10405, ProductCode = "AT-10405", ProductName = "Board Game Sleeves - Mini", Price = 10M, CategoryId = Sleeves.CategoryId };
             context.Products.Add(bgsMini);
-            Sleeve bgsSquare = new Sleeve { ProductId = 10409, ProductCode = "AT-10409", ProductName = "Board Game Sleeves - Square", Price = 10M };
+            Sleeve bgsSquare = new Sleeve { ProductId = 10409, ProductCode = "AT-10409", ProductName = "Board Game Sleeves - Square", Price = 10M, CategoryId = Sleeves.CategoryId };
             context.Products.Add(bgsSquare);
-            Sleeve bgsTarot = new Sleeve { ProductId = 10410, ProductCode = "AT-10410", ProductName = "Board Game Sleeves - Tarot", Price = 22M };
+            Sleeve bgsTarot = new Sleeve { ProductId = 10410, ProductCode = "AT-10410", ProductName = "Board Game Sleeves - Tarot", Price = 22M, CategoryId = Sleeves.CategoryId };
             context.Products.Add(bgsTarot);
             context.SaveChanges();
 
@@ -93,7 +96,6 @@ namespace bgs.DAL
 
             /**
              * Dimension
-             * CategoryProperties
              * 
              * Cart
              * Order

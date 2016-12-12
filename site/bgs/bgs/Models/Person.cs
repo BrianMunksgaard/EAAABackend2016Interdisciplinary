@@ -22,6 +22,7 @@ namespace bgs.Models
         private DateTime birthDay;
         private List<string> phoneNumbers;
         private List<Role> roles;
+        private Credential credential;
 
         #endregion
 
@@ -172,6 +173,22 @@ namespace bgs.Models
         {
             get { return roles == null ? roles = new List<Role>() : roles; }
             set { roles = value; }
+        }
+
+        /// <summary>
+        /// Credential for the user.
+        /// NB: At the moment only used by users with a role of Administrator.
+        /// </summary>
+        public Credential Credential
+        {
+            get { return credential; }
+            set
+            {
+                if (value != null)
+                {
+                    credential = value;
+                }
+            }
         }
 
         #endregion
