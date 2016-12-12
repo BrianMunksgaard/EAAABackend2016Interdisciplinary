@@ -1,4 +1,5 @@
 ﻿using bgs.Models;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
@@ -21,11 +22,17 @@ namespace bgs.DAL
 
         public virtual DbSet<Category> ProductCategories { get; set; }
 
-        public virtual DbSet<Sleeve> CategoryProperties { get; set; }
+        public virtual DbSet<Sleeve> Sleeves { get; set; }
 
         public virtual DbSet<ProductGame> ProductGames { get; set; }
 
         public virtual DbSet<Person> Persons { get; set; }
+
+        public virtual DbSet<Credential> Credentials { get; set; }
+
+        public virtual DbSet<Order> Orders { get; set; }
+
+        public virtual DbSet<OrderItem> OrderItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -75,6 +82,9 @@ namespace bgs.DAL
             context.SaveChanges();
 
 
+            //Dimensions 
+
+
             Game acquire = new Game { GameId = 1, GameCode = "G-001", GameName = "Acquire" };
             context.Games.Add(acquire);
             Game arkhamHorror = new Game { GameId = 2, GameCode = "G-002", GameName = "Arkham Horror" };
@@ -93,13 +103,17 @@ namespace bgs.DAL
             context.SaveChanges();
 
 
+            OrderItem firstOrderItem = new OrderItem(bgsTarot, 1);
+
+
+            Order firstOrder = new Order(DateTime.Now);
+            firstOrder.CustomerId = customer.PersonId;
+            firstOrder.AddItem(bgsTarot, 1);
+            //firstOrder.OrderItems.Add(firstOrderItem);
+
 
             /**
-             * Dimension
-             * 
              * Cart
-             * Order
-             * OrderItem
              */
 
 
