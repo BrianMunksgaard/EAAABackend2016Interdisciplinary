@@ -102,6 +102,7 @@ namespace bgs.DAL
             }
         }
 
+        /*
         private Repository<Product> productRepository;
         public Repository<Product> ProductRepository
         {
@@ -112,6 +113,20 @@ namespace bgs.DAL
                     productRepository = new Repository<Product>(_context);
                 }
                 return productRepository;
+            }
+        }
+        */
+
+        private Repository<Sleeve> sleeveRepository;
+        public Repository<Sleeve> SleeveRepository
+        {
+            get
+            {
+                if(sleeveRepository == null)
+                {
+                    sleeveRepository = new Repository<Sleeve>(_context);
+                }
+                return sleeveRepository;
             }
         }
 

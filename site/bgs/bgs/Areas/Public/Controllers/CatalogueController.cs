@@ -1,4 +1,6 @@
-﻿using System;
+﻿using bgs.DAL;
+using bgs.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,9 @@ namespace bgs.Areas.Public.Controllers
         // GET: Public/Catalogue
         public ActionResult Index()
         {
-            return View();
+            UnitOfWork uow = new UnitOfWork();
+            IList<Sleeve> sleeves = uow.SleeveRepository.GetItems();
+            return View(sleeves);
         }
     }
 }

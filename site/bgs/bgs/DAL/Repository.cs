@@ -56,10 +56,10 @@ namespace bgs.DAL
         /// Retrieve all items of type T.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<T> GetItems()
+        public IList<T> GetItems()
         {
             IQueryable<T> query = dbSet;
-            return query.ToList();
+            return query.ToList<T>();
         }
 
         /// <summary>
