@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bgs.Models
 {
@@ -87,6 +86,7 @@ namespace bgs.Models
         /// Person birthday. Birthday has to be
         /// between 0 and 120 years, both included.
         /// </summary>
+        [Column(TypeName = "datetime2")]
         public DateTime BirthDay
         {
             get { return birthDay; }
@@ -138,7 +138,7 @@ namespace bgs.Models
         {
             get
             {
-                if(phoneNumbers == null)
+                if (phoneNumbers == null)
                 {
                     phoneNumbers = new List<string>();
                 }
@@ -219,7 +219,8 @@ namespace bgs.Models
         /// <param name="phoneNumber"></param>
         public void AddPhoneNumber(string phoneNumber)
         {
-            if(!string.IsNullOrEmpty(phoneNumber)) {
+            if (!string.IsNullOrEmpty(phoneNumber))
+            {
                 PhoneNumbers.Add(phoneNumber);
             }
         }

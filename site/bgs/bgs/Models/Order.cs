@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Web;
 
 namespace bgs.Models
 {
@@ -47,6 +47,7 @@ namespace bgs.Models
         /// <summary>
         /// Order date.
         /// </summary>
+        [Column(TypeName = "datetime2")]
         public DateTime OrderDate
         {
             get
@@ -54,7 +55,7 @@ namespace bgs.Models
                 return orderDate == DateTime.MinValue ? orderDate = DateTime.Now : orderDate;
             }
         }
-        
+
         /// <summary>
         /// The customer.
         /// Navigation property.
@@ -64,7 +65,7 @@ namespace bgs.Models
             get { return customer == null ? customer = new Person() : customer; }
             set { customer = value; }
         }
-        
+
         /// <summary>
         /// Customer id (foreign key reference).
         /// </summary>

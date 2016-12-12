@@ -21,7 +21,7 @@ namespace bgs.DAL
 
         public virtual DbSet<Category> ProductCategories { get; set; }
 
-        public virtual DbSet<CategoryProperties> CategoryProperties { get; set; }
+        public virtual DbSet<Sleeve> CategoryProperties { get; set; }
 
         public virtual DbSet<ProductGame> ProductGames { get; set; }
 
@@ -51,23 +51,23 @@ namespace bgs.DAL
 
 
             // TODO: Products are missing category reference and property reference
-            Product bgsOversize = new Product { ProductId = 10408, ProductCode = "AT-10408", ProductName = "Board Game Sleeves - Oversize", Price = 20M };
+            Sleeve bgsOversize = new Sleeve { ProductId = 10408, ProductCode = "AT-10408", ProductName = "Board Game Sleeves - Oversize", Price = 20M };
             context.Products.Add(bgsOversize);
-            Product bgsExtraLarge = new Product { ProductId = 10407, ProductCode = "AT-10407", ProductName = "Board Game Sleeves - Extra Large", Price = 20M };
+            Sleeve bgsExtraLarge = new Sleeve { ProductId = 10407, ProductCode = "AT-10407", ProductName = "Board Game Sleeves - Extra Large", Price = 20M };
             context.Products.Add(bgsExtraLarge);
-            Product bgsLarge = new Product { ProductId = 10402, ProductCode = "AT-10402", ProductName = "Board Game Sleeves - Large", Price = 18M };
+            Sleeve bgsLarge = new Sleeve { ProductId = 10402, ProductCode = "AT-10402", ProductName = "Board Game Sleeves - Large", Price = 18M };
             context.Products.Add(bgsLarge);
-            Product bgsStandard = new Product { ProductId = 10406, ProductCode = "AT-10406", ProductName = "Board Game Sleeves - Standard", Price = 16M };
+            Sleeve bgsStandard = new Sleeve { ProductId = 10406, ProductCode = "AT-10406", ProductName = "Board Game Sleeves - Standard", Price = 16M };
             context.Products.Add(bgsStandard);
-            Product bgsMedium = new Product { ProductId = 10403, ProductCode = "AT-10403", ProductName = "Board Game Sleeves - Medium", Price = 14M };
+            Sleeve bgsMedium = new Sleeve { ProductId = 10403, ProductCode = "AT-10403", ProductName = "Board Game Sleeves - Medium", Price = 14M };
             context.Products.Add(bgsMedium);
-            Product bgsSmall = new Product { ProductId = 10404, ProductCode = "AT-10404", ProductName = "Board Game Sleeves - Small", Price = 12M };
+            Sleeve bgsSmall = new Sleeve { ProductId = 10404, ProductCode = "AT-10404", ProductName = "Board Game Sleeves - Small", Price = 12M };
             context.Products.Add(bgsSmall);
-            Product bgsMini = new Product { ProductId = 10405, ProductCode = "AT-10405", ProductName = "Board Game Sleeves - Mini", Price = 10M };
+            Sleeve bgsMini = new Sleeve { ProductId = 10405, ProductCode = "AT-10405", ProductName = "Board Game Sleeves - Mini", Price = 10M };
             context.Products.Add(bgsMini);
-            Product bgsSquare = new Product { ProductId = 10409, ProductCode = "AT-10409", ProductName = "Board Game Sleeves - Square", Price = 10M };
+            Sleeve bgsSquare = new Sleeve { ProductId = 10409, ProductCode = "AT-10409", ProductName = "Board Game Sleeves - Square", Price = 10M };
             context.Products.Add(bgsSquare);
-            Product bgsTarot = new Product { ProductId = 10410, ProductCode = "AT-10410", ProductName = "Board Game Sleeves - Tarot", Price = 22M };
+            Sleeve bgsTarot = new Sleeve { ProductId = 10410, ProductCode = "AT-10410", ProductName = "Board Game Sleeves - Tarot", Price = 22M };
             context.Products.Add(bgsTarot);
             context.SaveChanges();
 
