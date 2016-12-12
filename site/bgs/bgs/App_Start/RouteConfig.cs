@@ -11,7 +11,7 @@ namespace bgs
 
             routes.MapRoute(
                 name: "Default",
-                url: "Public/{controller}/{action}/{id}",
+                url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }

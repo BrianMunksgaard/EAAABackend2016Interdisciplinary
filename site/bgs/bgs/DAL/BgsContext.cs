@@ -79,9 +79,9 @@ namespace bgs.DAL
             context.SaveChanges();
 
 
-            ProductGame acquireSleeve = new ProductGame { GameId = 1, ProductId = 10403, Comment = "" };
+            ProductGame acquireSleeve = new ProductGame { GameId = acquire.GameId, ProductId = bgsMedium.ProductId, Comment = "" };
             context.ProductGames.Add(acquireSleeve);
-            ProductGame arkhamHorrorSleeve = new ProductGame { GameId = 2, ProductId = 10403, Comment = "Big cards" };
+            ProductGame arkhamHorrorSleeve = new ProductGame { GameId = arkhamHorror.GameId, ProductId = bgsMedium.ProductId, Comment = "Big cards" };
             context.ProductGames.Add(arkhamHorrorSleeve);
             context.SaveChanges();
 
