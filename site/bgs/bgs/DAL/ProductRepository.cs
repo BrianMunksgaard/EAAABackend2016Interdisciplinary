@@ -10,8 +10,7 @@ namespace bgs.DAL
         private BgsContext db;
         private DbSet<T> dbSet;
 
-        public ProductRepository()
-            : this(new BgsContext())
+        public ProductRepository() : this(new BgsContext())
         {
         }
 
