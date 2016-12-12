@@ -12,7 +12,7 @@ namespace bgs.Models
         private string productCode;
         private decimal price;
 
-        private IEnumerable<ProductGame> fitsGames;
+        private ICollection<ProductGame> fitsGames;
 
         #endregion
 
@@ -72,7 +72,7 @@ namespace bgs.Models
             }
         }
 
-        public virtual IEnumerable<ProductGame> FitsGames
+        public virtual ICollection<ProductGame> FitsGames
         {
             get
             {
