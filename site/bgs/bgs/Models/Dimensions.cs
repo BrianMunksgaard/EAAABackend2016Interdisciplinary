@@ -1,4 +1,6 @@
-﻿namespace bgs.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace bgs.Models
 {
     public class Dimensions
     {
@@ -18,6 +20,8 @@
 
         #region Public properties
 
+
+        [Key]
         public int DimensionId
         {
             get { return dimensionId; }

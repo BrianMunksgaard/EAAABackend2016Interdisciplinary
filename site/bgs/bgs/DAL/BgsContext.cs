@@ -1,5 +1,6 @@
 ﻿using bgs.Models;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace bgs.DAL
 {
@@ -27,16 +28,18 @@ namespace bgs.DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            //base.OnModelCreating(modelBuilder);
         }
 
     }
 
-    public class BgsContextInitializer : DropCreateDatabaseIfModelChanges<BgsContext>
+    public class BgsContextInitializer : DropCreateDatabaseAlways<BgsContext>
     {
         protected override void Seed(BgsContext context)
         {
-
+            context.Games.Add(new Game { GameCode = "G-001", GameName = "Acquire" });
+            context.SaveChanges();
 
             base.Seed(context);
         }

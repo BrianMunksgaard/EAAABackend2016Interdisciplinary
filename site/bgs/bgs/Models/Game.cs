@@ -22,11 +22,11 @@ namespace bgs.Models
         {
             get
             {
-                return GameId;
+                return gameId;
             }
             set
             {
-                GameId = value;
+                gameId = value;
             }
         }
 
@@ -34,13 +34,13 @@ namespace bgs.Models
         {
             get
             {
-                return GameName;
+                return gameName;
             }
             set
             {
                 if (!string.IsNullOrEmpty(value))
                 {
-                    GameName = value;
+                    gameName = value;
                 }
             }
         }
@@ -49,13 +49,13 @@ namespace bgs.Models
         {
             get
             {
-                return GameCode;
+                return gameCode;
             }
             set
             {
                 if (!string.IsNullOrEmpty(value))
                 {
-                    GameCode = value;
+                    gameCode = value;
                 }
             }
         }
