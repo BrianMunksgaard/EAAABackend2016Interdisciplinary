@@ -111,7 +111,7 @@ namespace bgs.Models
         /// <param name="quantity"></param>
         public void AddItem(Product product, int quantity)
         {
-            OrderItem oi = orderItems.SingleOrDefault(item => item.Product.ProductId == product.ProductId);
+            OrderItem oi = OrderItems.SingleOrDefault(item => item.Product.ProductId == product.ProductId);
             if (oi == null)
             {
                 OrderItems.Add(new OrderItem(product, quantity));

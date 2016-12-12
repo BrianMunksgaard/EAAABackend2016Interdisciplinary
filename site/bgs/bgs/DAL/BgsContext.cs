@@ -42,7 +42,7 @@ namespace bgs.DAL
 
     }
 
-    public class BgsContextInitializer : DropCreateDatabaseAlways<BgsContext>
+    public class BgsContextInitializer : DropCreateDatabaseIfModelChanges<BgsContext>
     {
         protected override void Seed(BgsContext context)
         {
