@@ -13,7 +13,7 @@ namespace bgs.DAL
         /// Retrieve all items of type T.
         /// </summary>
         /// <returns></returns>
-        IEnumerable<T> GetItems();
+        IList<T> GetItems();
 
         /// <summary>
         /// Retrieve the item of type T identified by the id parameter.
