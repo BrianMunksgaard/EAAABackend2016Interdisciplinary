@@ -18,7 +18,7 @@ namespace bgs.DAL
 
         public virtual DbSet<Dimensions> Dimensions { get; set; }
 
-        public virtual DbSet<ProductCategory> ProductCategories { get; set; }
+        public virtual DbSet<Category> ProductCategories { get; set; }
 
         public virtual DbSet<CategoryProperties> CategoryProperties { get; set; }
 

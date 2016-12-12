@@ -1,9 +1,12 @@
-﻿namespace bgs.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace bgs.Models
 {
     public class CategoryProperties
     {
         #region Private variables
 
+        private int categoryPropertiesId;
         private int size;
         private string cmyk;
         private string rgb;
@@ -18,6 +21,13 @@
         #endregion
 
         #region Public properties
+
+        [Key]
+        public int CategoryPropertiesId
+        {
+            get { return categoryPropertiesId; }
+            set { categoryPropertiesId = value; }
+        }
 
         public int Size
         {

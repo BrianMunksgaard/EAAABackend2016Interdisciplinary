@@ -1,6 +1,8 @@
-﻿namespace bgs.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace bgs.Models
 {
-    public class ProductCategory
+    public class Category
     {
         #region Private variables
 
@@ -15,6 +17,7 @@
 
         #region Public properties
 
+        [Key]
         public int CategoryId
         {
             get

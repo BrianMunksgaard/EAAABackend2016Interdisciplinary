@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace bgs.Models
 {
@@ -16,6 +17,7 @@ namespace bgs.Models
 
         #region Public properties
 
+        [Key]
         public int GameId
         {
             get

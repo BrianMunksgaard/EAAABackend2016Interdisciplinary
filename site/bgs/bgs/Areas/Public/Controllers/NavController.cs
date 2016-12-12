@@ -20,7 +20,7 @@ namespace bgs.Areas.Public.Controllers
         /// <returns></returns>
         public PartialViewResult Menu()
         {
-            List<ProductCategory> categories = new List<ProductCategory>();
+            List<Category> categories = new List<Category>();
 
             return PartialView(categories);
         }

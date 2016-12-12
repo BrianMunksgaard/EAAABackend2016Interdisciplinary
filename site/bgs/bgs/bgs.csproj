@@ -152,11 +152,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\CategoryProperties.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Dimensions.cs" />
     <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ProductCategory.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ProductGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

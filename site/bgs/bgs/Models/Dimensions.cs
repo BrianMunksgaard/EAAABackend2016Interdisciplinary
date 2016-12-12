@@ -4,6 +4,7 @@
     {
         #region Private variables
 
+        private int dimensionId;
         private int width;
         private int height;
         private int length;
@@ -16,6 +17,12 @@
         #endregion
 
         #region Public properties
+
+        public int DimensionId
+        {
+            get { return dimensionId; }
+            set { dimensionId = value; }
+        }
 
         public int Width
         {
