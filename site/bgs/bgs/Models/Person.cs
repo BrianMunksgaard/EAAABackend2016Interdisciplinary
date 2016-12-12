@@ -22,6 +22,7 @@ namespace bgs.Models
         private string city;
         private DateTime birthDay;
         private List<string> phoneNumbers;
+        private List<Role> roles;
 
         #endregion
 
@@ -162,6 +163,15 @@ namespace bgs.Models
                     return "No phone";
                 }
             }
+        }
+
+        /// <summary>
+        /// Roles assigned to this person.
+        /// </summary>
+        public List<Role> Roles
+        {
+            get { return roles == null ? roles = new List<Role>() : roles; }
+            set { roles = value; }
         }
 
         #endregion
