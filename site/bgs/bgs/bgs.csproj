@@ -153,7 +153,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart.cs" />
-    <Compile Include="Models\CategoryProperties.cs" />
+    <Compile Include="Models\Sleeve.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Dimensions.cs" />
     <Compile Include="Models\Game.cs" />

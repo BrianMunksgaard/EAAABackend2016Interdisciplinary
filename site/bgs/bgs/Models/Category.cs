@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace bgs.Models
 {
@@ -10,8 +11,7 @@ namespace bgs.Models
         private string categoryText;
         private string categoryCode;
 
-        private int categoryPropertiesId;
-        private CategoryProperties properties;
+        private ICollection<Product> products;
 
         #endregion
 
@@ -60,7 +60,14 @@ namespace bgs.Models
             }
         }
 
-        public virtual CategoryProperties Properties { get; set; }
+        public ICollection<Product> Products
+        {
+            get
+            {
+                return products == null ? products = new List<Product>() : products;
+            }
+        }
+
 
         #endregion
 
