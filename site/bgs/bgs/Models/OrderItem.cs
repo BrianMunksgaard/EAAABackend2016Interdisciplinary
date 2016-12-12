@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace bgs.Models
 {
@@ -10,7 +7,7 @@ namespace bgs.Models
     /// This class is used to represent an item
     /// or a line on an invoice.
     /// </summary>
-    public class OrderItem
+    public class OrderItem : BgsEntity
     {
         #region PrivateFields
 

@@ -2,11 +2,11 @@
 
 namespace bgs.Models
 {
-    public class Credential
+    public class Credential : BgsEntity
     {
         #region Private variables
 
-        private int credentialsId;
+        private int credentialId;
         private string userName;
         private string userPass;
 
@@ -17,8 +17,8 @@ namespace bgs.Models
         [Key]
         public int CredentialsId
         {
-            get { return credentialsId; }
-            set { credentialsId = value; }
+            get { return credentialId; }
+            set { credentialId = value; }
         }
 
         [Required]

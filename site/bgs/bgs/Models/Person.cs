@@ -8,7 +8,7 @@ namespace bgs.Models
     /// <summary>
     /// MbmStore customer information.
     /// </summary>
-    public class Person
+    public class Person : BgsEntity
     {
 
         #region PrivateFields

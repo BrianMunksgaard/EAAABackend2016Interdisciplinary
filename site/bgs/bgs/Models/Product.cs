@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace bgs.Models
 {
-    public class Product
+    public class Product : BgsEntity
     {
         #region Private variables
 

@@ -10,7 +10,7 @@ namespace bgs.Models
     /// This class is used to hold data about
     /// an order.
     /// </summary>
-    public class Order
+    public class Order : BgsEntity
     {
         #region PrivateFields
         private int orderId;

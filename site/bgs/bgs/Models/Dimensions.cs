@@ -2,7 +2,7 @@
 
 namespace bgs.Models
 {
-    public class Dimensions
+    public class Dimensions : BgsEntity
     {
         #region Private variables
 
