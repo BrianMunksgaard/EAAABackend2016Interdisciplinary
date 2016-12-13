@@ -139,6 +139,11 @@
     <Content Include="Areas\Admin\Views\Nav\Menu.cshtml" />
     <Content Include="Areas\Public\Views\Catalogue\Index.cshtml" />
     <Content Include="Areas\Public\Views\Shared\ProductSummarySleeve.cshtml" />
+    <Content Include="Areas\Admin\Views\Sleeves\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Sleeves\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Sleeves\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Sleeves\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Sleeves\Index.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -152,6 +157,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NavController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SleevesController.cs" />
     <Compile Include="Areas\Admin\ViewModels\PagingInfo.cs" />
     <Compile Include="Areas\Admin\ViewModels\ProductListViewModel.cs" />
     <Compile Include="Areas\Public\Controllers\CatalogueController.cs" />
@@ -166,6 +172,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612131001406_InitialCreate.cs" />
+    <Compile Include="Migrations\201612131001406_InitialCreate.Designer.cs">
+      <DependentUpon>201612131001406_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BgsEntity.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Credential.cs" />
@@ -202,6 +213,11 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Public\Models\" />
     <Folder Include="Views\Home\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612131001406_InitialCreate.resx">
+      <DependentUpon>201612131001406_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
