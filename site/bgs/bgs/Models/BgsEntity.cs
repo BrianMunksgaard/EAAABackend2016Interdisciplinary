@@ -39,7 +39,7 @@ namespace bgs.Models
                 PropertyInfo p = t.GetProperty(propertyName);
                 if (p == null)
                 {
-                    return GetEntityId(t.BaseType.GetType());
+                    return GetEntityId(t.BaseType);
                 }
                 else
                 {

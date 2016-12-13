@@ -15,8 +15,10 @@ namespace bgs.Areas.Public.Controllers
             Game g = new Game();
             g.GameId = 123;
             int i = g.EntityId;
-            BgsContext context = new BgsContext();
-            int gamesCount = context.Games.Count();
+
+            Sleeve s = new Sleeve();
+            s.ProductId = 987;
+            i = s.EntityId;
 
             return View();
         }
