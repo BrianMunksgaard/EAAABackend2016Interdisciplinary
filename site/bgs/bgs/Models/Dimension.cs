@@ -2,7 +2,7 @@
 
 namespace bgs.Models
 {
-    public class Dimensions : BgsEntity
+    public class Dimension : BgsEntity
     {
         #region Private variables
 
@@ -14,7 +14,7 @@ namespace bgs.Models
         private int gapWidth;
         private int gapHeight;
         private int gapLength;
-        private Dimensions holds;
+        private Dimension holds;
 
         #endregion
 
@@ -112,7 +112,7 @@ namespace bgs.Models
             }
         }
 
-        public Dimensions Holds
+        public Dimension Holds
         {
             get
             {

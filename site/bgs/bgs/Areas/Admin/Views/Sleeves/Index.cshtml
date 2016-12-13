@@ -7,36 +7,18 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", "Sleeves", new { area = "Admin" }, new { @class = "btn btn-block btn-default btn-md" })
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Category.CategoryText)
+            @Html.DisplayNameFor(model => model.ProductCode)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ProductName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryPropertiesId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Size)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CMYK)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RGB)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Weight)
+            @Html.DisplayNameFor(model => model.SleeveSize)
         </th>
         <th></th>
     </tr>
@@ -44,31 +26,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Category.CategoryText)
+            @Html.DisplayFor(modelItem => item.ProductCode)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ProductName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ProductCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryPropertiesId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Size)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CMYK)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RGB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Weight)
+            @Html.DisplayFor(modelItem => item.SleeveSize)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |

@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bgs.Models
 {
@@ -17,12 +16,12 @@ namespace bgs.Models
         private string cmyk;
         private string rgb;
         private int weight;
-        private Dimensions fitCardDim;
-        private Dimensions displayDim;
-        private Dimensions outerCartonDim;
-        private Dimensions ngSleeveDim;
-        private Dimensions standardSleeveDim;
-        private Dimensions ngBoxDim;
+        private Dimension fitCardDim;
+        private Dimension displayDim;
+        private Dimension outerCartonDim;
+        private Dimension ngSleeveDim;
+        private Dimension standardSleeveDim;
+        private Dimension ngBoxDim;
 
         #endregion
 
@@ -85,7 +84,7 @@ namespace bgs.Models
             }
         }
 
-        public Dimensions FitCardDim
+        public Dimension FitCardDim
         {
             get
             {
@@ -100,7 +99,7 @@ namespace bgs.Models
             }
         }
 
-        public Dimensions DisplayDim
+        public Dimension DisplayDim
         {
             get
             {
@@ -115,7 +114,7 @@ namespace bgs.Models
             }
         }
 
-        public Dimensions OuterCartonDim
+        public Dimension OuterCartonDim
         {
             get
             {
@@ -130,7 +129,7 @@ namespace bgs.Models
             }
         }
 
-        public Dimensions NGSleeveDim
+        public Dimension NGSleeveDim
         {
             get
             {
@@ -145,7 +144,7 @@ namespace bgs.Models
             }
         }
 
-        public Dimensions StandardSleeveDim
+        public Dimension StandardSleeveDim
         {
             get
             {
@@ -160,7 +159,7 @@ namespace bgs.Models
             }
         }
 
-        public Dimensions NGBoxDim
+        public Dimension NGBoxDim
         {
             get
             {

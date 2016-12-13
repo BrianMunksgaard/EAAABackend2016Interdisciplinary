@@ -31,23 +31,23 @@ namespace bgs.Migrations
             context.SaveChanges();
 
 
-            Sleeve bgsOversize = new Sleeve { ProductId = 10408, ProductCode = "AT-10408", ProductName = "Board Game Sleeves - Oversize", Price = 20M, CategoryId = Sleeves.CategoryId };
+            Sleeve bgsOversize = new Sleeve { ProductId = 10408, ProductCode = "AT-10408", ProductName = "Board Game Sleeves - Oversize", Price = 20M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Oversize };
             context.Products.AddOrUpdate(bgsOversize);
-            Sleeve bgsExtraLarge = new Sleeve { ProductId = 10407, ProductCode = "AT-10407", ProductName = "Board Game Sleeves - Extra Large", Price = 20M, CategoryId = Sleeves.CategoryId };
+            Sleeve bgsExtraLarge = new Sleeve { ProductId = 10407, ProductCode = "AT-10407", ProductName = "Board Game Sleeves - Extra Large", Price = 20M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.ExtraLarge };
             context.Products.AddOrUpdate(bgsExtraLarge);
-            Sleeve bgsLarge = new Sleeve { ProductId = 10402, ProductCode = "AT-10402", ProductName = "Board Game Sleeves - Large", Price = 18M, CategoryId = Sleeves.CategoryId };
+            Sleeve bgsLarge = new Sleeve { ProductId = 10402, ProductCode = "AT-10402", ProductName = "Board Game Sleeves - Large", Price = 18M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Large };
             context.Products.AddOrUpdate(bgsLarge);
-            Sleeve bgsStandard = new Sleeve { ProductId = 10406, ProductCode = "AT-10406", ProductName = "Board Game Sleeves - Standard", Price = 16M, CategoryId = Sleeves.CategoryId };
+            Sleeve bgsStandard = new Sleeve { ProductId = 10406, ProductCode = "AT-10406", ProductName = "Board Game Sleeves - Standard", Price = 16M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Standard };
             context.Products.AddOrUpdate(bgsStandard);
-            Sleeve bgsMedium = new Sleeve { ProductId = 10403, ProductCode = "AT-10403", ProductName = "Board Game Sleeves - Medium", Price = 14M, CategoryId = Sleeves.CategoryId };
+            Sleeve bgsMedium = new Sleeve { ProductId = 10403, ProductCode = "AT-10403", ProductName = "Board Game Sleeves - Medium", Price = 14M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Medium };
             context.Products.AddOrUpdate(bgsMedium);
-            Sleeve bgsSmall = new Sleeve { ProductId = 10404, ProductCode = "AT-10404", ProductName = "Board Game Sleeves - Small", Price = 12M, CategoryId = Sleeves.CategoryId };
+            Sleeve bgsSmall = new Sleeve { ProductId = 10404, ProductCode = "AT-10404", ProductName = "Board Game Sleeves - Small", Price = 12M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Small };
             context.Products.AddOrUpdate(bgsSmall);
-            Sleeve bgsMini = new Sleeve { ProductId = 10405, ProductCode = "AT-10405", ProductName = "Board Game Sleeves - Mini", Price = 10M, CategoryId = Sleeves.CategoryId };
+            Sleeve bgsMini = new Sleeve { ProductId = 10405, ProductCode = "AT-10405", ProductName = "Board Game Sleeves - Mini", Price = 10M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Mini };
             context.Products.AddOrUpdate(bgsMini);
-            Sleeve bgsSquare = new Sleeve { ProductId = 10409, ProductCode = "AT-10409", ProductName = "Board Game Sleeves - Square", Price = 10M, CategoryId = Sleeves.CategoryId };
+            Sleeve bgsSquare = new Sleeve { ProductId = 10409, ProductCode = "AT-10409", ProductName = "Board Game Sleeves - Square", Price = 10M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Square };
             context.Products.AddOrUpdate(bgsSquare);
-            Sleeve bgsTarot = new Sleeve { ProductId = 10410, ProductCode = "AT-10410", ProductName = "Board Game Sleeves - Tarot", Price = 22M, CategoryId = Sleeves.CategoryId };
+            Sleeve bgsTarot = new Sleeve { ProductId = 10410, ProductCode = "AT-10410", ProductName = "Board Game Sleeves - Tarot", Price = 22M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Tarot };
             context.Products.AddOrUpdate(bgsTarot);
             context.SaveChanges();
 

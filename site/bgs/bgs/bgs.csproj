@@ -183,7 +183,7 @@
     <Compile Include="Models\Credential.cs" />
     <Compile Include="Models\Sleeve.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\Dimensions.cs" />
+    <Compile Include="Models\Dimension.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />

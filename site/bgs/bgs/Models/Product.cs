@@ -63,6 +63,7 @@ namespace bgs.Models
         /// by the business.
         /// </summary>
         [Index("ProductIndex", IsUnique = true)]
+        [MaxLength(20)]
         public string ProductCode
         {
             get
@@ -121,7 +122,7 @@ namespace bgs.Models
 
         public Product()
         {
-            
+
         }
 
     }
