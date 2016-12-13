@@ -62,11 +62,11 @@ namespace bgs.Migrations
             context.SaveChanges();
 
 
-            ProductGame acquireSleeve = new ProductGame { GameId = acquire.GameId, ProductId = bgsMedium.ProductId, Comment = "" };
+            ProductFitGame acquireSleeve = new ProductFitGame { GameId = acquire.GameId, ProductId = bgsMedium.ProductId, Comment = "" };
             context.ProductGames.AddOrUpdate(acquireSleeve);
             acquire.ProductsFit.Add(acquireSleeve);
             bgsMedium.FitsGames.Add(acquireSleeve);
-            ProductGame arkhamHorrorSleeve = new ProductGame { GameId = arkhamHorror.GameId, ProductId = bgsMedium.ProductId, Comment = "Big cards" };
+            ProductFitGame arkhamHorrorSleeve = new ProductFitGame { GameId = arkhamHorror.GameId, ProductId = bgsMedium.ProductId, Comment = "Big cards" };
             context.ProductGames.AddOrUpdate(arkhamHorrorSleeve);
             arkhamHorror.ProductsFit.Add(arkhamHorrorSleeve);
             bgsMedium.FitsGames.Add(arkhamHorrorSleeve);

@@ -1,13 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bgs.Models
 {
+    /// <summary>
+    /// Sleeve is a specialization of a product and hence
+    /// contains a lot of properties that only applies to
+    /// sleeves.
+    /// </summary>
+    [Table("Sleeve")]
     public class Sleeve : Product
     {
         #region Private variables
 
-        private int categoryPropertiesId;
-        private int size;
+        private Size sleeveSize;
         private string cmyk;
         private string rgb;
         private int weight;
@@ -22,22 +28,18 @@ namespace bgs.Models
 
         #region Public properties
 
-        [Key]
-        public int CategoryPropertiesId
-        {
-            get { return categoryPropertiesId; }
-            set { categoryPropertiesId = value; }
-        }
-
-        public int Size
+        /// <summary>
+        /// Sleeve size as in large, medium etc.
+        /// </summary>
+        public Size SleeveSize
         {
             get
             {
-                return size;
+                return sleeveSize;
             }
             set
             {
-                size = value;
+                sleeveSize = value;
             }
         }
 

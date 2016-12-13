@@ -24,7 +24,7 @@ namespace bgs.DAL
 
         public virtual DbSet<Sleeve> Sleeves { get; set; }
 
-        public virtual DbSet<ProductGame> ProductGames { get; set; }
+        public virtual DbSet<ProductFitGame> ProductGames { get; set; }
 
         public virtual DbSet<Person> Persons { get; set; }
 
@@ -92,11 +92,11 @@ namespace bgs.DAL
             context.SaveChanges();
 
 
-            ProductGame acquireSleeve = new ProductGame { GameId = acquire.GameId, ProductId = bgsMedium.ProductId, Comment = "" };
+            ProductFitGame acquireSleeve = new ProductFitGame { GameId = acquire.GameId, ProductId = bgsMedium.ProductId, Comment = "" };
             context.ProductGames.Add(acquireSleeve);
             acquire.ProductsFit.Add(acquireSleeve);
             bgsMedium.FitsGames.Add(acquireSleeve);
-            ProductGame arkhamHorrorSleeve = new ProductGame { GameId = arkhamHorror.GameId, ProductId = bgsMedium.ProductId, Comment = "Big cards" };
+            ProductFitGame arkhamHorrorSleeve = new ProductFitGame { GameId = arkhamHorror.GameId, ProductId = bgsMedium.ProductId, Comment = "Big cards" };
             context.ProductGames.Add(arkhamHorrorSleeve);
             arkhamHorror.ProductsFit.Add(arkhamHorrorSleeve);
             bgsMedium.FitsGames.Add(arkhamHorrorSleeve);

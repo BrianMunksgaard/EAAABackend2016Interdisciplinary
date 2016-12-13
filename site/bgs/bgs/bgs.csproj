@@ -179,6 +179,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BgsEntity.cs" />
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Size.cs" />
     <Compile Include="Models\Credential.cs" />
     <Compile Include="Models\Sleeve.cs" />
     <Compile Include="Models\Person.cs" />
@@ -188,7 +189,7 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\ProductGame.cs" />
+    <Compile Include="Models\ProductFitGame.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

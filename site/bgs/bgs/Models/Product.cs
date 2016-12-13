@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bgs.Models
 {
@@ -15,15 +16,15 @@ namespace bgs.Models
         private int categoryId;
         private Category category;
 
-        private ICollection<ProductGame> fitsGames;
+        private ICollection<ProductFitGame> fitsGames;
 
         #endregion
 
         #region Public properties
 
         /// <summary>
-        /// Unique product id. This property is primarily
-        /// used when storing the data in the database.
+        /// Unique product id. This is primarily
+        /// an internal/db property.
         /// </summary>
         [Key]
         public int ProductId
@@ -58,8 +59,10 @@ namespace bgs.Models
 
         /// <summary>
         /// Unique product code used to identify the
-        /// product.
+        /// product. This is the product code used
+        /// by the business.
         /// </summary>
+        [Index("ProductIndex", IsUnique = true)]
         public string ProductCode
         {
             get
@@ -75,11 +78,14 @@ namespace bgs.Models
             }
         }
 
-        public virtual ICollection<ProductGame> FitsGames
+        /// <summary>
+        /// A collection of games that this product fits.
+        /// </summary>
+        public virtual ICollection<ProductFitGame> FitsGames
         {
             get
             {
-                return fitsGames;
+                return fitsGames == null ? fitsGames = new List<ProductFitGame>() : fitsGames;
             }
         }
 
@@ -115,7 +121,7 @@ namespace bgs.Models
 
         public Product()
         {
-            fitsGames = new List<ProductGame>();
+            
         }
 
     }

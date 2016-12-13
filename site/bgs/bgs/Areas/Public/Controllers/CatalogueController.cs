@@ -14,7 +14,7 @@ namespace bgs.Areas.Public.Controllers
         public ActionResult Index()
         {
             UnitOfWork uow = new UnitOfWork();
-            IList<Sleeve> sleeves = uow.SleeveRepository.GetItems();
+            List<Sleeve> sleeves = uow.SleeveRepository.GetItems().ToList();
             return View(sleeves);
         }
     }

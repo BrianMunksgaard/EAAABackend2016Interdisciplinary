@@ -1,5 +1,5 @@
-﻿@model IList<bgs.Models.Sleeve>
-
+﻿@model List<bgs.Models.Sleeve>
+@using bgs.Models;
 @{
     ViewBag.Title = "Index";
 }
@@ -7,3 +7,19 @@
 <h2>Index</h2>
 
 
+@helper RenderSleeves(List<Sleeve> items)
+{
+    if (items.Count() > 0)
+    {
+        <h2>The CDs</h2>
+        foreach (Sleeve s in items)
+        {
+            @Html.Partial("ProductSummarySleeve", s);
+            <br />
+        }
+    }
+}
+
+
+
+@RenderSleeves(Model)

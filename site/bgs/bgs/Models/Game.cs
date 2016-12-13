@@ -11,7 +11,7 @@ namespace bgs.Models
         private string gameName;
         private string gameCode;
 
-        private ICollection<ProductGame> productsFit;
+        private ICollection<ProductFitGame> productsFit;
 
         #endregion
 
@@ -60,7 +60,7 @@ namespace bgs.Models
             }
         }
 
-        public virtual ICollection<ProductGame> ProductsFit
+        public virtual ICollection<ProductFitGame> ProductsFit
         {
             get
             {
@@ -72,7 +72,7 @@ namespace bgs.Models
 
         public Game()
         {
-            productsFit = new List<ProductGame>();
+            productsFit = new List<ProductFitGame>();
         }
     }
 }

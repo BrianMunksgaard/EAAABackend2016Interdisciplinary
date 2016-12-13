@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bgs.Models
 {
-    public class ProductGame
+    public class ProductFitGame
     {
         [Key, Column(Order = 0)]
         public int ProductId { get; set; }
