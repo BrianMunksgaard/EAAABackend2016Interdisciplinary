@@ -21,25 +21,34 @@ namespace bgs.Models
         {
             get
             {
-                try
+                return GetEntityId(this.GetType());
+            }
+        }
+
+        /// <summary>
+        /// Retrieve entity from current class or base class.
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public virtual int GetEntityId(Type t)
+        {
+            try
+            {
+                string typeName = t.Name;
+                string propertyName = typeName + "Id";
+                PropertyInfo p = t.GetProperty(propertyName);
+                if (p == null)
                 {
-                    Type t = GetType();
-                    string typeName = t.Name;
-                    string propertyName = typeName + "Id";
-                    PropertyInfo p = t.GetProperty(propertyName);
-                    if (p == null)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return (int)p.GetValue(this, null);
-                    }
+                    return GetEntityId(t.BaseType.GetType());
                 }
-                catch (Exception)
+                else
                 {
-                    return 0;
+                    return (int)p.GetValue(this, null);
                 }
+            }
+            catch (Exception)
+            {
+                return 0;
             }
         }
     }
