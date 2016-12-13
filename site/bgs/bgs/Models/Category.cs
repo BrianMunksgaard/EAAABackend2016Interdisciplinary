@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace bgs.Models
 {
+    /// <summary>
+    /// This class is used for holding information about 
+    /// the product categories in the website.
+    /// </summary>
     public class Category : BgsEntity
     {
         #region Private variables
@@ -17,6 +21,9 @@ namespace bgs.Models
 
         #region Public properties
 
+        /// <summary>
+        /// Unique category id. This is primarily an internal/db id.
+        /// </summary>
         [Key]
         public int CategoryId
         {
@@ -30,6 +37,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The description of the category.
+        /// </summary>
         public string CategoryText
         {
             get
@@ -45,6 +55,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// A unique category code used to identify the category. This is the category code used by the business.
+        /// </summary>
         public string CategoryCode
         {
             get
@@ -60,6 +73,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// List of products within this category.
+        /// </summary>
         public ICollection<Product> Products
         {
             get

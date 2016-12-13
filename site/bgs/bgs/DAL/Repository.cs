@@ -47,10 +47,6 @@ namespace bgs.DAL
         /// <returns></returns>
         public T GetItem(int id)
         {
-            if (id == null)
-            {
-                return null;
-            }
             return dbSet.Find(id);
         }
 

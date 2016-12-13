@@ -2,6 +2,13 @@
 
 namespace bgs.Models
 {
+    /// <summary>
+    /// This class hold the login credentials for
+    /// a user in the system.
+    /// At the moment it is not necessary for a user 
+    /// to have a credentials, only administrators
+    /// are required to have a credential.
+    /// </summary>
     public class Credential : BgsEntity
     {
         #region Private variables
@@ -14,6 +21,9 @@ namespace bgs.Models
 
         #region Public properties
 
+        /// <summary>
+        /// A unique credentials id.
+        /// </summary>
         [Key]
         public int CredentialsId
         {
@@ -21,6 +31,9 @@ namespace bgs.Models
             set { credentialId = value; }
         }
 
+        /// <summary>
+        /// The username for this specific credential.
+        /// </summary>
         [Required]
         public string UserName
         {
@@ -34,6 +47,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The password for this specific credential.
+        /// </summary>
         [Required]
         public string UserPass
         {

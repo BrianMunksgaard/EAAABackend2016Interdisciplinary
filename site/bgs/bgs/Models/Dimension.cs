@@ -2,6 +2,13 @@
 
 namespace bgs.Models
 {
+    /// <summary>
+    /// The Dimension class contains the different dimensions
+    /// of a single sleeve.
+    /// 
+    /// A single instance of this class might not have all values
+    /// set, but could possible only have a few set.
+    /// </summary>
     public class Dimension : BgsEntity
     {
         #region Private variables
@@ -20,7 +27,9 @@ namespace bgs.Models
 
         #region Public properties
 
-
+        /// <summary>
+        /// A unique dimension id.
+        /// </summary>
         [Key]
         public int DimensionId
         {
@@ -28,6 +37,9 @@ namespace bgs.Models
             set { dimensionId = value; }
         }
 
+        /// <summary>
+        /// The width of the sleeve.
+        /// </summary>
         public int Width
         {
             get
@@ -40,6 +52,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The height of the sleeve.
+        /// </summary>
         public int Height
         {
             get
@@ -52,6 +67,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The length of the sleeve.
+        /// </summary>
         public int Length
         {
             get
@@ -64,6 +82,10 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// This is an indication of whether the 
+        /// dimensions are given in cm or inches.
+        /// </summary>
         public int Units
         {
             get
@@ -76,6 +98,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The width of an possible gap.
+        /// </summary>
         public int GapWidth
         {
             get
@@ -88,6 +113,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The height of a possible gap.
+        /// </summary>
         public int GapHeight
         {
             get
@@ -100,6 +128,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The length of a possible gap.
+        /// </summary>
         public int GapLength
         {
             get
@@ -112,6 +143,11 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// A reference to another dimension to 
+        /// indicate that this dimension is capable
+        /// of containing some other dimension.
+        /// </summary>
         public Dimension Holds
         {
             get

@@ -1,7 +1,7 @@
 ﻿namespace bgs.Models
 {
     /// <summary>
-    /// Person role.
+    /// Person roles.
     /// </summary>
     public enum Role
     {

@@ -4,6 +4,11 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace bgs.DAL
 {
+    /// <summary>
+    /// This is the context class that the Entity Framework 
+    /// will use for its integration and handling of access 
+    /// to the database.
+    /// </summary>
     public class BgsContext : DbContext
     {
 

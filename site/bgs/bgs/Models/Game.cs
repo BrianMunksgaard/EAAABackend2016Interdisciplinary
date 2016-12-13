@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace bgs.Models
 {
+    /// <summary>
+    /// This class hold information about the different games that 
+    /// the sleeves fit to.
+    /// </summary>
     public class Game : BgsEntity
     {
         #region Private variables
@@ -17,6 +21,9 @@ namespace bgs.Models
 
         #region Public properties
 
+        /// <summary>
+        /// A unique game id. This is primarily used for internal/db purposes.
+        /// </summary>
         [Key]
         public int GameId
         {
@@ -30,6 +37,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The name of the game.
+        /// </summary>
         public string GameName
         {
             get
@@ -45,6 +55,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// A unique game code to identify the game. This is the game code used by the business.
+        /// </summary>
         public string GameCode
         {
             get
@@ -60,6 +73,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// A collection of products/sleeves where the game fits inside.
+        /// </summary>
         public virtual ICollection<ProductFitGame> ProductsFit
         {
             get
@@ -70,6 +86,9 @@ namespace bgs.Models
 
         #endregion
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public Game()
         {
             productsFit = new List<ProductFitGame>();

@@ -4,6 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bgs.Models
 {
+    /// <summary>
+    /// A super class for all the products in the system.
+    /// This class holds the properties that are common for all products.
+    /// </summary>
     public class Product : BgsEntity
     {
         #region Private variables
@@ -120,6 +124,9 @@ namespace bgs.Models
 
         #endregion
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public Product()
         {
 

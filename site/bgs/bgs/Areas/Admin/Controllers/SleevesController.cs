@@ -20,6 +20,16 @@ namespace bgs.Areas.Admin.Controllers
         // GET: Admin/Sleeves
         public ActionResult Index()
         {
+            //Sleeve sle = new Sleeve();
+            //sle.ProductId = 11002;
+            //sle.ProductId = 10408;
+            //sle.ProductCode = "AT-10408";
+            //sle.ProductName = "Board Game Sleeves - Oversize";
+            //sle.Price = 20M;
+            //sle.CategoryId = 1;
+            //sle.SleeveSize = Size.Oversize;
+            //repo.SaveItem(sle);
+
             var sleeves = repo.GetItems().AsQueryable().Include(s => s.Category);
             return View(sleeves.ToList());
         }

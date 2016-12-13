@@ -3,6 +3,11 @@ using System;
 
 namespace bgs.DAL
 {
+    /// <summary>
+    /// This class is part of the separation of concerns. 
+    /// All the controllers only need to use this class for 
+    /// any access to the repositories and the data from the database.
+    /// </summary>
     public class UnitOfWork : IDisposable
     {
         private readonly BgsContext _context;
@@ -102,27 +107,12 @@ namespace bgs.DAL
             }
         }
 
-        /*
-        private Repository<Product> productRepository;
-        public Repository<Product> ProductRepository
-        {
-            get
-            {
-                if (productRepository == null)
-                {
-                    productRepository = new Repository<Product>(_context);
-                }
-                return productRepository;
-            }
-        }
-        */
-
         private Repository<Sleeve> sleeveRepository;
         public Repository<Sleeve> SleeveRepository
         {
             get
             {
-                if(sleeveRepository == null)
+                if (sleeveRepository == null)
                 {
                     sleeveRepository = new Repository<Sleeve>(_context);
                 }
@@ -131,29 +121,36 @@ namespace bgs.DAL
         }
 
 
-
-        /**
-         * Missing repositories for:
-         *  Role - enum
-         *  ProductGame - no single unique key
-         *  Cart - no unique id
-         **/
-
-        public UnitOfWork()
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        public UnitOfWork() : this(new BgsContext())
         {
-            _context = new BgsContext();
         }
 
+        /// <summary>
+        /// A constructor that takes a parameter 
+        /// specifying the context to be used.
+        /// </summary>
+        /// <param name="context"></param>
         public UnitOfWork(BgsContext context)
         {
             _context = context;
         }
 
+        /// <summary>
+        /// Method that handles the saving of changes 
+        /// through the apropriate call to the context.
+        /// </summary>
         public void Save()
         {
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="disposing"></param>
         protected virtual void Dispose(bool disposing)
         {
             if (!this.disposed)
@@ -166,6 +163,9 @@ namespace bgs.DAL
             this.disposed = true;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);

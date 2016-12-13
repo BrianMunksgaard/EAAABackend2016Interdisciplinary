@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace bgs.Models
 {
     /// <summary>
-    /// MbmStore customer information.
+    /// BGS customer/user information.
     /// </summary>
     public class Person : BgsEntity
     {

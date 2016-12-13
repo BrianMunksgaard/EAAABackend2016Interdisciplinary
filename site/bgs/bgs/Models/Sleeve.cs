@@ -42,6 +42,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// Indicates the CMYK colors of the sleeve package.
+        /// </summary>
         public string CMYK
         {
             get
@@ -57,6 +60,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// Indicates the RGB colors of the sleeve package.
+        /// </summary>
         public string RGB
         {
             get
@@ -72,6 +78,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The weight of the sleeve package.
+        /// </summary>
         public int Weight
         {
             get
@@ -84,6 +93,10 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The dimensions of cards
+        /// that fit inside the sleeves.
+        /// </summary>
         public Dimension FitCardDim
         {
             get
@@ -99,6 +112,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The dimensions of the display.
+        /// </summary>
         public Dimension DisplayDim
         {
             get
@@ -114,6 +130,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The dimensions of the outer carton.
+        /// </summary>
         public Dimension OuterCartonDim
         {
             get
@@ -129,6 +148,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The dimensions of ??
+        /// </summary>
         public Dimension NGSleeveDim
         {
             get
@@ -144,6 +166,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The dimensions of ??
+        /// </summary>
         public Dimension StandardSleeveDim
         {
             get
@@ -159,6 +184,9 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// The dimensions of ??
+        /// </summary>
         public Dimension NGBoxDim
         {
             get
@@ -176,6 +204,9 @@ namespace bgs.Models
 
         #endregion
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public Sleeve() : base()
         {
 
