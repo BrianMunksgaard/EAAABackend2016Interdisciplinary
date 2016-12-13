@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bgs.Models
 {
@@ -30,6 +31,7 @@ namespace bgs.Models
         /// <summary>
         /// Sleeve size as in large, medium etc.
         /// </summary>
+        [Display(Name = "Size")]
         public Size SleeveSize
         {
             get

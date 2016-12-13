@@ -46,6 +46,7 @@ namespace bgs.Models
         /// <summary>
         /// Product name/description.
         /// </summary>
+        [Display(Name = "Product name")]
         public string ProductName
         {
             get
@@ -68,6 +69,7 @@ namespace bgs.Models
         /// </summary>
         [Index("ProductIndex", IsUnique = true)]
         [MaxLength(20)]
+        [Display(Name = "Product code")]
         public string ProductCode
         {
             get
@@ -106,6 +108,7 @@ namespace bgs.Models
         /// <summary>
         /// Category id (foreign key reference).
         /// </summary>
+        [Display(Name = "Category")]
         public int CategoryId
         {
             get { return categoryId; }
