@@ -20,7 +20,7 @@ namespace bgs.DAL
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        T GetItem(int? id);
+        T GetItem(int id);
 
         /// <summary>
         /// Save the specified type T.

@@ -31,7 +31,7 @@ namespace bgs.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sleeve sleeve = repo.GetItem(id);
+            Sleeve sleeve = repo.GetItem(id ?? 0);
             if (sleeve == null)
             {
                 return HttpNotFound();
@@ -71,7 +71,7 @@ namespace bgs.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sleeve sleeve = repo.GetItem(id);
+            Sleeve sleeve = repo.GetItem(id ?? 0);
             if (sleeve == null)
             {
                 return HttpNotFound();
@@ -104,7 +104,7 @@ namespace bgs.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sleeve sleeve = repo.GetItem(id);
+            Sleeve sleeve = repo.GetItem(id ?? 0);
             if (sleeve == null)
             {
                 return HttpNotFound();

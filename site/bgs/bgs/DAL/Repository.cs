@@ -45,7 +45,7 @@ namespace bgs.DAL
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public T GetItem(int? id)
+        public T GetItem(int id)
         {
             if (id == null)
             {
