@@ -13,10 +13,11 @@ namespace bgs.Models
         Large,
         Medium,
         Small,
-        Minimum,
+        Mini,
         Standard,
         Oversize,
         Square,
-        ExtraLarge
+        ExtraLarge,
+        Tarot
     }
 }

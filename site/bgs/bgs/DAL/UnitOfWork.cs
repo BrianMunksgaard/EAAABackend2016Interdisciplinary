@@ -50,14 +50,14 @@ namespace bgs.DAL
             }
         }
 
-        private Repository<Dimensions> dimensionsRepository;
-        public Repository<Dimensions> DimensionsRepository
+        private Repository<Dimension> dimensionsRepository;
+        public Repository<Dimension> DimensionsRepository
         {
             get
             {
                 if (dimensionsRepository == null)
                 {
-                    dimensionsRepository = new Repository<Dimensions>(_context);
+                    dimensionsRepository = new Repository<Dimension>(_context);
                 }
                 return dimensionsRepository;
             }

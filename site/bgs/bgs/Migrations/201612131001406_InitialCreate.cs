@@ -18,7 +18,7 @@ namespace bgs.Migrations
                 .PrimaryKey(t => t.CredentialsId);
             
             CreateTable(
-                "dbo.Dimensions",
+                "dbo.Dimension",
                 c => new
                     {
                         DimensionId = c.Int(nullable: false, identity: true),
@@ -32,7 +32,7 @@ namespace bgs.Migrations
                         Holds_DimensionId = c.Int(),
                     })
                 .PrimaryKey(t => t.DimensionId)
-                .ForeignKey("dbo.Dimensions", t => t.Holds_DimensionId)
+                .ForeignKey("dbo.Dimension", t => t.Holds_DimensionId)
                 .Index(t => t.Holds_DimensionId);
             
             CreateTable(
@@ -46,7 +46,7 @@ namespace bgs.Migrations
                 .PrimaryKey(t => t.GameId);
             
             CreateTable(
-                "dbo.ProductGame",
+                "dbo.ProductFitGame",
                 c => new
                     {
                         ProductId = c.Int(nullable: false),
@@ -65,37 +65,14 @@ namespace bgs.Migrations
                     {
                         ProductId = c.Int(nullable: false, identity: true),
                         ProductName = c.String(),
-                        ProductCode = c.String(),
+                        ProductCode = c.String(maxLength: 20),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         CategoryId = c.Int(nullable: false),
-                        CategoryPropertiesId = c.Int(),
-                        Size = c.Int(),
-                        CMYK = c.String(),
-                        RGB = c.String(),
-                        Weight = c.Int(),
-                        Discriminator = c.String(nullable: false, maxLength: 128),
-                        DisplayDim_DimensionId = c.Int(),
-                        FitCardDim_DimensionId = c.Int(),
-                        NGBoxDim_DimensionId = c.Int(),
-                        NGSleeveDim_DimensionId = c.Int(),
-                        OuterCartonDim_DimensionId = c.Int(),
-                        StandardSleeveDim_DimensionId = c.Int(),
                     })
                 .PrimaryKey(t => t.ProductId)
                 .ForeignKey("dbo.Category", t => t.CategoryId, cascadeDelete: true)
-                .ForeignKey("dbo.Dimensions", t => t.DisplayDim_DimensionId)
-                .ForeignKey("dbo.Dimensions", t => t.FitCardDim_DimensionId)
-                .ForeignKey("dbo.Dimensions", t => t.NGBoxDim_DimensionId)
-                .ForeignKey("dbo.Dimensions", t => t.NGSleeveDim_DimensionId)
-                .ForeignKey("dbo.Dimensions", t => t.OuterCartonDim_DimensionId)
-                .ForeignKey("dbo.Dimensions", t => t.StandardSleeveDim_DimensionId)
-                .Index(t => t.CategoryId)
-                .Index(t => t.DisplayDim_DimensionId)
-                .Index(t => t.FitCardDim_DimensionId)
-                .Index(t => t.NGBoxDim_DimensionId)
-                .Index(t => t.NGSleeveDim_DimensionId)
-                .Index(t => t.OuterCartonDim_DimensionId)
-                .Index(t => t.StandardSleeveDim_DimensionId);
+                .Index(t => t.ProductCode, unique: true, name: "ProductIndex")
+                .Index(t => t.CategoryId);
             
             CreateTable(
                 "dbo.Category",
@@ -151,46 +128,82 @@ namespace bgs.Migrations
                 .ForeignKey("dbo.Credential", t => t.Credential_CredentialsId)
                 .Index(t => t.Credential_CredentialsId);
             
+            CreateTable(
+                "dbo.Sleeve",
+                c => new
+                    {
+                        ProductId = c.Int(nullable: false),
+                        DisplayDim_DimensionId = c.Int(),
+                        FitCardDim_DimensionId = c.Int(),
+                        NGBoxDim_DimensionId = c.Int(),
+                        NGSleeveDim_DimensionId = c.Int(),
+                        OuterCartonDim_DimensionId = c.Int(),
+                        StandardSleeveDim_DimensionId = c.Int(),
+                        SleeveSize = c.Int(nullable: false),
+                        CMYK = c.String(),
+                        RGB = c.String(),
+                        Weight = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ProductId)
+                .ForeignKey("dbo.Product", t => t.ProductId)
+                .ForeignKey("dbo.Dimension", t => t.DisplayDim_DimensionId)
+                .ForeignKey("dbo.Dimension", t => t.FitCardDim_DimensionId)
+                .ForeignKey("dbo.Dimension", t => t.NGBoxDim_DimensionId)
+                .ForeignKey("dbo.Dimension", t => t.NGSleeveDim_DimensionId)
+                .ForeignKey("dbo.Dimension", t => t.OuterCartonDim_DimensionId)
+                .ForeignKey("dbo.Dimension", t => t.StandardSleeveDim_DimensionId)
+                .Index(t => t.ProductId)
+                .Index(t => t.DisplayDim_DimensionId)
+                .Index(t => t.FitCardDim_DimensionId)
+                .Index(t => t.NGBoxDim_DimensionId)
+                .Index(t => t.NGSleeveDim_DimensionId)
+                .Index(t => t.OuterCartonDim_DimensionId)
+                .Index(t => t.StandardSleeveDim_DimensionId);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Sleeve", "StandardSleeveDim_DimensionId", "dbo.Dimension");
+            DropForeignKey("dbo.Sleeve", "OuterCartonDim_DimensionId", "dbo.Dimension");
+            DropForeignKey("dbo.Sleeve", "NGSleeveDim_DimensionId", "dbo.Dimension");
+            DropForeignKey("dbo.Sleeve", "NGBoxDim_DimensionId", "dbo.Dimension");
+            DropForeignKey("dbo.Sleeve", "FitCardDim_DimensionId", "dbo.Dimension");
+            DropForeignKey("dbo.Sleeve", "DisplayDim_DimensionId", "dbo.Dimension");
+            DropForeignKey("dbo.Sleeve", "ProductId", "dbo.Product");
             DropForeignKey("dbo.OrderItem", "Order_OrderId", "dbo.Order");
             DropForeignKey("dbo.Order", "Customer_PersonId", "dbo.Person");
             DropForeignKey("dbo.Person", "Credential_CredentialsId", "dbo.Credential");
             DropForeignKey("dbo.OrderItem", "Product_ProductId", "dbo.Product");
-            DropForeignKey("dbo.Product", "StandardSleeveDim_DimensionId", "dbo.Dimensions");
-            DropForeignKey("dbo.Product", "OuterCartonDim_DimensionId", "dbo.Dimensions");
-            DropForeignKey("dbo.Product", "NGSleeveDim_DimensionId", "dbo.Dimensions");
-            DropForeignKey("dbo.Product", "NGBoxDim_DimensionId", "dbo.Dimensions");
-            DropForeignKey("dbo.Product", "FitCardDim_DimensionId", "dbo.Dimensions");
-            DropForeignKey("dbo.Product", "DisplayDim_DimensionId", "dbo.Dimensions");
-            DropForeignKey("dbo.ProductGame", "ProductId", "dbo.Product");
+            DropForeignKey("dbo.ProductFitGame", "ProductId", "dbo.Product");
             DropForeignKey("dbo.Product", "CategoryId", "dbo.Category");
-            DropForeignKey("dbo.ProductGame", "GameId", "dbo.Game");
-            DropForeignKey("dbo.Dimensions", "Holds_DimensionId", "dbo.Dimensions");
+            DropForeignKey("dbo.ProductFitGame", "GameId", "dbo.Game");
+            DropForeignKey("dbo.Dimension", "Holds_DimensionId", "dbo.Dimension");
+            DropIndex("dbo.Sleeve", new[] { "StandardSleeveDim_DimensionId" });
+            DropIndex("dbo.Sleeve", new[] { "OuterCartonDim_DimensionId" });
+            DropIndex("dbo.Sleeve", new[] { "NGSleeveDim_DimensionId" });
+            DropIndex("dbo.Sleeve", new[] { "NGBoxDim_DimensionId" });
+            DropIndex("dbo.Sleeve", new[] { "FitCardDim_DimensionId" });
+            DropIndex("dbo.Sleeve", new[] { "DisplayDim_DimensionId" });
+            DropIndex("dbo.Sleeve", new[] { "ProductId" });
             DropIndex("dbo.Person", new[] { "Credential_CredentialsId" });
             DropIndex("dbo.Order", new[] { "Customer_PersonId" });
             DropIndex("dbo.OrderItem", new[] { "Order_OrderId" });
             DropIndex("dbo.OrderItem", new[] { "Product_ProductId" });
-            DropIndex("dbo.Product", new[] { "StandardSleeveDim_DimensionId" });
-            DropIndex("dbo.Product", new[] { "OuterCartonDim_DimensionId" });
-            DropIndex("dbo.Product", new[] { "NGSleeveDim_DimensionId" });
-            DropIndex("dbo.Product", new[] { "NGBoxDim_DimensionId" });
-            DropIndex("dbo.Product", new[] { "FitCardDim_DimensionId" });
-            DropIndex("dbo.Product", new[] { "DisplayDim_DimensionId" });
             DropIndex("dbo.Product", new[] { "CategoryId" });
-            DropIndex("dbo.ProductGame", new[] { "GameId" });
-            DropIndex("dbo.ProductGame", new[] { "ProductId" });
-            DropIndex("dbo.Dimensions", new[] { "Holds_DimensionId" });
+            DropIndex("dbo.Product", "ProductIndex");
+            DropIndex("dbo.ProductFitGame", new[] { "GameId" });
+            DropIndex("dbo.ProductFitGame", new[] { "ProductId" });
+            DropIndex("dbo.Dimension", new[] { "Holds_DimensionId" });
+            DropTable("dbo.Sleeve");
             DropTable("dbo.Person");
             DropTable("dbo.Order");
             DropTable("dbo.OrderItem");
             DropTable("dbo.Category");
             DropTable("dbo.Product");
-            DropTable("dbo.ProductGame");
+            DropTable("dbo.ProductFitGame");
             DropTable("dbo.Game");
-            DropTable("dbo.Dimensions");
+            DropTable("dbo.Dimension");
             DropTable("dbo.Credential");
         }
     }
