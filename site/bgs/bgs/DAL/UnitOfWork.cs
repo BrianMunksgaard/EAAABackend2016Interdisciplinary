@@ -94,6 +94,21 @@ namespace bgs.DAL
             }
         }
 
+        private Repository<Product> productRepository;
+
+        public Repository<Product> ProductRepository
+        {
+            get
+            {
+                if(productRepository == null)
+                {
+                    productRepository = new Repository<Product>(_context);
+                }
+                return productRepository;
+            }
+        }
+
+
         private Repository<Order> orderRepository;
         public Repository<Order> OrderRepository
         {

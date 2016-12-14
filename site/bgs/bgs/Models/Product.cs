@@ -150,10 +150,26 @@ namespace bgs.Models
             set { weight = value; }
         }
 
+        [NotMapped]
         public Color Color
         {
             get { return color; }
             set { color = value; }
+        }
+
+        /// <summary>
+        /// Color value to be stored in DB.
+        /// </summary>
+        public int ARGB
+        {
+            get
+            {
+                return Color.ToArgb();
+            }
+            set
+            {
+                Color = Color.FromArgb(value);
+            }
         }
 
         #endregion

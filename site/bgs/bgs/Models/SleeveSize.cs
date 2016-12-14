@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace bgs.Models
 {
     /// <summary>
-    /// Sleeve is a specialization of a product and hence
+    /// SleeveSize is a specialization of a ProductSize and hence
     /// contains a lot of properties that only applies to
-    /// sleeves.
+    /// sleeves size.
     /// </summary>
     [Table("SleeveSize")]
     public class SleeveSize : ProductSize

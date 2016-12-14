@@ -17,7 +17,6 @@ namespace bgs.Models
         private int width;
         private int height;
         private int length;
-        private int units;
         private int gapWidth;
         private int gapHeight;
         private int gapLength;
@@ -79,22 +78,6 @@ namespace bgs.Models
             set
             {
                 length = value;
-            }
-        }
-
-        /// <summary>
-        /// This is an indication of whether the 
-        /// dimensions are given in cm or inches.
-        /// </summary>
-        public int Units
-        {
-            get
-            {
-                return units;
-            }
-            set
-            {
-                units = value;
             }
         }
 

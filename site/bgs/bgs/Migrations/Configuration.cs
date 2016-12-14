@@ -4,6 +4,7 @@ namespace bgs.Migrations
     using Models;
     using System;
     using System.Data.Entity.Migrations;
+    using System.Drawing;
 
     internal sealed class Configuration : DbMigrationsConfiguration<BgsContext>
     {
@@ -30,11 +31,72 @@ namespace bgs.Migrations
             context.ProductCategories.AddOrUpdate(Sleeves);
             context.SaveChanges();
 
+            // Dimensions.
 
-            SleeveSize bgsOversize = new SleeveSize { ProductId = 10408, ProductCode = "AT-10408", ProductName = "Board Game Sleeves - Oversize", Price = 20M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Oversize };
-            context.Products.AddOrUpdate(bgsOversize);
-            SleeveSize bgsExtraLarge = new SleeveSize { ProductId = 10407, ProductCode = "AT-10407", ProductName = "Board Game Sleeves - Extra Large", Price = 20M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.ExtraLarge };
-            context.Products.AddOrUpdate(bgsExtraLarge);
+            // SleeveSizes.
+            int productSizeId = 0;
+            SleeveSize sizeOversize = new SleeveSize
+            {
+                ProductSizeId = ++productSizeId,
+                ProductSizeText = "Oversize",
+                DisplayDim = new Dimension
+                {
+                    
+                },
+                FitCardDim = new Dimension
+                {
+
+                },
+                StandardSleeveDim = new Dimension
+                {
+
+                },
+                NGSleeveDim = new Dimension
+                {
+
+                },
+                NGBoxDim = new Dimension
+                {
+
+                },
+                OuterCartonDim = new Dimension
+                {
+
+                }
+            };
+            context.SleeveSizes.AddOrUpdate(sizeOversize);
+
+            SleeveSize sizeExtraLarge = new SleeveSize
+            {
+                ProductSizeId = ++productSizeId,
+                ProductSizeText = "Extra Large",
+                DisplayDim = new Dimension
+                {
+
+                },
+                FitCardDim = new Dimension
+                {
+
+                },
+                StandardSleeveDim = new Dimension
+                {
+
+                },
+                NGSleeveDim = new Dimension
+                {
+
+                },
+                NGBoxDim = new Dimension
+                {
+
+                },
+                OuterCartonDim = new Dimension
+                {
+
+                }
+            };
+            context.SleeveSizes.AddOrUpdate(sizeExtraLarge);
+
             SleeveSize bgsLarge = new SleeveSize { ProductId = 10402, ProductCode = "AT-10402", ProductName = "Board Game Sleeves - Large", Price = 18M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Large };
             context.Products.AddOrUpdate(bgsLarge);
             SleeveSize bgsStandard = new SleeveSize { ProductId = 10406, ProductCode = "AT-10406", ProductName = "Board Game Sleeves - Standard", Price = 16M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Standard };
@@ -51,8 +113,27 @@ namespace bgs.Migrations
             context.Products.AddOrUpdate(bgsTarot);
             context.SaveChanges();
 
+            // Products.
+            Product prdOversize = new Product { ProductId = 10408, ProductCode = "AT-10408", ProductName = "Board Game Sleeves - Oversize", Price = 20M, CategoryId = Sleeves.CategoryId, Weight = 0, Color = Color.Red, ProductSizeId = 0 };
+            context.Products.AddOrUpdate(prdOversize);
+            Product prdExtraLarge = new Product { ProductId = 10407, ProductCode = "AT-10407", ProductName = "Board Game Sleeves - Extra Large", Price = 20M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.ExtraLarge };
+            context.Products.AddOrUpdate(prdExtraLarge);
+            Product prdLarge = new Product { ProductId = 10402, ProductCode = "AT-10402", ProductName = "Board Game Sleeves - Large", Price = 18M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Large };
+            context.Products.AddOrUpdate(prdLarge);
+            Product prdStandard = new Product { ProductId = 10406, ProductCode = "AT-10406", ProductName = "Board Game Sleeves - Standard", Price = 16M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Standard };
+            context.Products.AddOrUpdate(prdStandard);
+            Product prdMedium = new Product { ProductId = 10403, ProductCode = "AT-10403", ProductName = "Board Game Sleeves - Medium", Price = 14M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Medium };
+            context.Products.AddOrUpdate(prdMedium);
+            Product prdSmall = new Product { ProductId = 10404, ProductCode = "AT-10404", ProductName = "Board Game Sleeves - Small", Price = 12M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Small };
+            context.Products.AddOrUpdate(prdSmall);
+            Product prdMini = new Product { ProductId = 10405, ProductCode = "AT-10405", ProductName = "Board Game Sleeves - Mini", Price = 10M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Mini };
+            context.Products.AddOrUpdate(prdMini);
+            Product prdSquare = new Product { ProductId = 10409, ProductCode = "AT-10409", ProductName = "Board Game Sleeves - Square", Price = 10M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Square };
+            context.Products.AddOrUpdate(prdSquare);
+            Product prdTarot = new Product { ProductId = 10410, ProductCode = "AT-10410", ProductName = "Board Game Sleeves - Tarot", Price = 22M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Tarot };
+            context.Products.AddOrUpdate(prdTarot);
 
-            //Dimensions 
+            
 
 
             Game acquire = new Game { GameId = 1, GameCode = "G-001", GameName = "Acquire" };

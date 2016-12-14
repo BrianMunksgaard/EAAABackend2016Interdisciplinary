@@ -21,11 +21,11 @@ namespace bgs.DAL
 
         public virtual DbSet<Product> Products { get; set; }
 
-        public virtual DbSet<Dimension> Dimensions { get; set; }
+        //public virtual DbSet<Dimension> Dimensions { get; set; }
 
         public virtual DbSet<Category> ProductCategories { get; set; }
 
-        public virtual DbSet<SleeveSize> Sleeves { get; set; }
+        public virtual DbSet<SleeveSize> SleeveSizes { get; set; }
 
         public virtual DbSet<ProductFitGame> ProductGames { get; set; }
 

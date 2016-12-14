@@ -17,7 +17,7 @@ namespace bgs.Areas.Public.Controllers
             int i = g.EntityId;
 
             SleeveSize s = new SleeveSize();
-            s.ProductId = 987;
+            s.ProductSizeId = 987;
             i = s.EntityId;
 
             return View();

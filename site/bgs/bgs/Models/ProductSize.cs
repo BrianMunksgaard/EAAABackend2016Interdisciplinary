@@ -5,6 +5,9 @@ using System.Web;
 
 namespace bgs.Models
 {
+    /// <summary>
+    /// This class is used to hold various product sizes.
+    /// </summary>
     public class ProductSize : BgsEntity
     {
         private int productSizeId;
