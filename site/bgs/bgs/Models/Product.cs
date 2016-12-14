@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Drawing;
 
 namespace bgs.Models
 {
@@ -21,6 +22,12 @@ namespace bgs.Models
         private Category category;
 
         private ICollection<ProductFitGame> fitsGames;
+
+        private int productSizeId;
+        private ProductSize productSize;
+
+        private decimal weight;
+        private Color color;
 
         #endregion
 
@@ -123,6 +130,30 @@ namespace bgs.Models
         {
             get { return category; }
             set { category = value; }
+        }
+
+        public int ProductSizeId
+        {
+            get { return productSizeId; }
+            set { productSizeId = value; }
+        }
+
+        public ProductSize ProductSize
+        {
+            get { return productSize == null ? productSize = new ProductSize() : productSize; }
+            set { productSize = value; }
+        }
+
+        public decimal Weight
+        {
+            get { return weight; }
+            set { weight = value; }
+        }
+
+        public Color Color
+        {
+            get { return color; }
+            set { color = value; }
         }
 
         #endregion

@@ -107,14 +107,14 @@ namespace bgs.DAL
             }
         }
 
-        private Repository<Sleeve> sleeveRepository;
-        public Repository<Sleeve> SleeveRepository
+        private Repository<SleeveSize> sleeveRepository;
+        public Repository<SleeveSize> SleeveRepository
         {
             get
             {
                 if (sleeveRepository == null)
                 {
-                    sleeveRepository = new Repository<Sleeve>(_context);
+                    sleeveRepository = new Repository<SleeveSize>(_context);
                 }
                 return sleeveRepository;
             }

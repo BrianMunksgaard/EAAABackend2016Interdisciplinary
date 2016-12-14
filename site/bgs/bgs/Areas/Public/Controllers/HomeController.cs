@@ -16,7 +16,7 @@ namespace bgs.Areas.Public.Controllers
             g.GameId = 123;
             int i = g.EntityId;
 
-            Sleeve s = new Sleeve();
+            SleeveSize s = new SleeveSize();
             s.ProductId = 987;
             i = s.EntityId;
 

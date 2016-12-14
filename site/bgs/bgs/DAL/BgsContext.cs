@@ -25,7 +25,7 @@ namespace bgs.DAL
 
         public virtual DbSet<Category> ProductCategories { get; set; }
 
-        public virtual DbSet<Sleeve> Sleeves { get; set; }
+        public virtual DbSet<SleeveSize> Sleeves { get; set; }
 
         public virtual DbSet<ProductFitGame> ProductGames { get; set; }
 

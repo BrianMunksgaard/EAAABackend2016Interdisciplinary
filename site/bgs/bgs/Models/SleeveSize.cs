@@ -8,15 +8,11 @@ namespace bgs.Models
     /// contains a lot of properties that only applies to
     /// sleeves.
     /// </summary>
-    [Table("Sleeve")]
-    public class Sleeve : Product
+    [Table("SleeveSize")]
+    public class SleeveSize : ProductSize
     {
         #region Private variables
 
-        private Size sleeveSize;
-        private string cmyk;
-        private string rgb;
-        private int weight;
         private Dimension fitCardDim;
         private Dimension displayDim;
         private Dimension outerCartonDim;
@@ -27,73 +23,6 @@ namespace bgs.Models
         #endregion
 
         #region Public properties
-
-        /// <summary>
-        /// Sleeve size as in large, medium etc.
-        /// </summary>
-        [Display(Name = "Size")]
-        public Size SleeveSize
-        {
-            get
-            {
-                return sleeveSize;
-            }
-            set
-            {
-                sleeveSize = value;
-            }
-        }
-
-        /// <summary>
-        /// Indicates the CMYK colors of the sleeve package.
-        /// </summary>
-        public string CMYK
-        {
-            get
-            {
-                return cmyk;
-            }
-            set
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    cmyk = value;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Indicates the RGB colors of the sleeve package.
-        /// </summary>
-        public string RGB
-        {
-            get
-            {
-                return rgb;
-            }
-            set
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    rgb = value;
-                }
-            }
-        }
-
-        /// <summary>
-        /// The weight of the sleeve package.
-        /// </summary>
-        public int Weight
-        {
-            get
-            {
-                return weight;
-            }
-            set
-            {
-                weight = value;
-            }
-        }
 
         /// <summary>
         /// The dimensions of cards
@@ -209,7 +138,7 @@ namespace bgs.Models
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public Sleeve() : base()
+        public SleeveSize()
         {
 
         }

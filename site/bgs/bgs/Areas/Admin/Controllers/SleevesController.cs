@@ -10,7 +10,7 @@ namespace bgs.Areas.Admin.Controllers
     public class SleevesController : Controller
     {
         private UnitOfWork uow = new UnitOfWork();
-        private Repository<Sleeve> repo;
+        private Repository<SleeveSize> repo;
 
         public SleevesController()
         {
@@ -41,7 +41,7 @@ namespace bgs.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sleeve sleeve = repo.GetItem(id ?? 0);
+            SleeveSize sleeve = repo.GetItem(id ?? 0);
             if (sleeve == null)
             {
                 return HttpNotFound();
@@ -61,7 +61,7 @@ namespace bgs.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductId,ProductName,ProductCode,Price,CategoryId,CategoryPropertiesId,Size,CMYK,RGB,Weight")] Sleeve sleeve)
+        public ActionResult Create([Bind(Include = "ProductId,ProductName,ProductCode,Price,CategoryId,CategoryPropertiesId,Size,CMYK,RGB,Weight")] SleeveSize sleeve)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace bgs.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sleeve sleeve = repo.GetItem(id ?? 0);
+            SleeveSize sleeve = repo.GetItem(id ?? 0);
             if (sleeve == null)
             {
                 return HttpNotFound();
@@ -95,7 +95,7 @@ namespace bgs.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,ProductName,ProductCode,Price,CategoryId,CategoryPropertiesId,Size,CMYK,RGB,Weight")] Sleeve sleeve)
+        public ActionResult Edit([Bind(Include = "ProductId,ProductName,ProductCode,Price,CategoryId,CategoryPropertiesId,Size,CMYK,RGB,Weight")] SleeveSize sleeve)
         {
             if (ModelState.IsValid)
             {
@@ -114,7 +114,7 @@ namespace bgs.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sleeve sleeve = repo.GetItem(id ?? 0);
+            SleeveSize sleeve = repo.GetItem(id ?? 0);
             if (sleeve == null)
             {
                 return HttpNotFound();
