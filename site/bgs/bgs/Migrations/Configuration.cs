@@ -31,45 +31,49 @@ namespace bgs.Migrations
             context.ProductCategories.AddOrUpdate(Sleeves);
             context.SaveChanges();
 
-            // Dimensions.
-
-            // SleeveSizes.
+                        
+            /*
+             * Sleeve sizes.
+             */
             int productSizeId = 0;
             SleeveSize sizeOversize = new SleeveSize
             {
-                ProductSizeId = ++productSizeId,
-                ProductSizeText = "Oversize",
+                ProductSizeId = ++productSizeId, ProductSizeText = "Oversize",
                 DisplayDim = new Dimension
                 {
-                    
+                    Length = 225, Width = 115, Height = 135
                 },
                 FitCardDim = new Dimension
                 {
-
+                    Width = 79, Height = 120 
                 },
                 StandardSleeveDim = new Dimension
                 {
-
+                    Width = 82, Height = 124
                 },
                 NGSleeveDim = new Dimension
                 {
-
+                    Width = 82, Height = 124
                 },
                 NGBoxDim = new Dimension
                 {
-
+                    Width = 85, Height = 126, Depth = 27
                 },
                 OuterCartonDim = new Dimension
                 {
+                    Length = 347, Width = 227, Height = 272
 
+                },
+                ProductSizeColorCode = new CMYK
+                {
+                    Cyan = 36, Magenta = 57, Yellow =84, KeyColor = 23
                 }
             };
             context.SleeveSizes.AddOrUpdate(sizeOversize);
 
             SleeveSize sizeExtraLarge = new SleeveSize
             {
-                ProductSizeId = ++productSizeId,
-                ProductSizeText = "Extra Large",
+                ProductSizeId = ++productSizeId, ProductSizeText = "Extra Large",
                 DisplayDim = new Dimension
                 {
 
@@ -93,6 +97,10 @@ namespace bgs.Migrations
                 OuterCartonDim = new Dimension
                 {
 
+                },
+                ProductSizeColorCode = new CMYK
+                {
+                    Cyan = 69, Magenta = 90, Yellow = 0, KeyColor = 0
                 }
             };
             context.SleeveSizes.AddOrUpdate(sizeExtraLarge);
@@ -113,44 +121,144 @@ namespace bgs.Migrations
             context.Products.AddOrUpdate(bgsTarot);
             context.SaveChanges();
 
-            // Products.
-            Product prdOversize = new Product { ProductId = 10408, ProductCode = "AT-10408", ProductName = "Board Game Sleeves - Oversize", Price = 20M, CategoryId = Sleeves.CategoryId, Weight = 0, Color = Color.Red, ProductSizeId = 0 };
+            /*
+             * Products. 
+             */
+            productSizeId = 0;
+
+            Product prdOversize = new Product
+            {
+                ProductId = 10408,
+                ProductCode = "AT-10408",
+                ProductName = "Board Game Sleeves - Oversize",
+                Price = 20M,
+                CategoryId = Sleeves.CategoryId,
+                Weight = 0,
+                ProductSizeId = ++productSizeId
+            };
             context.Products.AddOrUpdate(prdOversize);
-            Product prdExtraLarge = new Product { ProductId = 10407, ProductCode = "AT-10407", ProductName = "Board Game Sleeves - Extra Large", Price = 20M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.ExtraLarge };
+
+            Product prdExtraLarge = new Product
+            {
+                ProductId = 10407,
+                ProductCode = "AT-10407",
+                ProductName = "Board Game Sleeves - Extra Large",
+                Price = 20M,
+                CategoryId = Sleeves.CategoryId,
+                ProductSizeId = ++productSizeId
+            };
             context.Products.AddOrUpdate(prdExtraLarge);
-            Product prdLarge = new Product { ProductId = 10402, ProductCode = "AT-10402", ProductName = "Board Game Sleeves - Large", Price = 18M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Large };
+
+            Product prdLarge = new Product
+            {
+                ProductId = 10402,
+                ProductCode = "AT-10402",
+                ProductName = "Board Game Sleeves - Large",
+                Price = 18M,
+                CategoryId = Sleeves.CategoryId,
+                ProductSizeId = ++productSizeId
+            };
             context.Products.AddOrUpdate(prdLarge);
-            Product prdStandard = new Product { ProductId = 10406, ProductCode = "AT-10406", ProductName = "Board Game Sleeves - Standard", Price = 16M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Standard };
+
+            Product prdStandard = new Product
+            {
+                ProductId = 10406,
+                ProductCode = "AT-10406",
+                ProductName = "Board Game Sleeves - Standard",
+                Price = 16M,
+                CategoryId = Sleeves.CategoryId,
+                ProductSizeId = ++productSizeId
+            };
             context.Products.AddOrUpdate(prdStandard);
-            Product prdMedium = new Product { ProductId = 10403, ProductCode = "AT-10403", ProductName = "Board Game Sleeves - Medium", Price = 14M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Medium };
+
+            Product prdMedium = new Product
+            {
+                ProductId = 10403,
+                ProductCode = "AT-10403",
+                ProductName = "Board Game Sleeves - Medium",
+                Price = 14M,
+                CategoryId = Sleeves.CategoryId,
+                ProductSizeId = ++productSizeId
+            };
             context.Products.AddOrUpdate(prdMedium);
-            Product prdSmall = new Product { ProductId = 10404, ProductCode = "AT-10404", ProductName = "Board Game Sleeves - Small", Price = 12M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Small };
+
+            Product prdSmall = new Product
+            {
+                ProductId = 10404,
+                ProductCode = "AT-10404",
+                ProductName = "Board Game Sleeves - Small",
+                Price = 12M,
+                CategoryId = Sleeves.CategoryId,
+                ProductSizeId = ++productSizeId
+            };
             context.Products.AddOrUpdate(prdSmall);
-            Product prdMini = new Product { ProductId = 10405, ProductCode = "AT-10405", ProductName = "Board Game Sleeves - Mini", Price = 10M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Mini };
+
+            Product prdMini = new Product
+            {
+                ProductId = 10405,
+                ProductCode = "AT-10405",
+                ProductName = "Board Game Sleeves - Mini",
+                Price = 10M,
+                CategoryId = Sleeves.CategoryId,
+                ProductSizeId = ++productSizeId
+            };
             context.Products.AddOrUpdate(prdMini);
-            Product prdSquare = new Product { ProductId = 10409, ProductCode = "AT-10409", ProductName = "Board Game Sleeves - Square", Price = 10M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Square };
+
+            Product prdSquare = new Product
+            {
+                ProductId = 10409,
+                ProductCode = "AT-10409",
+                ProductName = "Board Game Sleeves - Square",
+                Price = 10M,
+                CategoryId = Sleeves.CategoryId,
+                ProductSizeId = ++productSizeId
+            };
             context.Products.AddOrUpdate(prdSquare);
-            Product prdTarot = new Product { ProductId = 10410, ProductCode = "AT-10410", ProductName = "Board Game Sleeves - Tarot", Price = 22M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Tarot };
+
+            Product prdTarot = new Product
+            {
+                ProductId = 10410,
+                ProductCode = "AT-10410",
+                ProductName = "Board Game Sleeves - Tarot",
+                Price = 22M,
+                CategoryId = Sleeves.CategoryId,
+                ProductSizeId = ++productSizeId
+            };
             context.Products.AddOrUpdate(prdTarot);
-
-            
-
-
-            Game acquire = new Game { GameId = 1, GameCode = "G-001", GameName = "Acquire" };
-            context.Games.AddOrUpdate(acquire);
-            Game arkhamHorror = new Game { GameId = 2, GameCode = "G-002", GameName = "Arkham Horror" };
-            context.Games.AddOrUpdate(arkhamHorror);
             context.SaveChanges();
 
 
-            ProductFitGame acquireSleeve = new ProductFitGame { GameId = acquire.GameId, ProductId = bgsMedium.ProductId, Comment = "" };
+            /*
+             * Games.
+             */
+            Game acquire = new Game
+            {
+                GameId = 1,
+                GameCode = "G-001",
+                GameName = "Acquire"
+            };
+            context.Games.AddOrUpdate(acquire);
+
+            Game arkhamHorror = new Game
+            {
+                GameId = 2,
+                GameCode = "G-002",
+                GameName = "Arkham Horror"
+            };
+            context.Games.AddOrUpdate(arkhamHorror);
+            context.SaveChanges();
+
+            /*
+             * Products and Game fit.
+             */
+            ProductFitGame acquireSleeve = new ProductFitGame { GameId = acquire.GameId, ProductId = prdMedium.ProductId, Comment = "" };
             context.ProductGames.AddOrUpdate(acquireSleeve);
             acquire.ProductsFit.Add(acquireSleeve);
-            bgsMedium.FitsGames.Add(acquireSleeve);
-            ProductFitGame arkhamHorrorSleeve = new ProductFitGame { GameId = arkhamHorror.GameId, ProductId = bgsMedium.ProductId, Comment = "Big cards" };
+            prdMedium.FitsGames.Add(acquireSleeve);
+            ProductFitGame arkhamHorrorSleeve = new ProductFitGame { GameId = arkhamHorror.GameId, ProductId = prdMedium.ProductId, Comment = "Big cards" };
             context.ProductGames.AddOrUpdate(arkhamHorrorSleeve);
             arkhamHorror.ProductsFit.Add(arkhamHorrorSleeve);
-            bgsMedium.FitsGames.Add(arkhamHorrorSleeve);
+            prdMedium.FitsGames.Add(arkhamHorrorSleeve);
             context.SaveChanges();
 
 

@@ -16,6 +16,7 @@ namespace bgs.Models
         private int width;
         private int height;
         private int length;
+        private int depth;
 
         #endregion
 
@@ -66,6 +67,15 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// Depth.
+        /// </summary>
+        public int Depth
+        {
+            get { return depth; }
+            set { depth = value; }
+        }
+
         #endregion
 
         /// <summary>
@@ -81,7 +91,8 @@ namespace bgs.Models
             {
                 Length = this.length > relativeDimension.Length ? this.Length - relativeDimension.Length : 0,
                 Height = this.Height > relativeDimension.Height ? this.Height - relativeDimension.Height : 0,
-                Width = this.Width > relativeDimension.Width ? this.Height - relativeDimension.Width : 0
+                Width = this.Width > relativeDimension.Width ? this.Height - relativeDimension.Width : 0,
+                Depth = this.Depth > relativeDimension.Depth ? this.Depth - relativeDimension.Depth : 0
             };
             return d;
         }
