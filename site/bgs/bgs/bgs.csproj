@@ -179,8 +179,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BgsEntity.cs" />
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CMYK.cs" />
     <Compile Include="Models\ProductSize.cs" />
-    <Compile Include="Models\Size.cs" />
     <Compile Include="Models\Credential.cs" />
     <Compile Include="Models\SleeveSize.cs" />
     <Compile Include="Models\Person.cs" />

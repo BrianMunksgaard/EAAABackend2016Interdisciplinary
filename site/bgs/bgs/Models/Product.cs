@@ -17,17 +17,13 @@ namespace bgs.Models
         private string productName;
         private string productCode;
         private decimal price;
-
         private int categoryId;
         private Category category;
-
         private ICollection<ProductFitGame> fitsGames;
-
         private int productSizeId;
         private ProductSize productSize;
-
         private decimal weight;
-        private Color color;
+        private string barcode;
 
         #endregion
 
@@ -132,44 +128,40 @@ namespace bgs.Models
             set { category = value; }
         }
 
+        /// <summary>
+        /// Id of related product size.
+        /// </summary>
         public int ProductSizeId
         {
             get { return productSizeId; }
             set { productSizeId = value; }
         }
 
+        /// <summary>
+        /// Product size navigation property.
+        /// </summary>
         public ProductSize ProductSize
         {
             get { return productSize == null ? productSize = new ProductSize() : productSize; }
             set { productSize = value; }
         }
 
+        /// <summary>
+        /// Product weight in kg.
+        /// </summary>
         public decimal Weight
         {
             get { return weight; }
             set { weight = value; }
         }
 
-        [NotMapped]
-        public Color Color
-        {
-            get { return color; }
-            set { color = value; }
-        }
-
         /// <summary>
-        /// Color value to be stored in DB.
+        /// Product barcode.
         /// </summary>
-        public int ARGB
+        public string Barcode
         {
-            get
-            {
-                return Color.ToArgb();
-            }
-            set
-            {
-                Color = Color.FromArgb(value);
-            }
+            get { return barcode == null ? barcode = string.Empty : barcode; }
+            set { barcode = value; }
         }
 
         #endregion

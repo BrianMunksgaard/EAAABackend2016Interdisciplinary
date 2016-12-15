@@ -13,28 +13,13 @@ namespace bgs.Models
     {
         #region Private variables
 
-        private int dimensionId;
         private int width;
         private int height;
         private int length;
-        private int gapWidth;
-        private int gapHeight;
-        private int gapLength;
-        private Dimension holds;
 
         #endregion
 
         #region Public properties
-
-        /// <summary>
-        /// A unique dimension id.
-        /// </summary>
-        [Key]
-        public int DimensionId
-        {
-            get { return dimensionId; }
-            set { dimensionId = value; }
-        }
 
         /// <summary>
         /// The width of the sleeve.
@@ -81,71 +66,24 @@ namespace bgs.Models
             }
         }
 
-        /// <summary>
-        /// The width of an possible gap.
-        /// </summary>
-        public int GapWidth
-        {
-            get
-            {
-                return gapWidth;
-            }
-            set
-            {
-                gapWidth = value;
-            }
-        }
-
-        /// <summary>
-        /// The height of a possible gap.
-        /// </summary>
-        public int GapHeight
-        {
-            get
-            {
-                return gapHeight;
-            }
-            set
-            {
-                gapHeight = value;
-            }
-        }
-
-        /// <summary>
-        /// The length of a possible gap.
-        /// </summary>
-        public int GapLength
-        {
-            get
-            {
-                return gapLength;
-            }
-            set
-            {
-                gapLength = value;
-            }
-        }
-
-        /// <summary>
-        /// A reference to another dimension to 
-        /// indicate that this dimension is capable
-        /// of containing some other dimension.
-        /// </summary>
-        public Dimension Holds
-        {
-            get
-            {
-                return holds;
-            }
-            set
-            {
-                if (value != null)
-                {
-                    holds = value;
-                }
-            }
-        }
-
         #endregion
+
+        /// <summary>
+        /// Returns the gaps between the length, height and width of this
+        /// dimension relative to length, height and width of the relativeDimension
+        /// parameter. 
+        /// </summary>
+        /// <param name="relativeDimension"></param>
+        /// <returns></returns>
+        public Dimension GetGaps(Dimension relativeDimension)
+        {
+            Dimension d = new Dimension()
+            {
+                Length = this.length > relativeDimension.Length ? this.Length - relativeDimension.Length : 0,
+                Height = this.Height > relativeDimension.Height ? this.Height - relativeDimension.Height : 0,
+                Width = this.Width > relativeDimension.Width ? this.Height - relativeDimension.Width : 0
+            };
+            return d;
+        }
     }
 }
