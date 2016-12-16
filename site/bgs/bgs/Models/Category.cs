@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bgs.Models
 {
@@ -58,6 +59,7 @@ namespace bgs.Models
         /// <summary>
         /// A unique category code used to identify the category. This is the category code used by the business.
         /// </summary>
+        [Index("CategoryIndex", IsUnique = true)]
         public string CategoryCode
         {
             get

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bgs.Models
 {
@@ -58,6 +59,7 @@ namespace bgs.Models
         /// <summary>
         /// A unique game code to identify the game. This is the game code used by the business.
         /// </summary>
+        [Index("GameIndex", IsUnique = true)]
         public string GameCode
         {
             get
