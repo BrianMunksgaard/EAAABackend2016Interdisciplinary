@@ -110,6 +110,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ArcaneTinmen.mdf" />
+    <Content Include="App_Data\ArcaneTinmen_log.ldf">
+      <DependentUpon>ArcaneTinmen.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -138,18 +142,7 @@
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Nav\Menu.cshtml" />
     <Content Include="Areas\Public\Views\Catalogue\Index.cshtml" />
-    <Content Include="Areas\Public\Views\Shared\ProductSummarySleeve.cshtml" />
-    <Content Include="Areas\Admin\Views\Games\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Games\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Games\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Games\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Games\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Test\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Test\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Test\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Test\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Test\Index.cshtml" />
+    <Content Include="Areas\Public\Views\Shared\ProductSummary.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -161,11 +154,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\GamesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NavController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
-    <Compile Include="Areas\Admin\Controllers\TestController.cs" />
     <Compile Include="Areas\Admin\ViewModels\PagingInfo.cs" />
     <Compile Include="Areas\Admin\ViewModels\ProductListViewModel.cs" />
     <Compile Include="Areas\Public\Controllers\CatalogueController.cs" />
@@ -183,6 +173,10 @@
     <Compile Include="Migrations\201612161113353_InitialCreate.cs" />
     <Compile Include="Migrations\201612161113353_InitialCreate.Designer.cs">
       <DependentUpon>201612161113353_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612161155110_AddedImageUrlProperty.cs" />
+    <Compile Include="Migrations\201612161155110_AddedImageUrlProperty.Designer.cs">
+      <DependentUpon>201612161155110_AddedImageUrlProperty.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BgsEntity.cs" />
@@ -219,7 +213,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Public\Models\" />
     <Folder Include="Views\Home\" />
@@ -227,6 +220,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201612161113353_InitialCreate.resx">
       <DependentUpon>201612161113353_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612161155110_AddedImageUrlProperty.resx">
+      <DependentUpon>201612161155110_AddedImageUrlProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -23,6 +23,7 @@ namespace bgs.Models
         private ProductSize productSize;
         private decimal weight;
         private string barcode;
+        private string imageUrl;
 
         #endregion
 
@@ -141,7 +142,7 @@ namespace bgs.Models
         /// </summary>
         public ProductSize ProductSize
         {
-            get { return productSize == null ? productSize = new ProductSize() : productSize; }
+            get { return productSize; }
             set { productSize = value; }
         }
 
@@ -161,6 +162,15 @@ namespace bgs.Models
         {
             get { return barcode == null ? barcode = string.Empty : barcode; }
             set { barcode = value; }
+        }
+
+        /// <summary>
+        /// Product image URL.
+        /// </summary>
+        public string ImageUrl
+        {
+            get { return imageUrl == null ? imageUrl = string.Empty : imageUrl; }
+            set { imageUrl = value; }
         }
 
         #endregion

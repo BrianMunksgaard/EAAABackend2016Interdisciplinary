@@ -1,25 +1,26 @@
-﻿@model List<bgs.Models.Sleeve>
+﻿@model List<bgs.Models.Product>
 @using bgs.Models;
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Products";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 
-@helper RenderSleeves(List<Sleeve> items)
+@helper RenderProducts(List<Product> items)
 {
     if (items.Count() > 0)
     {
-        <h2>The CDs</h2>
-        foreach (Sleeve s in items)
-        {
-            @Html.Partial("ProductSummarySleeve", s);
-            <br />
-        }
+        <h2>The Products</h2>
+    foreach (Product p in items)
+    {
+        <div class="row">
+            @Html.Partial("ProductSummary", p);
+        </div>
     }
+}
 }
 
 
 
-@RenderSleeves(Model)
+@RenderProducts(Model)

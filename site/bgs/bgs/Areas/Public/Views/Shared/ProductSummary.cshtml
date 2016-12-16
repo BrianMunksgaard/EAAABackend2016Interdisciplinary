@@ -1,9 +1,10 @@
-﻿@model bgs.Models.Sleeve
+﻿@model bgs.Models.Product
 
 <div class="col-md-4">
 
     <strong>Name:</strong> @Model.ProductName<br />
     <strong>Product Code:</strong> @Model.ProductCode<br />
     <strong>Price:</strong> @Model.Price<br />
-    <img src="~/Content/Images/Products/Sleeves/at-10403-board-game-sleeves-medium-68.jpg" alt="@Model.ProductName" style="width:100px" />
+    <strong>@Model.ImageUrl</strong>
+    <img src="@Model.ImageUrl" alt="@Model.ProductName" style="width:100px" />
 </div>
