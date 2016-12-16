@@ -660,7 +660,7 @@ namespace bgs.Migrations
             context.SaveChanges();
 
 
-            OrderItem firstOrderItem = new OrderItem(prdTarot, 1);
+            //OrderItem firstOrderItem = new OrderItem(prdTarot, 1);
 
 
             Order firstOrder = new Order(DateTime.Now);
