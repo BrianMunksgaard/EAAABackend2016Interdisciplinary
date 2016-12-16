@@ -60,6 +60,7 @@ namespace bgs.Models
         /// A unique category code used to identify the category. This is the category code used by the business.
         /// </summary>
         [Index("CategoryIndex", IsUnique = true)]
+        [MaxLength(15)]
         public string CategoryCode
         {
             get

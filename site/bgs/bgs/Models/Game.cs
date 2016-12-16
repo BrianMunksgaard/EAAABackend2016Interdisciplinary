@@ -60,6 +60,7 @@ namespace bgs.Models
         /// A unique game code to identify the game. This is the game code used by the business.
         /// </summary>
         [Index("GameIndex", IsUnique = true)]
+        [MaxLength(15)]
         public string GameCode
         {
             get

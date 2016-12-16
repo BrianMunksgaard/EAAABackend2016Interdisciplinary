@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Drawing;
 
 namespace bgs.Models
 {
@@ -71,7 +70,7 @@ namespace bgs.Models
         /// by the business.
         /// </summary>
         [Index("ProductIndex", IsUnique = true)]
-        [MaxLength(20)]
+        [MaxLength(15)]
         [Display(Name = "Product code")]
         public string ProductCode
         {

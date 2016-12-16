@@ -13,7 +13,7 @@ namespace bgs.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201612131001406_InitialCreate"; }
+            get { return "201612161113353_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
