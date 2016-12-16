@@ -55,18 +55,18 @@ namespace bgs.DAL
             }
         }
 
-        private Repository<Dimension> dimensionsRepository;
-        public Repository<Dimension> DimensionsRepository
-        {
-            get
-            {
-                if (dimensionsRepository == null)
-                {
-                    dimensionsRepository = new Repository<Dimension>(_context);
-                }
-                return dimensionsRepository;
-            }
-        }
+        //private Repository<Dimension> dimensionsRepository;
+        //public Repository<Dimension> DimensionsRepository
+        //{
+        //    get
+        //    {
+        //        if (dimensionsRepository == null)
+        //        {
+        //            dimensionsRepository = new Repository<Dimension>(_context);
+        //        }
+        //        return dimensionsRepository;
+        //    }
+        //}
 
         private Repository<Person> personRepository;
         public Repository<Person> PersonRepository
@@ -100,7 +100,7 @@ namespace bgs.DAL
         {
             get
             {
-                if(productRepository == null)
+                if (productRepository == null)
                 {
                     productRepository = new Repository<Product>(_context);
                 }
@@ -122,16 +122,16 @@ namespace bgs.DAL
             }
         }
 
-        private Repository<SleeveSize> sleeveRepository;
-        public Repository<SleeveSize> SleeveRepository
+        private Repository<SleeveSize> sleeveSizeRepository;
+        public Repository<SleeveSize> SleeveSizeRepository
         {
             get
             {
-                if (sleeveRepository == null)
+                if (sleeveSizeRepository == null)
                 {
-                    sleeveRepository = new Repository<SleeveSize>(_context);
+                    sleeveSizeRepository = new Repository<SleeveSize>(_context);
                 }
-                return sleeveRepository;
+                return sleeveSizeRepository;
             }
         }
 

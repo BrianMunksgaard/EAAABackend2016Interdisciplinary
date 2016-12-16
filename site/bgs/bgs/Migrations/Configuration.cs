@@ -4,7 +4,6 @@ namespace bgs.Migrations
     using Models;
     using System;
     using System.Data.Entity.Migrations;
-    using System.Drawing;
 
     internal sealed class Configuration : DbMigrationsConfiguration<BgsContext>
     {
@@ -74,27 +73,36 @@ namespace bgs.Migrations
                 ProductSizeText = "Large",
                 DisplayDim = new Dimension
                 {
-                    Length = 225, Width = 95, Height = 101
+                    Length = 225,
+                    Width = 95,
+                    Height = 101
                 },
                 FitCardDim = new Dimension
                 {
-                    Width = 59, Height = 92
+                    Width = 59,
+                    Height = 92
                 },
                 StandardSleeveDim = new Dimension
                 {
-                    Width = 62, Height = 96
+                    Width = 62,
+                    Height = 96
                 },
                 NGSleeveDim = new Dimension
                 {
-                    Width = 62, Height = 96
+                    Width = 62,
+                    Height = 96
                 },
                 NGBoxDim = new Dimension
                 {
-                    Width = 65, Height = 98, Depth = 27
+                    Width = 65,
+                    Height = 98,
+                    Depth = 27
                 },
                 OuterCartonDim = new Dimension
                 {
-                    Length = 287, Width = 227, Height = 204
+                    Length = 287,
+                    Width = 227,
+                    Height = 204
                 },
                 ProductSizeColorCode = new CMYK
                 {
@@ -355,35 +363,48 @@ namespace bgs.Migrations
             #region Oversize
             SleeveSize sizeOversize = new SleeveSize
             {
-                ProductSizeId = ++productSizeId, ProductSizeText = "Oversize",
+                ProductSizeId = ++productSizeId,
+                ProductSizeText = "Oversize",
                 DisplayDim = new Dimension
                 {
-                    Length = 225, Width = 115, Height = 135
+                    Length = 225,
+                    Width = 115,
+                    Height = 135
                 },
                 FitCardDim = new Dimension
                 {
-                    Width = 79, Height = 120 
+                    Width = 79,
+                    Height = 120
                 },
                 StandardSleeveDim = new Dimension
                 {
-                    Width = 82, Height = 124
+                    Width = 82,
+                    Height = 124
                 },
                 NGSleeveDim = new Dimension
                 {
-                    Width = 82, Height = 124
+                    Width = 82,
+                    Height = 124
                 },
                 NGBoxDim = new Dimension
                 {
-                    Width = 85, Height = 126, Depth = 27
+                    Width = 85,
+                    Height = 126,
+                    Depth = 27
                 },
                 OuterCartonDim = new Dimension
                 {
-                    Length = 347, Width = 227, Height = 272
+                    Length = 347,
+                    Width = 227,
+                    Height = 272
 
                 },
                 ProductSizeColorCode = new CMYK
                 {
-                    Cyan = 36, Magenta = 57, Yellow =84, KeyColor = 23
+                    Cyan = 36,
+                    Magenta = 57,
+                    Yellow = 84,
+                    KeyColor = 23
                 }
             };
             context.SleeveSizes.AddOrUpdate(sizeOversize);
@@ -639,12 +660,12 @@ namespace bgs.Migrations
             context.SaveChanges();
 
 
-            OrderItem firstOrderItem = new OrderItem(bgsTarot, 1);
+            OrderItem firstOrderItem = new OrderItem(prdTarot, 1);
 
 
             Order firstOrder = new Order(DateTime.Now);
             firstOrder.CustomerId = customer.PersonId;
-            firstOrder.AddItem(bgsTarot, 1);
+            firstOrder.AddItem(prdTarot, 1);
             //firstOrder.OrderItems.Add(firstOrderItem);
             context.Orders.AddOrUpdate(firstOrder);
 
