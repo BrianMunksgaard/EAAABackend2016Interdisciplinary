@@ -1,10 +1,15 @@
 ﻿@model bgs.Models.Product
 
-<div class="col-md-4">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            @Model.ProductName
+        </h3>
+    </div>
 
-    <strong>Name:</strong> @Model.ProductName<br />
-    <strong>Product Code:</strong> @Model.ProductCode<br />
-    <strong>Price:</strong> @Model.Price<br />
-    <strong>@Model.ImageUrl</strong>
-    <img src="@Model.ImageUrl" alt="@Model.ProductName" style="width:100px" />
+    <div class="panel-body">
+        <strong>Product Code:</strong> @Model.ProductCode<br />
+        <strong>Price:</strong> @Model.Price<br />
+        <img src="@Model.ImageUrl" alt="@Model.ProductName" style="width:100px" />
+    </div>
 </div>

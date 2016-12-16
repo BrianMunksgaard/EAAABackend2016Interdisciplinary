@@ -12,13 +12,13 @@
     if (items.Count() > 0)
     {
         <h2>The Products</h2>
-    foreach (Product p in items)
-    {
-        <div class="row">
-            @Html.Partial("ProductSummary", p);
-        </div>
+        foreach (Product p in items)
+        {
+            <div class="row">
+                @Html.Partial("ProductSummary", p)
+            </div>
+        }
     }
-}
 }
 
 
