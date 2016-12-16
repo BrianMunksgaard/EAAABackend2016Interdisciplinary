@@ -64,12 +64,9 @@ namespace bgs.Migrations
             /*
              * Sleeve sizes.
              */
-            int productSizeId = 0;
-
             #region Large
             SleeveSize sizeLarge = new SleeveSize
             {
-                ProductSizeId = ++productSizeId,
                 ProductSizeText = "Large",
                 DisplayDim = new Dimension
                 {
@@ -118,7 +115,6 @@ namespace bgs.Migrations
             #region Medium
             SleeveSize sizeMedium = new SleeveSize
             {
-                ProductSizeId = ++productSizeId,
                 ProductSizeText = "Medium",
                 DisplayDim = new Dimension
                 {
@@ -167,7 +163,6 @@ namespace bgs.Migrations
             #region Small
             SleeveSize sizeSmall = new SleeveSize
             {
-                ProductSizeId = ++productSizeId,
                 ProductSizeText = "Small",
                 DisplayDim = new Dimension
                 {
@@ -216,7 +211,6 @@ namespace bgs.Migrations
             #region Mini
             SleeveSize sizeMini = new SleeveSize
             {
-                ProductSizeId = ++productSizeId,
                 ProductSizeText = "Mini",
                 DisplayDim = new Dimension
                 {
@@ -265,7 +259,6 @@ namespace bgs.Migrations
             #region Standard
             SleeveSize sizeStandard = new SleeveSize
             {
-                ProductSizeId = ++productSizeId,
                 ProductSizeText = "Standard",
                 DisplayDim = new Dimension
                 {
@@ -314,7 +307,6 @@ namespace bgs.Migrations
             #region ExtraLarge
             SleeveSize sizeExtraLarge = new SleeveSize
             {
-                ProductSizeId = ++productSizeId,
                 ProductSizeText = "Extra Large",
                 DisplayDim = new Dimension
                 {
@@ -363,7 +355,6 @@ namespace bgs.Migrations
             #region Oversize
             SleeveSize sizeOversize = new SleeveSize
             {
-                ProductSizeId = ++productSizeId,
                 ProductSizeText = "Oversize",
                 DisplayDim = new Dimension
                 {
@@ -413,7 +404,6 @@ namespace bgs.Migrations
             #region Square
             SleeveSize sizeSquare = new SleeveSize
             {
-                ProductSizeId = ++productSizeId,
                 ProductSizeText = "Square",
                 DisplayDim = new Dimension
                 {
@@ -462,7 +452,6 @@ namespace bgs.Migrations
             #region Tarot
             SleeveSize sizeTarot = new SleeveSize
             {
-                ProductSizeId = ++productSizeId,
                 ProductSizeText = "Tarot",
                 DisplayDim = new Dimension
                 {
@@ -521,6 +510,7 @@ namespace bgs.Migrations
                 Price = 20M,
                 CategoryId = Sleeves.CategoryId,
                 Weight = 0,
+                ImageUrl = "/Content/Images/Products/Sleeves/at-10408-board-game-sleeves-oversize-e0.jpg",
                 ProductSizeId = sizeOversize.ProductSizeId
             };
             context.Products.AddOrUpdate(prdOversize);
@@ -532,6 +522,7 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Extra Large",
                 Price = 20M,
                 CategoryId = Sleeves.CategoryId,
+                ImageUrl = "/Content/Images/Products/Sleeves/board-game-sleeves-extra-large-1024-d4.jpg",
                 ProductSizeId = sizeExtraLarge.ProductSizeId
             };
             context.Products.AddOrUpdate(prdExtraLarge);
@@ -543,6 +534,7 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Large",
                 Price = 18M,
                 CategoryId = Sleeves.CategoryId,
+                ImageUrl = "/Content/Images/Products/Sleeves/board-game-sleeves-large-1024-14.jpg",
                 ProductSizeId = sizeLarge.ProductSizeId
             };
             context.Products.AddOrUpdate(prdLarge);
@@ -554,6 +546,7 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Standard",
                 Price = 16M,
                 CategoryId = Sleeves.CategoryId,
+                ImageUrl = "/Content/Images/Products/Sleeves/at-10406-board-game-sleeves-standard-1a.jpg",
                 ProductSizeId = sizeStandard.ProductSizeId
             };
             context.Products.AddOrUpdate(prdStandard);
@@ -565,6 +558,7 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Medium",
                 Price = 14M,
                 CategoryId = Sleeves.CategoryId,
+                ImageUrl = "/Content/Images/Products/Sleeves/at-10403-board-game-sleeves-medium-68.jpg",
                 ProductSizeId = sizeMedium.ProductSizeId
             };
             context.Products.AddOrUpdate(prdMedium);
@@ -576,6 +570,7 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Small",
                 Price = 12M,
                 CategoryId = Sleeves.CategoryId,
+                ImageUrl = "/Content/Images/Products/Sleeves/at-10404-board-game-sleeves-small-b1.jpg",
                 ProductSizeId = sizeSmall.ProductSizeId
             };
             context.Products.AddOrUpdate(prdSmall);
@@ -587,6 +582,7 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Mini",
                 Price = 10M,
                 CategoryId = Sleeves.CategoryId,
+                ImageUrl = "/Content/Images/Products/Sleeves/at-10405-board-game-sleeves-mini-4e.jpg",
                 ProductSizeId = sizeMini.ProductSizeId
             };
             context.Products.AddOrUpdate(prdMini);
@@ -598,10 +594,11 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Square",
                 Price = 10M,
                 CategoryId = Sleeves.CategoryId,
+                ImageUrl = "/Content/Images/Products/Sleeves/at-10409-board-game-sleeves-square-f2.jpg",
                 ProductSizeId = sizeSquare.ProductSizeId
             };
             context.Products.AddOrUpdate(prdSquare);
-
+            /*
             Product prdTarot = new Product
             {
                 ProductId = 10410,
@@ -609,9 +606,12 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Tarot",
                 Price = 22M,
                 CategoryId = Sleeves.CategoryId,
+                ImageUrl = "/Content/Images/Products/Sleeves/board-game-sleeves-extra-large-1024-d4.jpg",
                 ProductSizeId = sizeTarot.ProductSizeId
             };
             context.Products.AddOrUpdate(prdTarot);
+            */
+
             context.SaveChanges();
 
 
@@ -665,7 +665,7 @@ namespace bgs.Migrations
 
             Order firstOrder = new Order(DateTime.Now);
             firstOrder.CustomerId = customer.PersonId;
-            firstOrder.AddItem(prdTarot, 1);
+            firstOrder.AddItem(prdStandard, 1);
             //firstOrder.OrderItems.Add(firstOrderItem);
             context.Orders.AddOrUpdate(firstOrder);
 
