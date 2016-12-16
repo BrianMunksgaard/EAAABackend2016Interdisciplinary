@@ -143,6 +143,11 @@
     <Content Include="Areas\Admin\Views\Nav\Menu.cshtml" />
     <Content Include="Areas\Public\Views\Catalogue\Index.cshtml" />
     <Content Include="Areas\Public\Views\Shared\ProductSummary.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Index.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -156,6 +161,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NavController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\ViewModels\PagingInfo.cs" />
     <Compile Include="Areas\Admin\ViewModels\ProductListViewModel.cs" />
     <Compile Include="Areas\Public\Controllers\CatalogueController.cs" />

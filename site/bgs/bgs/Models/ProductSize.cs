@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Web;
-
-namespace bgs.Models
+﻿namespace bgs.Models
 {
     /// <summary>
     /// This class is used to hold various product sizes.
@@ -35,7 +29,7 @@ namespace bgs.Models
 
         public CMYK ProductSizeColorCode
         {
-            get { return productSizeColorCode == null ? productSizeColorCode = new CMYK() : productSizeColorCode; }
+            get { return productSizeColorCode; }
             set { productSizeColorCode = value; }
         }
 

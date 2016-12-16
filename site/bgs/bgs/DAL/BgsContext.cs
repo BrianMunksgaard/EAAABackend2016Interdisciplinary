@@ -19,6 +19,8 @@ namespace bgs.DAL
 
         public virtual DbSet<Game> Games { get; set; }
 
+        public virtual DbSet<ProductSize> ProductSizes { get; set; }
+
         public virtual DbSet<Product> Products { get; set; }
 
         public virtual DbSet<Category> ProductCategories { get; set; }

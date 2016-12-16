@@ -140,7 +140,7 @@ namespace bgs.Models
         /// <summary>
         /// Product size navigation property.
         /// </summary>
-        public ProductSize ProductSize
+        public virtual ProductSize ProductSize
         {
             get { return productSize; }
             set { productSize = value; }
