@@ -15,27 +15,344 @@ namespace bgs.Migrations
 
         protected override void Seed(BgsContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            Person admin = new Person { PersonId = 1, FirstName = "Adrian", LastName = "Leon", Address = "Gåsevænget 13", Zip = "4812", City = "Stubbekøbning", BirthDay = new System.DateTime(1932, 6, 9) };
-            admin.Credential = new Credential { UserName = "admin", UserPass = "admin" };
+            /*
+             * Persons.
+             */
+            Person admin = new Person
+            {
+                PersonId = 1,
+                FirstName = "Adrian",
+                LastName = "Leon",
+                Address = "Gåsevænget 13",
+                Zip = "4812",
+                City = "Stubbekøbning",
+                BirthDay = new System.DateTime(1932, 6, 9)
+            };
+            admin.Credential = new Credential
+            {
+                UserName = "admin",
+                UserPass = "admin"
+            };
             admin.Roles.Add(Role.Administrator);
             context.Persons.AddOrUpdate(admin);
-            Person customer = new Person { PersonId = 2, FirstName = "Robert", LastName = "Englund", Address = "Elm Street 669", Zip = "48312", City = "Springwood", BirthDay = new System.DateTime(1932, 6, 9) };
+
+            Person customer = new Person
+            {
+                PersonId = 2,
+                FirstName = "Robert",
+                LastName = "Englund",
+                Address = "Elm Street 669",
+                Zip = "48312",
+                City = "Springwood",
+                BirthDay = new System.DateTime(1932, 6, 9)
+            };
             customer.Roles.Add(Role.Customer);
             context.Persons.AddOrUpdate(customer);
             context.SaveChanges();
 
-
-            Category Sleeves = new Category { CategoryId = 1, CategoryCode = "CA-01", CategoryText = "Sleeves" };
+            /*
+             * Product categories.
+             */
+            Category Sleeves = new Category
+            {
+                CategoryId = 1,
+                CategoryCode = "CA-01",
+                CategoryText = "Sleeves"
+            };
             context.ProductCategories.AddOrUpdate(Sleeves);
             context.SaveChanges();
 
-                        
             /*
              * Sleeve sizes.
              */
             int productSizeId = 0;
+
+            #region Large
+            SleeveSize sizeLarge = new SleeveSize
+            {
+                ProductSizeId = ++productSizeId,
+                ProductSizeText = "Large",
+                DisplayDim = new Dimension
+                {
+                    Length = 225, Width = 95, Height = 101
+                },
+                FitCardDim = new Dimension
+                {
+                    Width = 59, Height = 92
+                },
+                StandardSleeveDim = new Dimension
+                {
+                    Width = 62, Height = 96
+                },
+                NGSleeveDim = new Dimension
+                {
+                    Width = 62, Height = 96
+                },
+                NGBoxDim = new Dimension
+                {
+                    Width = 65, Height = 98, Depth = 27
+                },
+                OuterCartonDim = new Dimension
+                {
+                    Length = 287, Width = 227, Height = 204
+                },
+                ProductSizeColorCode = new CMYK
+                {
+                    Cyan = 87,
+                    Magenta = 55,
+                    Yellow = 0,
+                    KeyColor = 0
+                }
+            };
+            context.SleeveSizes.AddOrUpdate(sizeLarge);
+            #endregion
+
+            #region Medium
+            SleeveSize sizeMedium = new SleeveSize
+            {
+                ProductSizeId = ++productSizeId,
+                ProductSizeText = "Medium",
+                DisplayDim = new Dimension
+                {
+                    Length = 225,
+                    Width = 90,
+                    Height = 98
+                },
+                FitCardDim = new Dimension
+                {
+                    Width = 57,
+                    Height = 89
+                },
+                StandardSleeveDim = new Dimension
+                {
+                    Width = 59,
+                    Height = 93
+                },
+                NGSleeveDim = new Dimension
+                {
+                    Width = 59,
+                    Height = 93
+                },
+                NGBoxDim = new Dimension
+                {
+                    Width = 62,
+                    Height = 95,
+                    Depth = 27
+                },
+                OuterCartonDim = new Dimension
+                {
+                    Length = 272,
+                    Width = 227,
+                    Height = 198
+                },
+                ProductSizeColorCode = new CMYK
+                {
+                    Cyan = 75,
+                    Magenta = 0,
+                    Yellow = 100,
+                    KeyColor = 0
+                }
+            };
+            context.SleeveSizes.AddOrUpdate(sizeMedium);
+            #endregion
+
+            #region Small
+            SleeveSize sizeSmall = new SleeveSize
+            {
+                ProductSizeId = ++productSizeId,
+                ProductSizeText = "Small",
+                DisplayDim = new Dimension
+                {
+                    Length = 225,
+                    Width = 75,
+                    Height = 77
+                },
+                FitCardDim = new Dimension
+                {
+                    Width = 44,
+                    Height = 68
+                },
+                StandardSleeveDim = new Dimension
+                {
+                    Width = 46,
+                    Height = 72
+                },
+                NGSleeveDim = new Dimension
+                {
+                    Width = 62,
+                    Height = 96
+                },
+                NGBoxDim = new Dimension
+                {
+                    Width = 49,
+                    Height = 74,
+                    Depth = 27
+                },
+                OuterCartonDim = new Dimension
+                {
+                    Length = 227,
+                    Width = 227,
+                    Height = 156
+                },
+                ProductSizeColorCode = new CMYK
+                {
+                    Cyan = 0,
+                    Magenta = 100,
+                    Yellow = 100,
+                    KeyColor = 0
+                }
+            };
+            context.SleeveSizes.AddOrUpdate(sizeSmall);
+            #endregion
+
+            #region Mini
+            SleeveSize sizeMini = new SleeveSize
+            {
+                ProductSizeId = ++productSizeId,
+                ProductSizeText = "Mini",
+                DisplayDim = new Dimension
+                {
+                    Length = 225,
+                    Width = 75,
+                    Height = 72
+                },
+                FitCardDim = new Dimension
+                {
+                    Width = 41,
+                    Height = 63
+                },
+                StandardSleeveDim = new Dimension
+                {
+                    Width = 44,
+                    Height = 67
+                },
+                NGSleeveDim = new Dimension
+                {
+                    Width = 44,
+                    Height = 67
+                },
+                NGBoxDim = new Dimension
+                {
+                    Width = 47,
+                    Height = 69,
+                    Depth = 27
+                },
+                OuterCartonDim = new Dimension
+                {
+                    Length = 227,
+                    Width = 227,
+                    Height = 146
+                },
+                ProductSizeColorCode = new CMYK
+                {
+                    Cyan = 0,
+                    Magenta = 8,
+                    Yellow = 100,
+                    KeyColor = 0
+                }
+            };
+            context.SleeveSizes.AddOrUpdate(sizeMini);
+            #endregion
+
+            #region Standard
+            SleeveSize sizeStandard = new SleeveSize
+            {
+                ProductSizeId = ++productSizeId,
+                ProductSizeText = "Standard",
+                DisplayDim = new Dimension
+                {
+                    Length = 225,
+                    Width = 90,
+                    Height = 105
+                },
+                FitCardDim = new Dimension
+                {
+                    Width = 63,
+                    Height = 88
+                },
+                StandardSleeveDim = new Dimension
+                {
+                    Width = 66.5m,
+                    Height = 94
+                },
+                NGSleeveDim = new Dimension
+                {
+                    Width = 66.5m,
+                    Height = 92.5m
+                },
+                NGBoxDim = new Dimension
+                {
+                    Width = 69.5m,
+                    Height = 94.5m,
+                    Depth = 27
+                },
+                OuterCartonDim = new Dimension
+                {
+                    Length = 272,
+                    Width = 227,
+                    Height = 212
+                },
+                ProductSizeColorCode = new CMYK
+                {
+                    Cyan = 51,
+                    Magenta = 41,
+                    Yellow = 38,
+                    KeyColor = 3
+                }
+            };
+            context.SleeveSizes.AddOrUpdate(sizeStandard);
+            #endregion
+
+            #region ExtraLarge
+            SleeveSize sizeExtraLarge = new SleeveSize
+            {
+                ProductSizeId = ++productSizeId,
+                ProductSizeText = "Extra Large",
+                DisplayDim = new Dimension
+                {
+                    Length = 225,
+                    Width = 93,
+                    Height = 120
+                },
+                FitCardDim = new Dimension
+                {
+                    Width = 65,
+                    Height = 100
+                },
+                StandardSleeveDim = new Dimension
+                {
+                    Width = 68,
+                    Height = 104
+                },
+                NGSleeveDim = new Dimension
+                {
+                    Width = 68,
+                    Height = 104
+                },
+                NGBoxDim = new Dimension
+                {
+                    Width = 71,
+                    Height = 106,
+                    Depth = 27
+                },
+                OuterCartonDim = new Dimension
+                {
+                    Length = 281,
+                    Width = 227,
+                    Height = 242
+                },
+                ProductSizeColorCode = new CMYK
+                {
+                    Cyan = 65,
+                    Magenta = 90,
+                    Yellow = 0,
+                    KeyColor = 0
+                }
+            };
+            context.SleeveSizes.AddOrUpdate(sizeExtraLarge);
+            #endregion
+
+            #region Oversize
             SleeveSize sizeOversize = new SleeveSize
             {
                 ProductSizeId = ++productSizeId, ProductSizeText = "Oversize",
@@ -70,62 +387,111 @@ namespace bgs.Migrations
                 }
             };
             context.SleeveSizes.AddOrUpdate(sizeOversize);
+            #endregion
 
-            SleeveSize sizeExtraLarge = new SleeveSize
+            #region Square
+            SleeveSize sizeSquare = new SleeveSize
             {
-                ProductSizeId = ++productSizeId, ProductSizeText = "Extra Large",
+                ProductSizeId = ++productSizeId,
+                ProductSizeText = "Square",
                 DisplayDim = new Dimension
                 {
-
+                    Length = 225,
+                    Width = 104,
+                    Height = 78
                 },
                 FitCardDim = new Dimension
                 {
-
+                    Width = 69,
+                    Height = 69
                 },
                 StandardSleeveDim = new Dimension
                 {
-
+                    Width = 72,
+                    Height = 73
                 },
                 NGSleeveDim = new Dimension
                 {
-
+                    Width = 72,
+                    Height = 73
                 },
                 NGBoxDim = new Dimension
                 {
-
+                    Width = 75,
+                    Height = 75,
+                    Depth = 27
                 },
                 OuterCartonDim = new Dimension
                 {
-
+                    Length = 314,
+                    Width = 227,
+                    Height = 158
                 },
                 ProductSizeColorCode = new CMYK
                 {
-                    Cyan = 69, Magenta = 90, Yellow = 0, KeyColor = 0
+                    Cyan = 0,
+                    Magenta = 50,
+                    Yellow = 98,
+                    KeyColor = 0
                 }
             };
-            context.SleeveSizes.AddOrUpdate(sizeExtraLarge);
+            context.SleeveSizes.AddOrUpdate(sizeSquare);
+            #endregion
 
-            SleeveSize bgsLarge = new SleeveSize { ProductId = 10402, ProductCode = "AT-10402", ProductName = "Board Game Sleeves - Large", Price = 18M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Large };
-            context.Products.AddOrUpdate(bgsLarge);
-            SleeveSize bgsStandard = new SleeveSize { ProductId = 10406, ProductCode = "AT-10406", ProductName = "Board Game Sleeves - Standard", Price = 16M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Standard };
-            context.Products.AddOrUpdate(bgsStandard);
-            SleeveSize bgsMedium = new SleeveSize { ProductId = 10403, ProductCode = "AT-10403", ProductName = "Board Game Sleeves - Medium", Price = 14M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Medium };
-            context.Products.AddOrUpdate(bgsMedium);
-            SleeveSize bgsSmall = new SleeveSize { ProductId = 10404, ProductCode = "AT-10404", ProductName = "Board Game Sleeves - Small", Price = 12M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Small };
-            context.Products.AddOrUpdate(bgsSmall);
-            SleeveSize bgsMini = new SleeveSize { ProductId = 10405, ProductCode = "AT-10405", ProductName = "Board Game Sleeves - Mini", Price = 10M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Mini };
-            context.Products.AddOrUpdate(bgsMini);
-            SleeveSize bgsSquare = new SleeveSize { ProductId = 10409, ProductCode = "AT-10409", ProductName = "Board Game Sleeves - Square", Price = 10M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Square };
-            context.Products.AddOrUpdate(bgsSquare);
-            SleeveSize bgsTarot = new SleeveSize { ProductId = 10410, ProductCode = "AT-10410", ProductName = "Board Game Sleeves - Tarot", Price = 22M, CategoryId = Sleeves.CategoryId, SleeveSize = Size.Tarot };
-            context.Products.AddOrUpdate(bgsTarot);
+            #region Tarot
+            SleeveSize sizeTarot = new SleeveSize
+            {
+                ProductSizeId = ++productSizeId,
+                ProductSizeText = "Tarot",
+                DisplayDim = new Dimension
+                {
+                    Length = 225,
+                    Width = 105,
+                    Height = 135
+                },
+                FitCardDim = new Dimension
+                {
+                    Width = 70,
+                    Height = 120
+                },
+                StandardSleeveDim = new Dimension
+                {
+                    Width = 72,
+                    Height = 124
+                },
+                NGSleeveDim = new Dimension
+                {
+                    Width = 72,
+                    Height = 124
+                },
+                NGBoxDim = new Dimension
+                {
+                    Width = 75,
+                    Height = 126,
+                    Depth = 27
+                },
+                OuterCartonDim = new Dimension
+                {
+                    Length = 317,
+                    Width = 227,
+                    Height = 272
+                },
+                ProductSizeColorCode = new CMYK
+                {
+                    Cyan = 90,
+                    Magenta = 30,
+                    Yellow = 95,
+                    KeyColor = 30
+                }
+            };
+            context.SleeveSizes.AddOrUpdate(sizeTarot);
+            #endregion
+
             context.SaveChanges();
 
             /*
              * Products. 
              */
-            productSizeId = 0;
-
             Product prdOversize = new Product
             {
                 ProductId = 10408,
@@ -134,7 +500,7 @@ namespace bgs.Migrations
                 Price = 20M,
                 CategoryId = Sleeves.CategoryId,
                 Weight = 0,
-                ProductSizeId = ++productSizeId
+                ProductSizeId = sizeOversize.ProductSizeId
             };
             context.Products.AddOrUpdate(prdOversize);
 
@@ -145,7 +511,7 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Extra Large",
                 Price = 20M,
                 CategoryId = Sleeves.CategoryId,
-                ProductSizeId = ++productSizeId
+                ProductSizeId = sizeExtraLarge.ProductSizeId
             };
             context.Products.AddOrUpdate(prdExtraLarge);
 
@@ -156,7 +522,7 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Large",
                 Price = 18M,
                 CategoryId = Sleeves.CategoryId,
-                ProductSizeId = ++productSizeId
+                ProductSizeId = sizeLarge.ProductSizeId
             };
             context.Products.AddOrUpdate(prdLarge);
 
@@ -167,7 +533,7 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Standard",
                 Price = 16M,
                 CategoryId = Sleeves.CategoryId,
-                ProductSizeId = ++productSizeId
+                ProductSizeId = sizeStandard.ProductSizeId
             };
             context.Products.AddOrUpdate(prdStandard);
 
@@ -178,7 +544,7 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Medium",
                 Price = 14M,
                 CategoryId = Sleeves.CategoryId,
-                ProductSizeId = ++productSizeId
+                ProductSizeId = sizeMedium.ProductSizeId
             };
             context.Products.AddOrUpdate(prdMedium);
 
@@ -189,7 +555,7 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Small",
                 Price = 12M,
                 CategoryId = Sleeves.CategoryId,
-                ProductSizeId = ++productSizeId
+                ProductSizeId = sizeSmall.ProductSizeId
             };
             context.Products.AddOrUpdate(prdSmall);
 
@@ -200,7 +566,7 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Mini",
                 Price = 10M,
                 CategoryId = Sleeves.CategoryId,
-                ProductSizeId = ++productSizeId
+                ProductSizeId = sizeMini.ProductSizeId
             };
             context.Products.AddOrUpdate(prdMini);
 
@@ -211,7 +577,7 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Square",
                 Price = 10M,
                 CategoryId = Sleeves.CategoryId,
-                ProductSizeId = ++productSizeId
+                ProductSizeId = sizeSquare.ProductSizeId
             };
             context.Products.AddOrUpdate(prdSquare);
 
@@ -222,7 +588,7 @@ namespace bgs.Migrations
                 ProductName = "Board Game Sleeves - Tarot",
                 Price = 22M,
                 CategoryId = Sleeves.CategoryId,
-                ProductSizeId = ++productSizeId
+                ProductSizeId = sizeTarot.ProductSizeId
             };
             context.Products.AddOrUpdate(prdTarot);
             context.SaveChanges();
@@ -251,11 +617,22 @@ namespace bgs.Migrations
             /*
              * Products and Game fit.
              */
-            ProductFitGame acquireSleeve = new ProductFitGame { GameId = acquire.GameId, ProductId = prdMedium.ProductId, Comment = "" };
+            ProductFitGame acquireSleeve = new ProductFitGame
+            {
+                GameId = acquire.GameId,
+                ProductId = prdMedium.ProductId,
+                Comment = ""
+            };
             context.ProductGames.AddOrUpdate(acquireSleeve);
             acquire.ProductsFit.Add(acquireSleeve);
             prdMedium.FitsGames.Add(acquireSleeve);
-            ProductFitGame arkhamHorrorSleeve = new ProductFitGame { GameId = arkhamHorror.GameId, ProductId = prdMedium.ProductId, Comment = "Big cards" };
+
+            ProductFitGame arkhamHorrorSleeve = new ProductFitGame
+            {
+                GameId = arkhamHorror.GameId,
+                ProductId = prdMedium.ProductId,
+                Comment = "Big cards"
+            };
             context.ProductGames.AddOrUpdate(arkhamHorrorSleeve);
             arkhamHorror.ProductsFit.Add(arkhamHorrorSleeve);
             prdMedium.FitsGames.Add(arkhamHorrorSleeve);

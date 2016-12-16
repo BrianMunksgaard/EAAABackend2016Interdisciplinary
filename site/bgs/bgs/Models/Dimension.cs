@@ -9,14 +9,14 @@ namespace bgs.Models
     /// A single instance of this class might not have all values
     /// set, but could possible only have a few set.
     /// </summary>
-    public class Dimension : BgsEntity
+    public class Dimension
     {
         #region Private variables
 
-        private int width;
-        private int height;
-        private int length;
-        private int depth;
+        private decimal width;
+        private decimal height;
+        private decimal length;
+        private decimal depth;
 
         #endregion
 
@@ -25,7 +25,7 @@ namespace bgs.Models
         /// <summary>
         /// The width of the sleeve.
         /// </summary>
-        public int Width
+        public decimal Width
         {
             get
             {
@@ -40,7 +40,7 @@ namespace bgs.Models
         /// <summary>
         /// The height of the sleeve.
         /// </summary>
-        public int Height
+        public decimal Height
         {
             get
             {
@@ -55,7 +55,7 @@ namespace bgs.Models
         /// <summary>
         /// The length of the sleeve.
         /// </summary>
-        public int Length
+        public decimal Length
         {
             get
             {
@@ -70,7 +70,7 @@ namespace bgs.Models
         /// <summary>
         /// Depth.
         /// </summary>
-        public int Depth
+        public decimal Depth
         {
             get { return depth; }
             set { depth = value; }
