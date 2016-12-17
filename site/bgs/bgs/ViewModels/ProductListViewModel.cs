@@ -8,6 +8,7 @@ namespace bgs.ViewModels
 {
     public class ProductListViewModel
     {
+        private Category currentCategory;
 
         /// <summary>
         /// All current products on the page.
@@ -22,6 +23,23 @@ namespace bgs.ViewModels
         /// <summary>
         /// The currently selected product category.
         /// </summary>
-        public Category CurrentCategory { get; set; }
+        public Category CurrentCategory
+        {
+            get
+            {
+                if(currentCategory == null)
+                {
+                    currentCategory = new Category()
+                    {
+                        CategoryId = 0,
+                        CategoryCode = string.Empty,
+                        CategoryText = string.Empty
+                    };
+
+                }
+                return currentCategory;
+            }
+            set { currentCategory = value; }
+        }
     }
 }

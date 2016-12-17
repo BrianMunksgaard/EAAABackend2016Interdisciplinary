@@ -33,6 +33,10 @@ namespace bgs.DAL
                     products = db.Products.Where(p => p.CategoryId == category.CategoryId).OrderBy(p => p.ProductId).ToList();
                 }
             }
+            else
+            {
+
+            }
 
             return products;
         }

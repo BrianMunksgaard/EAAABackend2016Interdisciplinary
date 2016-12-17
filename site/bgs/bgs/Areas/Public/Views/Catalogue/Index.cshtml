@@ -1,5 +1,8 @@
-﻿@model bgs.ViewModels.ProductListViewModel
-@using bgs.Models
+﻿@using bgs.Models
+@using bgs.HtmlHelpers;
+
+@model bgs.ViewModels.ProductListViewModel
+
 
 @{
     ViewBag.Title = "Products";
@@ -25,3 +28,6 @@
 
 
 @RenderProducts(Model.Products)
+<div>
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x, category = Model.CurrentCategory.CategoryCode }))
+</div>
