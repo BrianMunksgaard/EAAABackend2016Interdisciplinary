@@ -20,15 +20,18 @@ namespace bgs.DAL
 
         public List<Product> GetProductsByCategory(Category category, int currentPage = 0, int pageSize = 0)
         {
-            List<Product> products = null;
+            List<Product> products = new List<Product>();
 
-            if (currentPage > 0)
+            if (category != null)
             {
-                products = db.Products.Where(p => p.CategoryId == category.CategoryId).OrderBy(p => p.ProductId).Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
-            }
-            else
-            {
-                products = db.Products.Where(p => p.CategoryId == category.CategoryId).OrderBy(p => p.ProductId).ToList();
+                if (currentPage > 0)
+                {
+                    products = db.Products.Where(p => p.CategoryId == category.CategoryId).OrderBy(p => p.ProductId).Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
+                }
+                else
+                {
+                    products = db.Products.Where(p => p.CategoryId == category.CategoryId).OrderBy(p => p.ProductId).ToList();
+                }
             }
 
             return products;

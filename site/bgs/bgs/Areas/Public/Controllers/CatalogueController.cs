@@ -25,7 +25,16 @@ namespace bgs.Areas.Public.Controllers
         // GET: Public/Catalogue
         public ActionResult Index(string categoryCode = "", int page = 1)
         {
-            List<Product> products = uow.ProductRepository.GetProductsByCategory(categoryCode, page, PageSize);
+            List<Product> products;
+            if (string.IsNullOrEmpty(categoryCode))
+            {
+                products = uow.ProductRepository.GetItems().ToList();
+            }
+            else
+            {
+                products = uow.ProductRepository.GetProductsByCategory(categoryCode, page, PageSize);
+            }
+
             ProductListViewModel model = new ProductListViewModel
             {
                 Products = products,
