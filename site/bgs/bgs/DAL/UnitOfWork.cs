@@ -29,14 +29,14 @@ namespace bgs.DAL
 
         }
 
-        private Repository<Category> categoryRepository;
-        public Repository<Category> CategoryRepository
+        private CategoryRepository categoryRepository;
+        public CategoryRepository CategoryRepository
         {
             get
             {
                 if (categoryRepository == null)
                 {
-                    categoryRepository = new Repository<Category>(_context);
+                    categoryRepository = new CategoryRepository(_context);
                 }
                 return categoryRepository;
             }
@@ -54,19 +54,6 @@ namespace bgs.DAL
                 return credentialRepository;
             }
         }
-
-        //private Repository<Dimension> dimensionsRepository;
-        //public Repository<Dimension> DimensionsRepository
-        //{
-        //    get
-        //    {
-        //        if (dimensionsRepository == null)
-        //        {
-        //            dimensionsRepository = new Repository<Dimension>(_context);
-        //        }
-        //        return dimensionsRepository;
-        //    }
-        //}
 
         private Repository<Person> personRepository;
         public Repository<Person> PersonRepository
@@ -94,15 +81,15 @@ namespace bgs.DAL
             }
         }
 
-        private Repository<Product> productRepository;
+        private ProductRepository productRepository;
 
-        public Repository<Product> ProductRepository
+        public ProductRepository ProductRepository
         {
             get
             {
                 if (productRepository == null)
                 {
-                    productRepository = new Repository<Product>(_context);
+                    productRepository = new ProductRepository(_context);
                 }
                 return productRepository;
             }
