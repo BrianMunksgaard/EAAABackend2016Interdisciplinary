@@ -1,15 +1,35 @@
 ﻿@model bgs.Models.Product
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">
-            @Model.ProductName
-        </h3>
-    </div>
 
-    <div class="panel-body">
-        <strong>Product Code:</strong> @Model.ProductCode<br />
-        <strong>Price:</strong> @Model.Price<br />
-        <img src="@Model.ImageUrl" alt="@Model.ProductName" style="width:100px" />
+
+
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                @Model.ProductName
+            </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="col-md-8">
+                <strong>Product Code:</strong> @Model.ProductCode<br />
+                <strong>Price:</strong> @Model.Price<br />
+                <img src="@Model.ImageUrl" alt="@Model.ProductName" style="width:100px" />
+            </div>
+            <div class="col-md-4">
+                @using (Html.BeginForm("AddToCart", "Cart"))
+                {
+                    @Html.Hidden("ProductId", Model.ProductId)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <div>
+                        @Html.DropDownList("Qty", new SelectList(Enumerable.Range(1, 20)))
+                    </div>
+                    <div>
+                        <input type="submit" class="btn btn-success" value="Add to cart" />
+                    </div>
+                }
+            </div>
+        </div>
     </div>
 </div>
