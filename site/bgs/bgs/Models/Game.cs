@@ -41,6 +41,7 @@ namespace bgs.Models
         /// <summary>
         /// The name of the game.
         /// </summary>
+        [Display(Name = "Game title")]
         public string GameName
         {
             get
@@ -61,6 +62,7 @@ namespace bgs.Models
         /// </summary>
         [Index("GameIndex", IsUnique = true)]
         [MaxLength(15)]
+        [Display(Name = "Game code")]
         public string GameCode
         {
             get
@@ -79,6 +81,7 @@ namespace bgs.Models
         /// <summary>
         /// A collection of products/sleeves where the game fits inside.
         /// </summary>
+        [Display(Name = "Will fit inside")]
         public virtual ICollection<ProductFitGame> ProductsFit
         {
             get

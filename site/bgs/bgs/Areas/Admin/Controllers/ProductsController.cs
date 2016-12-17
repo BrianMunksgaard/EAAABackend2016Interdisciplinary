@@ -20,7 +20,7 @@ namespace bgs.Areas.Admin.Controllers
         // GET: Admin/Products
         public ActionResult Index(string category)
         {
-            ViewBag.SelectedSubCategory = category; // TODO: Make this dynamic based on button click
+            ViewBag.SelectedSubCategory = category;
             var products = uow.ProductRepository.GetItems().AsQueryable().Include(p => p.Category).Include(p => p.ProductSize);
             return View(products.ToList());
         }
@@ -41,8 +41,9 @@ namespace bgs.Areas.Admin.Controllers
         }
 
         // GET: Admin/Products/Create
-        public ActionResult Create()
+        public ActionResult Create(string category)
         {
+            ViewBag.SelectedSubCategory = category;
             ViewBag.CategoryId = new SelectList(uow.CategoryRepository.GetItems(), "CategoryId", "CategoryText");
             ViewBag.ProductSizeId = new SelectList(uow.SleeveSizeRepository.GetItems(), "ProductSizeId", "ProductSizeText");
             return View();
@@ -58,7 +59,6 @@ namespace bgs.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 uow.ProductRepository.SaveItem(product);
-                uow.Save();
                 return RedirectToAction("Index");
             }
 
@@ -94,7 +94,6 @@ namespace bgs.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 uow.ProductRepository.SaveItem(product);
-                uow.Save();
                 return RedirectToAction("Index");
             }
             ViewBag.CategoryId = new SelectList(uow.CategoryRepository.GetItems(), "CategoryId", "CategoryText", product.CategoryId);
@@ -123,7 +122,6 @@ namespace bgs.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             uow.ProductRepository.DeleteItem(id);
-            uow.Save();
             return RedirectToAction("Index");
         }
 

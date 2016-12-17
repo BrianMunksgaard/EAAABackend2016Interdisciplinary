@@ -58,7 +58,6 @@ namespace bgs.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 uow.GameRepository.SaveItem(game);
-                uow.Save();
                 return RedirectToAction("Index");
             }
 
@@ -91,7 +90,6 @@ namespace bgs.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 uow.GameRepository.SaveItem(game);
-                uow.Save();
                 return RedirectToAction("Index");
             }
             return View(game);
@@ -118,7 +116,6 @@ namespace bgs.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             uow.GameRepository.DeleteItem(id);
-            uow.Save();
             return RedirectToAction("Index");
         }
 

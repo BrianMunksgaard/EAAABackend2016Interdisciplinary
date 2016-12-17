@@ -140,7 +140,6 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Nav\Menu.cshtml" />
     <Content Include="Areas\Public\Views\Catalogue\Index.cshtml" />
     <Content Include="Areas\Public\Views\Shared\ProductSummary.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Create.cshtml" />
@@ -153,6 +152,11 @@
     <Content Include="Areas\Admin\Views\Games\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Games\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Games\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductFitGames\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductFitGames\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductFitGames\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductFitGames\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductFitGames\Index.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -166,10 +170,8 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\GamesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\NavController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductFitGamesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
-    <Compile Include="Areas\Admin\ViewModels\PagingInfo.cs" />
-    <Compile Include="Areas\Admin\ViewModels\ProductListViewModel.cs" />
     <Compile Include="Areas\Public\Controllers\CatalogueController.cs" />
     <Compile Include="Areas\Public\Controllers\HomeController.cs" />
     <Compile Include="Areas\Public\Controllers\NavController.cs" />
@@ -177,6 +179,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\BgsContext.cs" />
     <Compile Include="DAL\CategoryRepository.cs" />
+    <Compile Include="DAL\ProductGameRepository.cs" />
     <Compile Include="DAL\ProductRepository.cs" />
     <Compile Include="DAL\Repository.cs" />
     <Compile Include="DAL\IRepository.cs" />

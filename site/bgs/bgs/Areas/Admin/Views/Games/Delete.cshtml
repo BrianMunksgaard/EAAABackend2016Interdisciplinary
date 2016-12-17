@@ -27,14 +27,31 @@
             @Html.DisplayFor(model => model.GameCode)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductsFit)
+        </dt>
+        <dd>
+            @foreach (var pf in Model.ProductsFit)
+            {
+                if (!string.IsNullOrEmpty(pf.Comment))
+                {
+                    @Html.Raw(pf.Product.ProductName + " (" + pf.Comment + ")");
+                }
+                else
+                {
+                    @Html.DisplayName(pf.Product.ProductName)
+                }
+                <br />
+            }
+        </dd>
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-default btn-sm" />
+            @Html.ActionLink("Cancel", "Index", new { area = "Admin" }, new { @class = "btn btn-default btn-sm" })
         </div>
     }
 </div>

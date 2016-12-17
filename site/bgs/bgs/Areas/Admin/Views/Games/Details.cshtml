@@ -25,19 +25,28 @@
         <dd>
             @Html.DisplayFor(model => model.GameCode)
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.ProductsFit)
         </dt>
         <dd>
             @foreach (var pf in Model.ProductsFit)
             {
-                @Html.DisplayName(pf.Product.ProductName)
+                if (!string.IsNullOrEmpty(pf.Comment))
+                {
+                    @Html.Raw(pf.Product.ProductName + " (" + pf.Comment + ")");
+                }
+                else
+                {
+                    @Html.DisplayName(pf.Product.ProductName)
+                }
+                <br />
             }
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.GameId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { area = "Admin", id = Model.GameId }, new { @class = "btn btn-default btn-sm" })
+    @Html.ActionLink("Back to list", "Index", new { area = "Admin" }, new { @class = "btn btn-default btn-sm" })
 </p>

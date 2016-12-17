@@ -140,6 +140,7 @@ namespace bgs.Models
         /// <summary>
         /// Product size navigation property.
         /// </summary>
+        [Display(Name = "Size")]
         public virtual ProductSize ProductSize
         {
             get { return productSize; }
@@ -167,6 +168,7 @@ namespace bgs.Models
         /// <summary>
         /// Product image URL.
         /// </summary>
+        [Display(Name = "Image url")]
         public string ImageUrl
         {
             get { return imageUrl == null ? imageUrl = string.Empty : imageUrl; }

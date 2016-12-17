@@ -82,7 +82,6 @@ namespace bgs.DAL
         }
 
         private ProductRepository productRepository;
-
         public ProductRepository ProductRepository
         {
             get
@@ -95,6 +94,18 @@ namespace bgs.DAL
             }
         }
 
+        private ProductGameRepository productGamesRepository;
+        public ProductGameRepository ProductGameRepository
+        {
+            get
+            {
+                if (productGamesRepository == null)
+                {
+                    productGamesRepository = new ProductGameRepository(_context);
+                }
+                return productGamesRepository;
+            }
+        }
 
         private Repository<Order> orderRepository;
         public Repository<Order> OrderRepository
