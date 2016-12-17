@@ -8,26 +8,33 @@
     ViewBag.Title = "Products";
 }
 
-<h2>@ViewBag.Title</h2>
-
 
 @helper RenderProducts(List<Product> items)
 {
     if (items.Count() > 0)
     {
-        <h2>The Products</h2>
         foreach (Product p in items)
         {
-            <div class="row">
-                @Html.Partial("ProductSummary", p)
-            </div>
+            @Html.Partial("ProductSummary", p)
         }
     }
 }
 
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+    </head>
 
-
-@RenderProducts(Model.Products)
-<div>
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x, category = Model.CurrentCategory.CategoryCode }))
-</div>
+    <body>
+        <!-- Render products -->
+        <div>
+            @RenderProducts(Model.Products)
+        </div>
+        
+        <!-- Paging -->
+        <div>
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x, category = Model.CurrentCategory.CategoryCode }))
+        </div>
+    </body>
+</html>
