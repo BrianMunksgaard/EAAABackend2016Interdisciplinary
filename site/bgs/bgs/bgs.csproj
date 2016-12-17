@@ -184,6 +184,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Migrations\201612161113353_InitialCreate.cs" />
     <Compile Include="Migrations\201612161113353_InitialCreate.Designer.cs">
       <DependentUpon>201612161113353_InitialCreate.cs</DependentUpon>
@@ -219,7 +220,6 @@
     <Content Include="Areas\Public\Views\web.config" />
     <Content Include="Areas\Public\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Public\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Public\Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
