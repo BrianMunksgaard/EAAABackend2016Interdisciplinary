@@ -10,11 +10,11 @@
     {
         controller = "Catalogue",
         action = "Index",
-        category = category.CategoryId,
+        categoryCode = category.CategoryCode,
         page = 1
     }, new
     {
-        @class = "btn btn-block btn-default btn-lg" + (category.CategoryId == ViewBag.SelectedCategory ? " btn-primary" : "")
+        @class = "btn btn-block btn-default btn-md" + (category.CategoryCode == ViewBag.SelectedCategory ? " btn-primary" : "")
     })
 }
 

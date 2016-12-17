@@ -15,13 +15,26 @@ namespace bgs.Areas.Public.Controllers
     public class NavController : Controller
     {
         /// <summary>
+        /// Unit of work.
+        /// </summary>
+        private UnitOfWork uow;
+        
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public NavController()
+        {
+            uow = new UnitOfWork();
+        }
+        /// <summary>
         /// This method is used to build a menu based
         /// on the current product categories.
         /// </summary>
         /// <returns></returns>
-        public PartialViewResult Menu()
+        public PartialViewResult Menu(string categoryCode = null)
         {
-            UnitOfWork uow = new UnitOfWork();
+            ViewBag.SelectedCategory = categoryCode;
+
             List<Category> categories = uow.CategoryRepository.GetItems().ToList();
             return PartialView(categories);
         }

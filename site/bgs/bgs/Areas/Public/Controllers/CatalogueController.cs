@@ -15,7 +15,11 @@ namespace bgs.Areas.Public.Controllers
     /// </summary>
     public class CatalogueController : Controller
     {
+        /// <summary>
+        /// Unit of work.
+        /// </summary>
         private UnitOfWork uow;
+
         /// <summary>
         /// Products per page.
         /// </summary>
@@ -32,7 +36,7 @@ namespace bgs.Areas.Public.Controllers
         /// <param name="categoryCode"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        public ActionResult Index(string categoryCode = "q", int page = 1)
+        public ActionResult Index(string categoryCode = "", int page = 1)
         {
             List<Product> products = uow.ProductRepository.GetProducts(categoryCode, page, PageSize);
 
