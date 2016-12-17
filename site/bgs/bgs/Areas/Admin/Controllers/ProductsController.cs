@@ -13,12 +13,14 @@ namespace bgs.Areas.Admin.Controllers
 
         public ProductsController()
         {
+            ViewBag.SelectedCategory = "Products";
             uow = new UnitOfWork();
         }
 
         // GET: Admin/Products
-        public ActionResult Index()
+        public ActionResult Index(string category)
         {
+            ViewBag.SelectedSubCategory = category; // TODO: Make this dynamic based on button click
             var products = uow.ProductRepository.GetItems().AsQueryable().Include(p => p.Category).Include(p => p.ProductSize);
             return View(products.ToList());
         }

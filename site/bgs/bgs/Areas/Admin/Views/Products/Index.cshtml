@@ -4,7 +4,10 @@
     ViewBag.Title = "Products";
 }
 
-<h2>Sleeves</h2>
+<h2>@ViewBag.SelectedSubCategory</h2>
+
+@Html.Action("Menu", "Nav")
+<br />
 
 <p>
     @Html.ActionLink("Create New", "Create", "Products", new { area = "Admin" }, new { @class = "btn btn-default btn-md" })

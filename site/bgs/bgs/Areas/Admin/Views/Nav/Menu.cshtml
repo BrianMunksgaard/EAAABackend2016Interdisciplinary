@@ -1,23 +1,28 @@
 ﻿@model IEnumerable<string>
 
-@Html.ActionLink("Admininstration", "Index", "Home", new { area = "Admin" }, new { @class = "btn btn-block btn-default btn-md" })
+<nav class="navbar-inverse">
+    <div class="container-fluid">
+        @*<div class="navbar-header">
+            <div class="navbar-brand" href="#">Products</div>
+        </div>*@
+        <ul class="nav navbar-nav" style="height: 28px !important; min-height: 28px !important;">
+            @foreach (var link in Model)
+            {
+                <li>
+                    @Html.RouteLink(link,
+                       new
+                       {
+                           controller = "Products",
+                           action = "Index",
+                           category = link,
+                           page = 1
+                       }, new
+                       {
+                           @style = "padding-top: 4px !important; padding-bottom: 0 !important; height: 28px !important;" + (link.ToString() == ViewBag.SelectedSubCategory ? " background-color:#333333" : "")
+                       })
+                </li>
+            }
+        </ul>
 
-@*
-@Html.ActionLink("Sleeves", "Index", "Home", null, new { @class = "btn btn-block btn-default btn-md" })
-*@
-
-@foreach (var link in Model)
-{
-    @Html.RouteLink(link, 
-        new
-        {
-            controller = "Sleeves",
-            action = "Index",
-            category = link,
-            page = 1
-        }, 
-        new
-        {
-            @class = "btn btn-block btn-default btn-md" + (link == ViewBag.SelectedCategory ? " btn-primary" : "")
-        })
-}
+    </div>
+</nav>

@@ -23,7 +23,9 @@
 
     <div class="row panel">
         <div id="categories" class="col-md-2">
-            @Html.Action("Menu", "Nav")
+            @Html.ActionLink("Admininstration", "Index", "Home", new { area = "Admin" }, new { @class = "btn btn-block btn-default btn-md" })
+            @Html.ActionLink("Products", "Index", "Products", new { area = "Admin" }, new { @class = "btn btn-block btn-default btn-md" + ("Products".Equals(ViewBag.SelectedCategory) ? " btn-primary" : "") })
+            @Html.ActionLink("Games", "Index", "Games", new { area = "Admin" }, new { @class = "btn btn-block btn-default btn-md" + ("Games".Equals(ViewBag.SelectedCategory) ? " btn-primary" : "") })
         </div>
 
         <div class="col-md-10">

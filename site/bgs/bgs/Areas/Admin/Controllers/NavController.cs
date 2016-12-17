@@ -14,7 +14,7 @@ namespace bgs.Areas.Admin.Controllers
         {
             uow = new UnitOfWork();
 
-            ViewBag.SelectedCategory = "Sleeves";
+            //ViewBag.SelectedCategory = "Sleeves";
 
             IEnumerable<string> categories = uow.CategoryRepository.GetItems()
                 .Select(p => p.CategoryText)
