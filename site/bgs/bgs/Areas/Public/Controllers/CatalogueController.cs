@@ -9,6 +9,10 @@ using System.Web.Mvc;
 
 namespace bgs.Areas.Public.Controllers
 {
+    /// <summary>
+    /// Catalogue controller used to retrieve and display 
+    /// products.
+    /// </summary>
     public class CatalogueController : Controller
     {
         private UnitOfWork uow;
@@ -22,18 +26,15 @@ namespace bgs.Areas.Public.Controllers
             uow = new UnitOfWork();
         }
 
-        // GET: Public/Catalogue
-        public ActionResult Index(string categoryCode = "", int page = 1)
+        /// <summary>
+        /// Catalogue co
+        /// </summary>
+        /// <param name="categoryCode"></param>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        public ActionResult Index(string categoryCode = "q", int page = 1)
         {
-            List<Product> products;
-            if (string.IsNullOrEmpty(categoryCode))
-            {
-                products = uow.ProductRepository.GetItems().ToList();
-            }
-            else
-            {
-                products = uow.ProductRepository.GetProductsByCategory(categoryCode, page, PageSize);
-            }
+            List<Product> products = uow.ProductRepository.GetProducts(categoryCode, page, PageSize);
 
             ProductListViewModel model = new ProductListViewModel
             {
@@ -43,7 +44,7 @@ namespace bgs.Areas.Public.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = products.Count
+                    TotalItems = uow.ProductRepository.GetProductCount(categoryCode)
                 },
 
                 CurrentCategory = uow.CategoryRepository.GetCategoryByCode(categoryCode)
@@ -53,25 +54,3 @@ namespace bgs.Areas.Public.Controllers
         }
     }
 }
-
-/*
-       ProductsListViewModel model = new ProductsListViewModel
-            {
-                Products = repository.Products
-                    .Where(p => category == null || p.Category == category)
-                    .OrderBy(p => p.ProductId)
-                    .Skip((page - 1) * PageSize)
-                    .Take(PageSize),
-
-                PagingInfo = new PagingInfo
-                {
-                    CurrentPage = page,
-                    ItemsPerPage = PageSize,
-                    TotalItems = category == null ? repository.Products.Count() : repository.Products.Where(e => e.Category == category).Count()
-                },
-                
-                CurrentCategory = category
-            };
-
-            return View(model);
-*/
