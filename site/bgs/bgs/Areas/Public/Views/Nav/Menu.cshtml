@@ -1,22 +1,21 @@
 ﻿@using bgs.Models
 
-@model IEnumerable<Category>
+@model List<Category>
 
 @Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-block btn-default btn-md" })
-@Html.ActionLink("Sleeves", "Index", "Home", null, new { @class = "btn btn-block btn-default btn-md" })
 
-@*
-    @foreach (var link in Model)
-    {
-        @Html.RouteLink(link, new
+@foreach (Category category in Model)
+{
+    @Html.RouteLink(category.CategoryText, new
     {
         controller = "Catalogue",
         action = "Index",
-        category = link,
+        category = category.CategoryId,
         page = 1
     }, new
     {
-        @class = "btn btn-block btn-default btn-lg" + (link == ViewBag.SelectedCategory ? " btn-primary" : "")
+        @class = "btn btn-block btn-default btn-lg" + (category.CategoryId == ViewBag.SelectedCategory ? " btn-primary" : "")
     })
-    }
-*@
+}
+
+@Html.ActionLink("Cart", "Index", "Home", null, new { @class = "btn btn-block btn-default btn-md" })

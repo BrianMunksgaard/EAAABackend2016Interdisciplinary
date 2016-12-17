@@ -15,18 +15,18 @@ namespace bgs.DAL
         /// <summary>
         /// DB reference.
         /// </summary>
-        private BgsContext db;
+        protected BgsContext db;
 
         /// <summary>
         /// Current type DB set.
         /// </summary>
-        private IDbSet<T> dbSet;
+        protected IDbSet<T> dbSet;
 
         /// <summary>
         /// Whether or not to save changes on update/delete/add operations.
         /// If false, the caller should take care of saving.
         /// </summary>
-        private bool saveChanges = false;
+        protected bool saveChanges = false;
 
         /// <summary>
         /// Intialize the repository class.

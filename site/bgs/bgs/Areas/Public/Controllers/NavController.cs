@@ -1,4 +1,5 @@
-﻿using bgs.Models;
+﻿using bgs.DAL;
+using bgs.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +21,8 @@ namespace bgs.Areas.Public.Controllers
         /// <returns></returns>
         public PartialViewResult Menu()
         {
-            List<Category> categories = new List<Category>();
-
+            UnitOfWork uow = new UnitOfWork();
+            List<Category> categories = uow.CategoryRepository.GetItems().ToList();
             return PartialView(categories);
         }
     }
