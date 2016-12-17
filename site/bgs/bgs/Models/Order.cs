@@ -87,6 +87,18 @@ namespace bgs.Models
             }
         }
 
+        /// <summary>
+        /// Total number of item on the order.
+        /// </summary>
+        public int TotalNoOfItems
+        {
+            get
+            {
+                int i = OrderItems.Sum(x => x.Quantity);
+                return i;
+            }
+        }
+
         #endregion
 
         /// <summary>

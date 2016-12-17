@@ -1,9 +1,12 @@
-﻿@model bgs.Models.Product
+﻿@using bgs.Models
 
+@model bgs.Models.Product
 
+@*
+Shared view used to display product summary.    
+*@
 
-
-<div class="col-md-12">
+<div class="row">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">
@@ -12,11 +15,16 @@
         </div>
 
         <div class="panel-body">
-            <div class="col-md-8">
-                <strong>Product Code:</strong> @Model.ProductCode<br />
-                <strong>Price:</strong> @Model.Price<br />
+            <div class="col-md-2">
                 <img src="@Model.ImageUrl" alt="@Model.ProductName" style="width:100px" />
             </div>
+
+            <div class="col-md-6">
+                <strong>Product Code:</strong> @Model.ProductCode<br />
+                <strong>Price:</strong> @Model.Price<br />
+                <strong>Fits cards measuring (width x height):</strong> @( (Model.ProductSize as SleeveSize).FitCardDim.Width )mm x @( (Model.ProductSize as SleeveSize).FitCardDim.Height )mm
+            </div>
+
             <div class="col-md-4">
                 @using (Html.BeginForm("AddToCart", "Cart"))
                 {

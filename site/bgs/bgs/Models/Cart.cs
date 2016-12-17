@@ -16,6 +16,17 @@ namespace bgs.Models
         #endregion
 
         /// <summary>
+        /// The order in the cart.
+        /// </summary>
+        public Order Order
+        {
+            get
+            {
+                return order;
+            }
+        }
+
+        /// <summary>
         /// Default constructor.
         /// </summary>
         public Cart()
