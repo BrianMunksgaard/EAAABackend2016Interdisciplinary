@@ -11,22 +11,20 @@ namespace bgs.Areas.Public.Controllers
 {
     public class CatalogueController : Controller
     {
+        private UnitOfWork uow;
         /// <summary>
         /// Products per page.
         /// </summary>
         private int PageSize = 4;
 
+        public CatalogueController()
+        {
+            uow = new UnitOfWork();
+        }
+
         // GET: Public/Catalogue
         public ActionResult Index(string categoryCode = "", int page = 1)
         {
-            UnitOfWork uow = new UnitOfWork();
-
-            Category category = null;
-            if (!string.IsNullOrEmpty(categoryCode))
-            {
-                category = uow.CategoryRepository.GetItems().SingleOrDefault(c => c.CategoryCode == categoryCode);
-            }
-
             List<Product> products = uow.ProductRepository.GetProductsByCategory(categoryCode, page, PageSize);
             ProductListViewModel model = new ProductListViewModel
             {
