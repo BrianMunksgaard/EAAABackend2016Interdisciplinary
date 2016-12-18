@@ -22,10 +22,12 @@
             @Html.DisplayNameFor(model => model.ProductsFit)
         </dt>
         <dd>
-            @foreach (var pf in Model.ProductsFit)
-            {
-               @Html.Partial("GameProductRelation", pf)
-            }
+            <table>
+                @foreach (var pf in Model.ProductsFit)
+                {
+                    @Html.Partial("GameProductRelation", pf)
+                }
+            </table>
         </dd>
 
     </dl>
