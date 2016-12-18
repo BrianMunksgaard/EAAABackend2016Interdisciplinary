@@ -15,6 +15,8 @@ namespace bgs.Models
         private Order order;
         #endregion
 
+        #region Properties
+
         /// <summary>
         /// The order in the cart.
         /// </summary>
@@ -25,6 +27,20 @@ namespace bgs.Models
                 return order;
             }
         }
+
+        /// <summary>
+        /// Whether or not there are items
+        /// in the cart.
+        /// </summary>
+        public bool HasItems
+        {
+            get
+            {
+                return Order.OrderItems.Count > 0;
+            }
+        }
+
+        #endregion
 
         /// <summary>
         /// Default constructor.
@@ -69,7 +85,6 @@ namespace bgs.Models
         {
             order.Customer = customer;
             order.CustomerId = customer.PersonId;
-            // Save it.
         }
     }
 }

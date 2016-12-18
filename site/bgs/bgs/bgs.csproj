@@ -155,8 +155,12 @@
     <Content Include="Areas\Admin\Views\Games\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ProductFitGames\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ProductFitGames\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductFitGames\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductFitGames\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductFitGames\Index.cshtml" />
     <Content Include="Areas\Public\Views\Cart\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\GameProductRelation.cshtml" />
+    <Content Include="Areas\Public\Views\Cart\Checkout.cshtml" />
+    <Content Include="Areas\Public\Views\Cart\Completed.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -204,6 +208,7 @@
     <Compile Include="Models\CMYK.cs" />
     <Compile Include="Models\ProductSize.cs" />
     <Compile Include="Models\Credential.cs" />
+    <Compile Include="Models\ShippingDetails.cs" />
     <Compile Include="Models\SleeveSize.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Dimension.cs" />

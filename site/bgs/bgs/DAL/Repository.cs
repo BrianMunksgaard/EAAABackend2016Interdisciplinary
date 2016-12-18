@@ -64,7 +64,7 @@ namespace bgs.DAL
         /// Save the specified type T.
         /// </summary>
         /// <param name="t"></param>
-        public void SaveItem(T t)
+        public int SaveItem(T t)
         {
             if (t.EntityId == 0)
             {
@@ -82,6 +82,7 @@ namespace bgs.DAL
                     db.SaveChanges();
                 }
             }
+            return t.EntityId;
         }
 
         /// <summary>

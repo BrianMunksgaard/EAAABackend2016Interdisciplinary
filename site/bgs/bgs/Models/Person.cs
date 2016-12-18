@@ -216,6 +216,19 @@ namespace bgs.Models
         }
 
         /// <summary>
+        /// Initialize person from shipping details.
+        /// </summary>
+        /// <param name="sd"></param>
+        public Person(ShippingDetails sd)
+        {
+            this.firstName = sd.Firstname;
+            this.LastName = sd.Lastname;
+            this.Address = sd.Address;
+            this.Zip = sd.Zip;
+            this.City = sd.City;
+        }
+
+        /// <summary>
         /// Initialization constructor.
         /// </summary>
         /// <param name="customerId"></param>
