@@ -51,7 +51,7 @@ namespace bgs.Areas.Public.Controllers
                     TotalItems = uow.ProductRepository.GetProductCount(categoryCode)
                 },
 
-                CurrentCategory = uow.CategoryRepository.GetCategoryByCode(categoryCode)
+                CurrentCategory = uow.CategoryRepository.GetCategory(categoryCode)
             };
 
             return View(model);

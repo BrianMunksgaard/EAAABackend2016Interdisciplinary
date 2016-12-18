@@ -2,7 +2,17 @@
 
 @model List<Category>
 
-@Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-block btn-default btn-md" })
+@Html.RouteLink("Home", new
+{
+    controller = "Catalogue",
+    action = "Index",
+    categoryCode = string.Empty,
+    page = 1
+}, new
+{
+    @class = "btn btn-block btn-default btn-md" + (string.IsNullOrEmpty(ViewBag.SelectedCategory) ? " btn-primary" : "")
+})
+
 
 @foreach (Category category in Model)
 {

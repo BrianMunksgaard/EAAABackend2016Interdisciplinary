@@ -9,7 +9,7 @@ namespace bgs.ViewModels
     /// <summary>
     /// Shopping cart view model.
     /// </summary>
-    public class CartIndexViewModel
+    public class CartViewModel
     {
         /// <summary>
         /// The current cart.

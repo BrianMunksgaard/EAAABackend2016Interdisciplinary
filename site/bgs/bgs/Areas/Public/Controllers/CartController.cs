@@ -36,7 +36,7 @@ namespace bgs.Areas.Public.Controllers
         /// <returns></returns>
         public ActionResult Index(Cart cart, string returnUrl)
         {
-            return View(new CartIndexViewModel
+            return View(new CartViewModel
             {
                 Cart = cart,
                 ReturnUrl = returnUrl
@@ -57,10 +57,7 @@ namespace bgs.Areas.Public.Controllers
                 cart.AddItem(product, Qty);
             }
 
-            return RedirectToAction("Index", new
-            {
-                controller = returnUrl.Substring(1)
-            });
+            return RedirectToAction("Index", "Catalogue", new { area = "Public" });
         }
 
         /// <summary>
@@ -76,10 +73,8 @@ namespace bgs.Areas.Public.Controllers
             {
                 cart.RemoveItem(product);
             }
-            return RedirectToAction("Index", new
-            {
-                controller = returnUrl.Substring(1)
-            });
+
+            return RedirectToAction("Index", "Cart", new { area = "Public" });
         }
 
         /// <summary>
