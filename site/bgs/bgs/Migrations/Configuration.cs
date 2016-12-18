@@ -2,7 +2,6 @@ namespace bgs.Migrations
 {
     using DAL;
     using Models;
-    using System;
     using System.Data.Entity.Migrations;
 
     internal sealed class Configuration : DbMigrationsConfiguration<BgsContext>
@@ -598,20 +597,6 @@ namespace bgs.Migrations
                 ProductSizeId = sizeSquare.ProductSizeId
             };
             context.Products.AddOrUpdate(prdSquare);
-            /*
-            Product prdTarot = new Product
-            {
-                ProductId = 10410,
-                ProductCode = "AT-10410",
-                ProductName = "Board Game Sleeves - Tarot",
-                Price = 22M,
-                CategoryId = Sleeves.CategoryId,
-                ImageUrl = "/Content/Images/Products/Sleeves/board-game-sleeves-extra-large-1024-d4.jpg",
-                ProductSizeId = sizeTarot.ProductSizeId
-            };
-            context.Products.AddOrUpdate(prdTarot);
-            */
-
             context.SaveChanges();
 
 
@@ -634,6 +619,7 @@ namespace bgs.Migrations
             };
             context.Games.AddOrUpdate(arkhamHorror);
             context.SaveChanges();
+
 
             /*
              * Products and Game fit.
@@ -659,16 +645,28 @@ namespace bgs.Migrations
             prdMedium.FitsGames.Add(arkhamHorrorSleeve);
             context.SaveChanges();
 
+            ProductFitGame arkhamHorrorSleeveSmall = new ProductFitGame
+            {
+                GameId = arkhamHorror.GameId,
+                ProductId = prdMini.ProductId,
+                Comment = "Small cards"
+            };
+            context.ProductGames.AddOrUpdate(arkhamHorrorSleeveSmall);
+            arkhamHorror.ProductsFit.Add(arkhamHorrorSleeveSmall);
+            prdMini.FitsGames.Add(arkhamHorrorSleeveSmall);
+            context.SaveChanges();
 
-            //OrderItem firstOrderItem = new OrderItem(prdTarot, 1);
 
+            //Order firstOrder = new Order(DateTime.Now);
+            //firstOrder.PersonId = customer.PersonId;
+            //context.Orders.AddOrUpdate(firstOrder);
+            //context.SaveChanges();
 
-            Order firstOrder = new Order(DateTime.Now);
-            firstOrder.PersonId = customer.PersonId;
-            firstOrder.AddItem(prdStandard, 1);
+            //OrderItem firstOrderItem = new OrderItem(prdStandard, 1);
+            //firstOrderItem.OrderId = firstOrder.OrderId;
+            //context.OrderItems.AddOrUpdate(firstOrderItem);
             //firstOrder.OrderItems.Add(firstOrderItem);
-            context.Orders.AddOrUpdate(firstOrder);
-
+            //context.SaveChanges();
 
             /**
              * Cart

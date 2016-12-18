@@ -216,6 +216,10 @@
     <Compile Include="Migrations\201612181839503_OrderItemsTableChanged_ProductIdAddedToDB.Designer.cs">
       <DependentUpon>201612181839503_OrderItemsTableChanged_ProductIdAddedToDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612182045030_ProductIndex.cs" />
+    <Compile Include="Migrations\201612182045030_ProductIndex.Designer.cs">
+      <DependentUpon>201612182045030_ProductIndex.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BgsEntity.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -281,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612181839503_OrderItemsTableChanged_ProductIdAddedToDB.resx">
       <DependentUpon>201612181839503_OrderItemsTableChanged_ProductIdAddedToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612182045030_ProductIndex.resx">
+      <DependentUpon>201612182045030_ProductIndex.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
