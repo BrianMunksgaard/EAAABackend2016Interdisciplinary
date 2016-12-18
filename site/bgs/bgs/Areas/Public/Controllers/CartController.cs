@@ -93,35 +93,35 @@ namespace bgs.Areas.Public.Controllers
         /// <returns></returns>
         public ViewResult Checkout()
         {
-            //return View(new ShippingDetails());
-            return null;
+            return View(new ShippingDetails());
         }
 
-        /*
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cart"></param>
+        /// <param name="shippingDetails"></param>
+        /// <returns></returns>
         [HttpPost]
         public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
         {
-            
-            if (cart.Lines.Count() == 0)
-            {
-                ModelState.AddModelError("", "Sorry, your cart is empty!");
-            }
-
             // If everything is OK, display the completion view.
             // Otherwise display the shipping details again.
             if (ModelState.IsValid)
-            {
-                // order processing logic
-                cart.Clear();
+            { 
+                Person p = new Person(shippingDetails);
+                cart.Order.Customer = p;
+
+                uow.OrderRepository.SaveItem(cart.Order);
+                cart.ClearCart();
+
                 return View("Completed");
             }
             else
             {
                 return View(shippingDetails);
             }
-            
-            return null;
+
         }
-        */
     }
 }

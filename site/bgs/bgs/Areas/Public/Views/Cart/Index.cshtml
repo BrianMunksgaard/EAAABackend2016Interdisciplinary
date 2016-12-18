@@ -45,6 +45,13 @@
 </table>
 <div class="text-center">
     <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
-    @Html.ActionLink("Checkout now", "Checkout", null, new { @class = "btn btn-primary" })
+    @if (Model.Cart.HasItems)
+    {
+        @Html.ActionLink("Checkout now", "Checkout", null, new { @class = "btn btn-primary" })
+    }
+    else
+    {
+        @Html.ActionLink("Checkout now", "Checkout", null, new { @class = "btn btn-primary disabled" })
+    }
 </div>
 
