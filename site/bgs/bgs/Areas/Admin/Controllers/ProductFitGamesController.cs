@@ -46,7 +46,7 @@ namespace bgs.Areas.Admin.Controllers
         // GET: Admin/ProductFitGames/Delete/5
         public ActionResult Delete(int gameId, int productId)
         {
-            ProductFitGame productFitGame = uow.ProductGameRepository.GetItems().AsQueryable().Where(o => o.GameId == gameId && o.ProductId == productId).FirstOrDefault();
+            ProductFitGame productFitGame = uow.ProductGameRepository.GetItems(gameId).AsQueryable().Where(o => o.ProductId == productId).FirstOrDefault();
             if (productFitGame == null)
             {
                 return HttpNotFound();

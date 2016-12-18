@@ -5,10 +5,19 @@ using System.Linq;
 
 namespace bgs.DAL
 {
-    public class ProductGameRepository : IRepository<ProductFitGame>
+    /// <summary>
+    /// Repository class for game/product relationships.
+    /// </summary>
+    public class ProductGameRepository
     {
+        /// <summary>
+        /// DB reference.
+        /// </summary>
         private BgsContext db;
 
+        /// <summary>
+        /// Current type DB set.
+        /// </summary>
         private DbSet<ProductFitGame> dbSet;
 
         /// <summary>
@@ -17,11 +26,19 @@ namespace bgs.DAL
         /// </summary>
         protected bool saveChanges = false;
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public ProductGameRepository() : this(new BgsContext(), true)
         {
 
         }
 
+        /// <summary>
+        /// Initializing the repository.
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="saveChanges"></param>
         public ProductGameRepository(BgsContext db, bool saveChanges = true)
         {
             this.db = db;
@@ -29,22 +46,8 @@ namespace bgs.DAL
             dbSet = db.Set<ProductFitGame>();
         }
 
-        public ProductFitGame DeleteItem(int id)
-        {
-            ProductFitGame t = dbSet.Find(id);
-            if (t != null)
-            {
-                dbSet.Remove(t);
-                if (saveChanges)
-                {
-                    db.SaveChanges();
-                }
-            }
-            return t;
-        }
-
         /// <summary>
-        /// This method will remove the ProductFitGame object that is given as the parameter.
+        /// This method will delete a relation based on the data in the <paramref name="obj"/> parameter.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -61,17 +64,23 @@ namespace bgs.DAL
             return obj;
         }
 
-        public ProductFitGame GetItem(int id)
+        /// <summary>
+        /// Returns the Game/Product relations for the 
+        /// game specified by <paramref name="gameId"/>.
+        /// </summary>
+        /// <param name="gameId"></param>
+        /// <returns></returns>
+        public IList<ProductFitGame> GetItems(int gameId)
         {
-            return dbSet.Find(id);
-        }
-
-        public IList<ProductFitGame> GetItems()
-        {
-            IQueryable<ProductFitGame> query = dbSet;
+            IQueryable<ProductFitGame> query = dbSet.Where(o => o.GameId == gameId);
             return query.ToList<ProductFitGame>();
         }
 
+        /// <summary>
+        /// This method will save the Game/Product relationship 
+        /// but will ignore any updates to a relationship.
+        /// </summary>
+        /// <param name="t"></param>
         public void SaveItem(ProductFitGame t)
         {
             ProductFitGame pfg = db.ProductGames.Where(pg => pg.GameId == t.GameId && pg.ProductId == t.ProductId).FirstOrDefault();
