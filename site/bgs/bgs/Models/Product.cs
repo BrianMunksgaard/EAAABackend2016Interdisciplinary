@@ -49,6 +49,7 @@ namespace bgs.Models
         /// <summary>
         /// Product name/description.
         /// </summary>
+        [Required]
         [Display(Name = "Product name")]
         public string ProductName
         {
@@ -70,6 +71,7 @@ namespace bgs.Models
         /// product. This is the product code used
         /// by the business.
         /// </summary>
+        [Required]
         [Index("ProductIndex", IsUnique = true)]
         [MaxLength(15)]
         [Display(Name = "Product code")]
@@ -102,6 +104,8 @@ namespace bgs.Models
         /// <summary>
         /// Product Unit Price.
         /// </summary>
+        [Range(1, 200)]
+        [DataType(DataType.Currency)]
         public decimal Price
         {
             get { return price; }
@@ -111,6 +115,7 @@ namespace bgs.Models
         /// <summary>
         /// Category id (foreign key reference).
         /// </summary>
+        [Required]
         [Display(Name = "Category")]
         public int CategoryId
         {
