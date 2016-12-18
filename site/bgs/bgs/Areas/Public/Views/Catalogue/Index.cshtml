@@ -34,7 +34,7 @@
         
         <!-- Paging -->
         <div>
-            @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x, category = Model.CurrentCategory.CategoryCode }))
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x, categoryCode = Model.CurrentCategory.CategoryCode }))
         </div>
     </body>
 </html>

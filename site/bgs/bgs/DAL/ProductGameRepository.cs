@@ -55,7 +55,7 @@ namespace bgs.DAL
             return query.ToList<ProductFitGame>();
         }
 
-        public void SaveItem(ProductFitGame t)
+        public int SaveItem(ProductFitGame t)
         {
             throw new NotImplementedException();
 
