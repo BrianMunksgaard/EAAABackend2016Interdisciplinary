@@ -84,7 +84,7 @@ namespace bgs.Models
         public void Checkout(Person customer)
         {
             order.Customer = customer;
-            order.CustomerId = customer.PersonId;
+            order.PersonId = customer.PersonId;
         }
     }
 }

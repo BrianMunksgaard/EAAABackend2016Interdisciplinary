@@ -17,7 +17,7 @@ namespace bgs.Models
         private List<OrderItem> orderItems;
         private DateTime orderDate;
         private Person customer;
-        private int customerId;
+        private int personId;
 
         #endregion
 
@@ -36,6 +36,7 @@ namespace bgs.Models
         /// <summary>
         /// Items on the order.
         /// </summary>
+        [NotMapped]
         public List<OrderItem> OrderItems
         {
             get
@@ -54,25 +55,27 @@ namespace bgs.Models
             {
                 return orderDate == DateTime.MinValue ? orderDate = DateTime.Now : orderDate;
             }
+            set { orderDate = value; }
         }
 
         /// <summary>
         /// The customer.
         /// Navigation property.
         /// </summary>
+        [NotMapped]
         public Person Customer
         {
-            get { return customer == null ? customer = new Person() : customer; }
+            get { return customer; }
             set { customer = value; }
         }
 
         /// <summary>
-        /// Customer id (foreign key reference).
+        /// Person id (foreign key reference).
         /// </summary>
-        public int CustomerId
+        public int PersonId
         {
-            get { return customerId; }
-            set { customerId = value; }
+            get { return personId; }
+            set { personId = value; }
         }
 
         /// <summary>
@@ -104,7 +107,11 @@ namespace bgs.Models
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public Order() { }
+        public Order()
+        {
+            this.orderDate = DateTime.Now;
+            orderItems = new List<OrderItem>();
+        }
 
         /// <summary>
         /// Init order with specified date.
@@ -113,6 +120,7 @@ namespace bgs.Models
         public Order(DateTime orderDate)
         {
             this.orderDate = orderDate;
+            orderItems = new List<OrderItem>();
         }
 
         /// <summary>

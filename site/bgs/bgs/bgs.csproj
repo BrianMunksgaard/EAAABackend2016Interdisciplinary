@@ -200,6 +200,26 @@
     <Compile Include="Migrations\201612161155110_AddedImageUrlProperty.Designer.cs">
       <DependentUpon>201612161155110_AddedImageUrlProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612181705184_OrderIdAddedToOrderItemsTable.cs" />
+    <Compile Include="Migrations\201612181705184_OrderIdAddedToOrderItemsTable.Designer.cs">
+      <DependentUpon>201612181705184_OrderIdAddedToOrderItemsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612181823266_OrderTableChanged.cs" />
+    <Compile Include="Migrations\201612181823266_OrderTableChanged.Designer.cs">
+      <DependentUpon>201612181823266_OrderTableChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612181831029_OrderItemsTableChanged.cs" />
+    <Compile Include="Migrations\201612181831029_OrderItemsTableChanged.Designer.cs">
+      <DependentUpon>201612181831029_OrderItemsTableChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612181835497_OrderTableChanged_DateAddedToDB.cs" />
+    <Compile Include="Migrations\201612181835497_OrderTableChanged_DateAddedToDB.Designer.cs">
+      <DependentUpon>201612181835497_OrderTableChanged_DateAddedToDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612181839503_OrderItemsTableChanged_ProductIdAddedToDB.cs" />
+    <Compile Include="Migrations\201612181839503_OrderItemsTableChanged_ProductIdAddedToDB.Designer.cs">
+      <DependentUpon>201612181839503_OrderItemsTableChanged_ProductIdAddedToDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BgsEntity.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -249,6 +269,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612161155110_AddedImageUrlProperty.resx">
       <DependentUpon>201612161155110_AddedImageUrlProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181705184_OrderIdAddedToOrderItemsTable.resx">
+      <DependentUpon>201612181705184_OrderIdAddedToOrderItemsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181823266_OrderTableChanged.resx">
+      <DependentUpon>201612181823266_OrderTableChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181831029_OrderItemsTableChanged.resx">
+      <DependentUpon>201612181831029_OrderItemsTableChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181835497_OrderTableChanged_DateAddedToDB.resx">
+      <DependentUpon>201612181835497_OrderTableChanged_DateAddedToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181839503_OrderItemsTableChanged_ProductIdAddedToDB.resx">
+      <DependentUpon>201612181839503_OrderItemsTableChanged_ProductIdAddedToDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

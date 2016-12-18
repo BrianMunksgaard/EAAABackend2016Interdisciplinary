@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bgs.Models
 {
@@ -11,13 +12,22 @@ namespace bgs.Models
     {
         #region PrivateFields
 
+        private int orderId;
         private int orderItemId;
+        private int productId;
         private Product product;
         private int quantity;
 
         #endregion
 
         #region Properties
+
+        [Index("OrderItemIndex", IsUnique = false)]
+        public int OrderId
+        {
+            get { return orderId; }
+            set { orderId = value; }
+        }
 
         /// <summary>
         /// The current order item id.
@@ -34,12 +44,14 @@ namespace bgs.Models
         /// </summary>
         public int ProductId
         {
-            get { return Product.ProductId; }
+            get { return productId; }
+            set { productId = value; }
         }
 
         /// <summary>
         /// The actual product.
         /// </summary>
+        [NotMapped]
         public Product Product
         {
             get { return product == null ? product = new Product() : product; }

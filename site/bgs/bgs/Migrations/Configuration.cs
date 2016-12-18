@@ -664,7 +664,7 @@ namespace bgs.Migrations
 
 
             Order firstOrder = new Order(DateTime.Now);
-            firstOrder.CustomerId = customer.PersonId;
+            firstOrder.PersonId = customer.PersonId;
             firstOrder.AddItem(prdStandard, 1);
             //firstOrder.OrderItems.Add(firstOrderItem);
             context.Orders.AddOrUpdate(firstOrder);

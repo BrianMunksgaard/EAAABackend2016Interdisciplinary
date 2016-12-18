@@ -3,6 +3,7 @@ using bgs.Models;
 using bgs.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,6 +18,7 @@ namespace bgs.Areas.Public.Controllers
         #region PrivateFields
 
         private UnitOfWork uow;
+        BgsContext db;
 
         #endregion
 
@@ -25,7 +27,8 @@ namespace bgs.Areas.Public.Controllers
         /// </summary>
         public CartController()
         {
-            uow = new UnitOfWork();
+            db = new BgsContext();
+            uow = new UnitOfWork(db);
         }
 
         /// <summary>
@@ -105,34 +108,49 @@ namespace bgs.Areas.Public.Controllers
         [HttpPost]
         public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
         {
-            // If everything is OK, display the completion view.
-            // Otherwise display the shipping details again.
-            if (ModelState.IsValid)
-            { 
-                Person p = new Person(shippingDetails);
-                int personId = uow.PersonRepository.SaveItem(p);
-                cart.Order.Customer = p;
-                cart.Order.CustomerId = p.PersonId;
-                uow.OrderRepository.SaveItem(cart.Order);
-
-                /*
-                foreach(OrderItem oi in cart.Order.OrderItems)
-                {
-                    uow.OrderItemRepository.SaveItem(oi);
-                }
-
-                uow.OrderRepository.SaveItem(cart.Order);
-                */
-                uow.OrderRepository.SaveItem(cart.Order);
-                cart.ClearCart();
-                
-                return View("Completed");
-            }
-            else
+            if(!ModelState.IsValid)
             {
                 return View(shippingDetails);
             }
 
+            using (DbContextTransaction dbTransaction = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    Repository<Person> personRep = new Repository<Person>(db, true);
+                    Repository<Order> orderRep = new Repository<Order>(db, true);
+                    Repository<OrderItem> orderItemRep = new Repository<OrderItem>(db, true);
+
+                    Person p = new Person(shippingDetails);
+                    int personId = personRep.SaveItem(p);
+
+                    //cart.Order.Customer = p;
+                    cart.Order.PersonId = p.PersonId;
+                    int orderId = orderRep.SaveItem(cart.Order);
+
+                    foreach (OrderItem oi in cart.Order.OrderItems)
+                    {
+                        oi.OrderId = orderId;
+                        orderItemRep.SaveItem(oi);
+                    }
+
+                    db.SaveChanges();
+                    dbTransaction.Commit();
+
+                    cart.ClearCart();
+
+                    return View("Completed");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.StackTrace);
+                    if (dbTransaction != null)
+                    {
+                        dbTransaction.Rollback();
+                    }
+                    return View(shippingDetails);
+                }
+            }
         }
     }
 }
