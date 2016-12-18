@@ -22,6 +22,12 @@ namespace bgs.Areas.Admin
             );
 
             context.MapRoute(
+                name: "Admin_ProductGameRelation",
+                url: "Admin/ProductFitGames/Delete/{gameId}/{productId}",
+                defaults: new { controller = "ProductFitGames", action = "Delete" }
+            );
+
+            context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }

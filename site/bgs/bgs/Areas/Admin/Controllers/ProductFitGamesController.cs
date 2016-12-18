@@ -100,18 +100,16 @@ namespace bgs.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductFitGames/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int gameId, int productId)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ProductFitGame productFitGame = uow.ProductGameRepository.GetItem(id ?? 0);
+            ProductFitGame productFitGame = uow.ProductGameRepository.GetItems().AsQueryable().Where(o => o.GameId == gameId && o.ProductId == productId).FirstOrDefault();
             if (productFitGame == null)
             {
                 return HttpNotFound();
             }
-            return View(productFitGame);
+
+            return RedirectToAction("Details", "Games", new { id = gameId });
+            //return View(productFitGame);
         }
 
         // POST: Admin/ProductFitGames/Delete/5
