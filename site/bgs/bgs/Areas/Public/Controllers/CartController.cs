@@ -97,7 +97,7 @@ namespace bgs.Areas.Public.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Cart checkout. Save cart content as order.
         /// </summary>
         /// <param name="cart"></param>
         /// <param name="shippingDetails"></param>
@@ -110,11 +110,22 @@ namespace bgs.Areas.Public.Controllers
             if (ModelState.IsValid)
             { 
                 Person p = new Person(shippingDetails);
+                int personId = uow.PersonRepository.SaveItem(p);
                 cart.Order.Customer = p;
+                cart.Order.CustomerId = p.PersonId;
+                uow.OrderRepository.SaveItem(cart.Order);
+
+                /*
+                foreach(OrderItem oi in cart.Order.OrderItems)
+                {
+                    uow.OrderItemRepository.SaveItem(oi);
+                }
 
                 uow.OrderRepository.SaveItem(cart.Order);
+                */
+                uow.OrderRepository.SaveItem(cart.Order);
                 cart.ClearCart();
-
+                
                 return View("Completed");
             }
             else

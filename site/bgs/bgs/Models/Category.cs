@@ -76,18 +76,6 @@ namespace bgs.Models
             }
         }
 
-        /// <summary>
-        /// List of products within this category.
-        /// </summary>
-        public ICollection<Product> Products
-        {
-            get
-            {
-                return products == null ? products = new List<Product>() : products;
-            }
-        }
-
-
         #endregion
 
     }

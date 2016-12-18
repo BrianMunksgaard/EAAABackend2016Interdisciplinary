@@ -26,7 +26,7 @@ namespace bgs.DAL
         /// Save the specified type T.
         /// </summary>
         /// <param name="product"></param>
-        void SaveItem(T t);
+        int SaveItem(T t);
 
         /// <summary>
         /// Retrieve, delete and return the item of type T identified
