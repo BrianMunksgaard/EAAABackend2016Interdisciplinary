@@ -3,7 +3,7 @@
 @model bgs.Models.Product
 
 @*
-Shared view used to display product summary.    
+    Shared view used to display product summary.
 *@
 
 <div class="row">
@@ -22,7 +22,24 @@ Shared view used to display product summary.
             <div class="col-md-6">
                 <strong>Product Code:</strong> @Model.ProductCode<br />
                 <strong>Price:</strong> @Model.Price<br />
-                <strong>Fits cards measuring (width x height):</strong> @( (Model.ProductSize as SleeveSize).FitCardDim.Width )mm x @( (Model.ProductSize as SleeveSize).FitCardDim.Height )mm
+                <strong>Fits cards measuring (width x height):</strong> @( (Model.ProductSize as SleeveSize).FitCardDim.Width )mm x @( (Model.ProductSize as SleeveSize).FitCardDim.Height )mm<br />
+                <strong>Games that fit:</strong>
+                @{
+                    if (Model.FitsGames.Count > 0)
+                    {
+                        <br />
+                        <ul style="white-space:nowrap">
+                            @foreach (ProductFitGame pfg in Model.FitsGames)
+                            {
+                                <li>@pfg.Game.GameName</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <text>None</text>
+                    }
+                }
             </div>
 
             <div class="col-md-4">
