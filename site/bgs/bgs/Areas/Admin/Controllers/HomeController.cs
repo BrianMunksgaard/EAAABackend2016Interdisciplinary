@@ -29,7 +29,7 @@ namespace bgs.Areas.Admin.Controllers
                 //        repo.Products.Count() :
                 //        repo.Products.Where(p => p.Category == category).Count()
                 //},
-                CurrentCategory = uow.CategoryRepository.GetCategoryByCode(category)
+                CurrentCategory = uow.CategoryRepository.GetCategory(category)
             };
 
             return View(model);
