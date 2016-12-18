@@ -1,5 +1,5 @@
-﻿using bgs.Areas.Admin.ViewModels;
-using bgs.DAL;
+﻿using bgs.DAL;
+using bgs.ViewModels;
 using System.Web.Mvc;
 
 namespace bgs.Areas.Admin.Controllers
@@ -29,7 +29,7 @@ namespace bgs.Areas.Admin.Controllers
                 //        repo.Products.Count() :
                 //        repo.Products.Where(p => p.Category == category).Count()
                 //},
-                CurrentCategory = category
+                CurrentCategory = uow.CategoryRepository.GetCategoryByCode(category)
             };
 
             return View(model);
