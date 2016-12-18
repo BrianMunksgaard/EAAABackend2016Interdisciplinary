@@ -1,8 +1,7 @@
 ﻿using bgs.DAL;
 using bgs.Models;
-using System.Data.Entity;
+using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Web.Mvc;
 
 namespace bgs.Areas.Admin.Controllers
@@ -16,34 +15,15 @@ namespace bgs.Areas.Admin.Controllers
             uow = new UnitOfWork();
         }
 
-        // GET: Admin/ProductFitGames
-        public ActionResult Index()
-        {
-            // TODO: Remove this. It is not used!
-            var productGames = uow.ProductGameRepository.GetItems().AsQueryable().Include(p => p.Game).Include(p => p.Product);
-            return View(productGames.ToList());
-        }
-
-        // GET: Admin/ProductFitGames/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ProductFitGame productFitGame = uow.ProductGameRepository.GetItem(id ?? 0);
-            if (productFitGame == null)
-            {
-                return HttpNotFound();
-            }
-            return View(productFitGame);
-        }
-
         // GET: Admin/ProductFitGames/Create
         public ActionResult Create(int id)
         {
-            ViewBag.Game = uow.GameRepository.GetItem(id);
-            ViewBag.ProductId = new SelectList(uow.ProductRepository.GetItems(), "ProductId", "ProductName");
+            // Restrict the list to only include those that are not already in the list
+            Game g = uow.GameRepository.GetItem(id);
+            List<Product> possibleRelations = GetPossibleProductrelations(g);
+
+            ViewBag.Game = g;
+            ViewBag.ProductId = new SelectList(possibleRelations, "ProductId", "ProductName");
             return View();
         }
 
@@ -57,70 +37,24 @@ namespace bgs.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 uow.ProductGameRepository.SaveItem(productFitGame);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Games", new { id = productFitGame.GameId });
             }
 
-            ViewBag.GameId = new SelectList(uow.GameRepository.GetItems(), "GameId", "GameName", productFitGame.GameId);
-            ViewBag.ProductId = new SelectList(uow.ProductRepository.GetItems(), "ProductId", "ProductName", productFitGame.ProductId);
-            return View(productFitGame);
-        }
-
-        // GET: Admin/ProductFitGames/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ProductFitGame productFitGame = uow.ProductGameRepository.GetItem(id ?? 0);
-            if (productFitGame == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.GameId = new SelectList(uow.GameRepository.GetItems(), "GameId", "GameName", productFitGame.GameId);
-            ViewBag.ProductId = new SelectList(uow.ProductRepository.GetItems(), "ProductId", "ProductName", productFitGame.ProductId);
-            return View(productFitGame);
-        }
-
-        // POST: Admin/ProductFitGames/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,GameId,Comment")] ProductFitGame productFitGame)
-        {
-            if (ModelState.IsValid)
-            {
-                uow.ProductGameRepository.SaveItem(productFitGame);
-                return RedirectToAction("Index");
-            }
-            ViewBag.GameId = new SelectList(uow.GameRepository.GetItems(), "GameId", "GameName", productFitGame.GameId);
-            ViewBag.ProductId = new SelectList(uow.ProductRepository.GetItems(), "ProductId", "ProductName", productFitGame.ProductId);
-            return View(productFitGame);
+            return RedirectToAction("Details", "Games", new { id = productFitGame.GameId });
         }
 
         // GET: Admin/ProductFitGames/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int gameId, int productId)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ProductFitGame productFitGame = uow.ProductGameRepository.GetItem(id ?? 0);
+            ProductFitGame productFitGame = uow.ProductGameRepository.GetItems(gameId).AsQueryable().Where(o => o.ProductId == productId).FirstOrDefault();
             if (productFitGame == null)
             {
                 return HttpNotFound();
             }
-            return View(productFitGame);
-        }
+            uow.ProductGameRepository.DeleteItem(productFitGame);
 
-        // POST: Admin/ProductFitGames/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            uow.ProductGameRepository.DeleteItem(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Games", new { id = gameId });
+            //return View(productFitGame);
         }
 
         protected override void Dispose(bool disposing)
@@ -130,6 +64,22 @@ namespace bgs.Areas.Admin.Controllers
                 uow.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private List<Product> GetPossibleProductrelations(Game game)
+        {
+            var currrentList = new HashSet<int>(game.ProductsFit.Select(p => p.ProductId));
+            var viewModel = new List<Product>();
+
+            foreach (Product prod in uow.ProductRepository.GetItems())
+            {
+                if (!currrentList.Contains(prod.ProductId))
+                {
+                    viewModel.Add(prod);
+                }
+            }
+
+            return viewModel;
         }
     }
 }

@@ -1,20 +1,16 @@
 ﻿@using bgs.Models
 @model ProductFitGame
 
-<div>
-    <table>
-        <tr>
-            <td>
-                @if (!string.IsNullOrEmpty(Model.Comment))
-                {
-                    @Html.Raw(Model.Product.ProductName + " (" + Model.Comment + ")");
-                }
-                else
-                {
-                    @Html.DisplayName(Model.Product.ProductName)
-                }
-                @Html.ActionLink("X", "Delete", "ProductFitGames", new { area = "Admin", gameId = Model.GameId, productId = Model.ProductId }, new { @class = "btn btn-danger btn-xs" })
-            </td>
-        </tr>
-    </table>
-</div>
+<tr>
+    <td style="padding-bottom: 2px;">
+        @if (!string.IsNullOrEmpty(Model.Comment))
+        {
+            @Html.Raw(Model.Product.ProductName + " (" + Model.Comment + ")");
+        }
+        else
+        {
+            @Html.DisplayName(Model.Product.ProductName)
+        }
+        @Html.ActionLink("Remove", "Delete", "ProductFitGames", new { area = "Admin", gameId = Model.GameId, productId = Model.ProductId }, new { @class = "btn btn-warning btn-xs" })
+    </td>
+</tr>
