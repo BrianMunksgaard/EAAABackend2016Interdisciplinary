@@ -1,5 +1,4 @@
 ﻿using bgs.Models;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -44,6 +43,24 @@ namespace bgs.DAL
             return t;
         }
 
+        /// <summary>
+        /// This method will remove the ProductFitGame object that is given as the parameter.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public ProductFitGame DeleteItem(ProductFitGame obj)
+        {
+            if (obj != null)
+            {
+                dbSet.Remove(obj);
+                if (saveChanges)
+                {
+                    db.SaveChanges();
+                }
+            }
+            return obj;
+        }
+
         public ProductFitGame GetItem(int id)
         {
             return dbSet.Find(id);
@@ -57,25 +74,16 @@ namespace bgs.DAL
 
         public void SaveItem(ProductFitGame t)
         {
-            throw new NotImplementedException();
-
-            // TODO Check to see if the relation already exists
-            //if (t.EntityId == 0)
-            //{
-            //    dbSet.Add(t);
-            //    if (saveChanges)
-            //    {
-            //        db.SaveChanges();
-            //    }
-            //}
-            //else
-            //{
-            //    db.Entry(t).State = EntityState.Modified;
-            //    if (saveChanges)
-            //    {
-            //        db.SaveChanges();
-            //    }
-            //}
+            ProductFitGame pfg = db.ProductGames.Where(pg => pg.GameId == t.GameId && pg.ProductId == t.ProductId).FirstOrDefault();
+            if (pfg == null)
+            {
+                // All okay
+                dbSet.Add(t);
+                if (saveChanges)
+                {
+                    db.SaveChanges();
+                }
+            }
         }
     }
 }

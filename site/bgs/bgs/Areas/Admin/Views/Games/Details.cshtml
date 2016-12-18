@@ -32,6 +32,6 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { area = "Admin", id = Model.GameId }, new { @class = "btn btn-default btn-sm" })
-    @Html.ActionLink("Add relation", "Create", "ProductFitGames", new { area = "Admin", gameId = Model.GameId }, new { @class = "btn btn-default btn-sm" })
+    @Html.ActionLink("Add relation", "Create", "ProductFitGames", new { area = "Admin", id = Model.GameId }, new { @class = "btn btn-default btn-sm" })
     @Html.ActionLink("Back to list", "Index", new { area = "Admin" }, new { @class = "btn btn-default btn-sm" })
 </p>

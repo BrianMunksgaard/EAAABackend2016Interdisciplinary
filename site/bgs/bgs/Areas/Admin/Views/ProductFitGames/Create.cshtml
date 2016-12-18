@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.GameId, "GameId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.Hidden(((Game)ViewBag.Game).GameId.ToString())
+                @Html.Hidden("GameId", ((Game)ViewBag.Game).GameId.ToString())
                 @Html.DisplayName(((Game)ViewBag.Game).GameName)
             </div>
         </div>
