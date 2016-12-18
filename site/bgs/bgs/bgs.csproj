@@ -159,6 +159,7 @@
     <Content Include="Areas\Public\Views\Cart\Checkout.cshtml" />
     <Content Include="Areas\Public\Views\Cart\Completed.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\GameProductRelation.cshtml" />
+    <Content Include="Areas\Public\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -219,6 +220,10 @@
     <Compile Include="Migrations\201612181839503_OrderItemsTableChanged_ProductIdAddedToDB.cs" />
     <Compile Include="Migrations\201612181839503_OrderItemsTableChanged_ProductIdAddedToDB.Designer.cs">
       <DependentUpon>201612181839503_OrderItemsTableChanged_ProductIdAddedToDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612182214173_Kurt.cs" />
+    <Compile Include="Migrations\201612182214173_Kurt.Designer.cs">
+      <DependentUpon>201612182214173_Kurt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BgsEntity.cs" />
@@ -284,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612181839503_OrderItemsTableChanged_ProductIdAddedToDB.resx">
       <DependentUpon>201612181839503_OrderItemsTableChanged_ProductIdAddedToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612182214173_Kurt.resx">
+      <DependentUpon>201612182214173_Kurt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

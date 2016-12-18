@@ -12,7 +12,8 @@ namespace bgs.Areas.Public.Controllers
         // GET: Public/Home
         public ActionResult Index()
         {
-          return RedirectToAction("Index", "Catalogue", new { area = "Public" });
+            //return RedirectToAction("Index", "Catalogue", new { area = "Public" });
+            return View();
         }
     }
 }
